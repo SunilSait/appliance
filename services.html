@@ -151,9 +151,9 @@
 <!-- ─── SERVICE TECHNICIAN HIGHLIGHT ──────────────────── -->
 <section class="section section-alt" id="technician-section">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;" class="animate-on-scroll" id="tech-highlight-grid">
-      <div style="border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-xl);">
-        <img src="assets/images/service-technician.png" alt="ApplianceHub certified technician at work" style="width:100%;aspect-ratio:4/3;object-fit:cover;">
+    <div class="animate-on-scroll" id="tech-highlight-grid">
+      <div id="tech-img-wrap" style="border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-xl);">
+        <img src="assets/images/service-technician.png" alt="ApplianceHub certified technician at work" style="width:100%;aspect-ratio:16/10;object-fit:cover;">
       </div>
       <div>
         <div class="section-label"><i class="fas fa-user-cog"></i> Our Technicians</div>
@@ -185,7 +185,24 @@
       </div>
     </div>
   </div>
-  <style>@media(max-width:768px){#tech-highlight-grid{grid-template-columns:1fr;}}</style>
+  <style>
+    #tech-highlight-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    @media (max-width: 900px) {
+      #tech-highlight-grid {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+      }
+      #tech-img-wrap {
+        order: -1 !important;
+        width: 100% !important;
+      }
+    }
+  </style>
 </section>
 
 <!-- ─── PROCESS ────────────────────────────────────────── -->

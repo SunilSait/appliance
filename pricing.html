@@ -44,7 +44,7 @@
         <div class="pricing-price"><sup>₹</sup>2,999</div>
         <div style="font-size:0.8rem;color:var(--text-muted);margin-bottom:24px;">per appliance / year</div>
         <ul class="pricing-features">
-          <li><i class="fas fa-check-circle"></i> 2 Preventive maintenance visits</li>
+          <li><i class="fas fa-check-circle"></i> 2 Preventive maintenance</li>
           <li><i class="fas fa-check-circle"></i> Phone and chat support</li>
           <li><i class="fas fa-check-circle"></i> 48-hour response time</li>
           <li><i class="fas fa-check-circle"></i> Genuine parts at cost price</li>
@@ -63,8 +63,8 @@
         <div class="pricing-price"><sup>₹</sup>5,499</div>
         <div style="font-size:0.8rem;color:var(--text-muted);margin-bottom:24px;">per appliance / year</div>
         <ul class="pricing-features">
-          <li><i class="fas fa-check-circle"></i> 4 Preventive maintenance visits</li>
-          <li><i class="fas fa-check-circle"></i> Priority phone and chat support</li>
+          <li><i class="fas fa-check-circle"></i> 4 Preventive maintenance</li>
+          <li><i class="fas fa-check-circle"></i> Priority phone support</li>
           <li><i class="fas fa-check-circle"></i> 24-hour response time</li>
           <li><i class="fas fa-check-circle"></i> Parts at 20% discount</li>
           <li><i class="fas fa-check-circle"></i> Priority scheduling</li>
@@ -228,7 +228,30 @@
       </div>
     </div>
   </div>
-  <style>@media(max-width:768px){#pricing-cta-inner{grid-template-columns:1fr;text-align:center;}}</style>
+  <style>
+    @media (max-width: 768px) {
+      #pricing-cta-inner {
+        grid-template-columns: 1fr !important;
+        text-align: center;
+        gap: 24px !important;
+      }
+      #pricing-cta-inner div:first-child > div {
+        justify-content: center !important;
+      }
+      #pricing-cta-inner .btn {
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+    }
+    @media (max-width: 480px) {
+      #pricing-cta > .container > div {
+        padding: 28px 18px !important;
+      }
+      #pricing-cta-inner h2 {
+        font-size: 1.35rem !important;
+      }
+    }
+  </style>
 </section>
 
 <div id="footer-placeholder"></div>

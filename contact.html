@@ -67,7 +67,7 @@
 <!-- ─── BOOKING FORM + SERVICE IMAGE ──────────────────── -->
 <section class="section section-alt" id="booking">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start;" class="animate-on-scroll" id="contact-main-grid">
+    <div class="animate-on-scroll" id="contact-main-grid">
       <!-- Contact Form -->
       <div>
         <div class="section-label"><i class="fas fa-calendar-check"></i> Book / Inquire</div>
@@ -196,8 +196,25 @@
         </div>
       </div>
     </div>
-  </div>
-  <style>@media(max-width:768px){#contact-main-grid{grid-template-columns:1fr;}}</style>
+  <style>
+    #contact-main-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 52px;
+      align-items: start;
+    }
+    @media (max-width: 900px) {
+      #contact-main-grid {
+        grid-template-columns: 1fr !important;
+        gap: 36px !important;
+      }
+    }
+    @media (max-width: 480px) {
+      .booking-form {
+        padding: 20px 16px !important;
+      }
+    }
+  </style>
 </section>
 
 <!-- ─── LIVE INTERACTIVE MAP ────────────────────────────── -->
