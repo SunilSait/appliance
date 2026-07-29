@@ -33,7 +33,7 @@
   <div class="container">
     <div class="grid-4 animate-on-scroll">
       <div class="contact-info-card" id="ci-phone">
-        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+        <div class="contact-icon"><i class="fas fa-phone"></i></div>
         <div>
           <div class="contact-info-title">Call Us</div>
           <div class="contact-info-val">+91 98400 56789<br>+91 44 4567 8900</div>
@@ -177,7 +177,7 @@
               <strong style="color:var(--text-heading);">8:00 AM – 8:00 PM</strong>
             </div>
             <div style="display:flex;justify-content:space-between;padding-bottom:8px;border-bottom:1px solid var(--border);">
-              <span><i class="fas fa-phone-alt" style="color:var(--primary);margin-right:6px;"></i> Toll-Free</span>
+              <span><i class="fas fa-phone" style="color:var(--primary);margin-right:6px;"></i> Toll-Free</span>
               <strong style="color:var(--primary);">1800-425-9999</strong>
             </div>
             <div style="display:flex;justify-content:space-between;">
@@ -249,7 +249,7 @@
         </div>
         <div style="display:flex;gap:14px;flex-wrap:wrap;">
           <a href="tel:+919840056789" class="btn btn-orange btn-lg btn-shine" id="cta-call-btn">
-            <i class="fas fa-phone-alt"></i> Call +91 98400 56789
+            <i class="fas fa-phone"></i> Call +91 98400 56789
           </a>
           <a href="https://wa.me/919840056789" target="_blank" class="btn btn-outline-white btn-lg" id="cta-wa-btn">
             <i class="fab fa-whatsapp"></i> Chat on WhatsApp
@@ -258,7 +258,36 @@
       </div>
     </div>
   </div>
-  <style>@media(max-width:768px){#contact-cta-inner{flex-direction:column;text-align:center;justify-content:center;}}</style>
+  <style>
+    @media (max-width: 768px) {
+      #contact-cta-inner {
+        flex-direction: column !important;
+        text-align: center !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+      #contact-cta-inner > div {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+      #contact-cta-inner > div:nth-child(2) {
+        gap: 12px !important;
+      }
+      #contact-cta-inner .btn {
+        width: 100% !important;
+        max-width: 340px !important;
+        justify-content: center !important;
+      }
+    }
+    @media (max-width: 480px) {
+      #contact-cta .animate-on-scroll {
+        padding: 32px 20px !important;
+      }
+    }
+  </style>
 </section>
 
 <div id="footer-placeholder"></div>

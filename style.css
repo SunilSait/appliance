@@ -67,6 +67,7 @@
 
 /* ---------- Dark Mode ---------- */
 [data-theme="dark"] {
+  --primary:        #4D82F3;
   --bg:             #0A0F1C;
   --bg-card:        #111827;
   --bg-alt:         #151E30;
@@ -2147,6 +2148,38 @@ input[type="time"]::-webkit-calendar-picker-indicator:hover {
 .feature-icon.orange {
   background: rgba(255,107,43,0.1);
   color: var(--secondary);
+}
+.section-dark .feature-icon {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+.section-dark .feature-card:hover .feature-icon {
+  background: #ffffff;
+  color: var(--primary);
+}
+.section-dark .feature-icon.orange {
+  background: rgba(255, 107, 43, 0.25);
+  color: var(--secondary);
+}
+.section-dark .feature-card:hover .feature-icon.orange {
+  background: var(--secondary);
+  color: #ffffff;
+}
+[data-theme="dark"] .feature-icon {
+  background: rgba(77, 130, 243, 0.18);
+  color: #7B9FD4;
+}
+[data-theme="dark"] .feature-card:hover .feature-icon {
+  background: #7B9FD4;
+  color: #0A0F1C;
+}
+[data-theme="dark"] .feature-icon.orange {
+  background: rgba(255, 138, 85, 0.18);
+  color: #FF8A55;
+}
+[data-theme="dark"] .feature-card:hover .feature-icon.orange {
+  background: #FF8A55;
+  color: #0A0F1C;
 }
 .feature-card h4 {
   font-size: 1.12rem;
