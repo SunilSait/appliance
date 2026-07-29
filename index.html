@@ -14,54 +14,103 @@
 <div id="navbar-placeholder"></div>
 
 <!-- ─── HERO ──────────────────────────────────────────── -->
-<section class="hero section-alt" id="hero">
-  <div class="container">
-    <div class="hero-split">
-      <!-- Content -->
-      <div class="animate-on-scroll">
-        <div class="hero-label">
-          <i class="fas fa-bolt"></i> Trusted Since 2008
+<section class="hero" id="hero" style="padding:0;background:none;overflow:visible;">
+  <div id="hero-cinematic">
+    <!-- Animated background mesh -->
+    <div class="hero-mesh" aria-hidden="true">
+      <div class="mesh-blob mesh-blob-1"></div>
+      <div class="mesh-blob mesh-blob-2"></div>
+      <div class="mesh-blob mesh-blob-3"></div>
+      <div class="mesh-grid"></div>
+    </div>
+
+    <!-- Main layout -->
+    <div class="hero-cin-inner">
+      <!-- Left content column -->
+      <div class="hero-cin-content animate-on-scroll">
+        <!-- Pill label -->
+        <div class="hero-cin-label">
+          <span class="hero-cin-dot"></span>
+          <i class="fas fa-bolt"></i>&nbsp; Trusted Since 2008 &nbsp;·&nbsp; 15,000+ Happy Customers
         </div>
-        <h1>Your Home's <span style="color:var(--secondary);">Perfect</span> Appliance Partner</h1>
-        <p class="hero-desc">Discover premium home appliances from top global brands. Expert repair services, genuine spare parts, and comprehensive warranty support — all under one roof.</p>
-        <div class="hero-actions">
+
+        <!-- Headline -->
+        <h1 class="hero-cin-h1">
+          <span class="hero-cin-line">Your Home's</span>
+          <span class="hero-cin-line hero-cin-accent">Perfect Partner</span>
+          <span class="hero-cin-line hero-cin-line-sub">for Every Appliance</span>
+        </h1>
+
+        <!-- Sub copy -->
+        <p class="hero-cin-desc">
+          Premium appliances. Expert repairs. Genuine warranties. One destination built for modern Indian homes.
+        </p>
+
+        <!-- CTA row -->
+        <div class="hero-cin-actions">
           <a href="contact.html#booking" class="btn btn-orange btn-lg btn-shine" id="hero-book-btn">
             <i class="fas fa-calendar-check"></i> Book a Service
           </a>
-          <a href="services.html" class="btn btn-secondary btn-lg" id="hero-services-btn">
-            <i class="fas fa-tools"></i> Our Services
+          <a href="services.html" class="hero-cin-ghost-btn" id="hero-services-btn">
+            <i class="fas fa-play-circle"></i> Our Services
           </a>
         </div>
-        <!-- Quick stats -->
-        <div style="display:flex;gap:32px;margin-top:40px;flex-wrap:wrap;">
-          <div>
-            <div style="font-family:var(--font-heading);font-size:1.8rem;font-weight:800;color:var(--primary);" data-counter data-target="15000" data-suffix="+">0+</div>
-            <div style="font-size:0.82rem;color:var(--text-muted);font-weight:500;">Happy Customers</div>
-          </div>
-          <div style="width:1px;background:var(--border);"></div>
-          <div>
-            <div style="font-family:var(--font-heading);font-size:1.8rem;font-weight:800;color:var(--primary);" data-counter data-target="50" data-suffix="+">0+</div>
-            <div style="font-size:0.82rem;color:var(--text-muted);font-weight:500;">Expert Technicians</div>
-          </div>
-          <div style="width:1px;background:var(--border);"></div>
-          <div>
-            <div style="font-family:var(--font-heading);font-size:1.8rem;font-weight:800;color:var(--primary);" data-counter data-target="20" data-suffix=" Yrs">0 Yrs</div>
-            <div style="font-size:0.82rem;color:var(--text-muted);font-weight:500;">Experience</div>
-          </div>
+
+        <!-- Trust badges strip -->
+        <div class="hero-cin-trust">
+          <div class="hero-trust-item"><i class="fas fa-shield-check"></i> 5-Yr Warranty</div>
+          <div class="hero-trust-sep"></div>
+          <div class="hero-trust-item"><i class="fas fa-tools"></i> Same-Day Service</div>
+          <div class="hero-trust-sep"></div>
+          <div class="hero-trust-item"><i class="fas fa-headset"></i> 24/7 Support</div>
         </div>
       </div>
 
-      <!-- Hero Image -->
-      <div class="hero-img-wrap animate-on-scroll delay-2">
-        <img src="assets/images/hero-home1.png" alt="Premium home appliances showroom" class="hero-img" loading="eager">
-        <div class="hero-badge" id="hero-badge">
-          <div class="hero-badge-icon"><i class="fas fa-shield-alt"></i></div>
-          <div class="hero-badge-text">
-            <strong>5-Year</strong>
-            <span>Warranty Guaranteed</span>
+      <!-- Right visual column -->
+      <div class="hero-cin-visual animate-on-scroll delay-2">
+        <!-- Image with diagonal clip -->
+        <div class="hero-cin-img-wrap">
+          <img src="assets/images/store-interior.png" alt="ApplianceHub Store & Service Center" class="hero-cin-img" loading="eager">
+          <div class="hero-cin-img-glow"></div>
+        </div>
+
+        <!-- Floating stat cards -->
+        <div class="hero-float-card hero-float-card-1" id="hfc-customers">
+          <div class="hfc-icon"><i class="fas fa-users"></i></div>
+          <div class="hfc-body">
+            <div class="hfc-num" data-counter data-target="15000" data-suffix="+">0+</div>
+            <div class="hfc-label">Happy Customers</div>
           </div>
         </div>
+
+        <div class="hero-float-card hero-float-card-2" id="hfc-warranty">
+          <div class="hfc-icon hfc-icon-orange"><i class="fas fa-shield-alt"></i></div>
+          <div class="hfc-body">
+            <div class="hfc-num">5-Year</div>
+            <div class="hfc-label">Warranty Guaranteed</div>
+          </div>
+        </div>
+
+        <div class="hero-float-card hero-float-card-3" id="hfc-technicians">
+          <div class="hfc-icon"><i class="fas fa-hard-hat"></i></div>
+          <div class="hfc-body">
+            <div class="hfc-num" data-counter data-target="50" data-suffix="+">0+</div>
+            <div class="hfc-label">Expert Technicians</div>
+          </div>
+        </div>
+
+        <!-- Live availability badge -->
+        <div class="hero-live-badge" id="hero-live-badge">
+          <span class="hero-live-dot"></span>
+          Advisors Online Now
+        </div>
       </div>
+    </div>
+
+    <!-- Bottom scroll indicator -->
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span>Scroll to explore</span>
+      <div class="hero-scroll-arrow"><i class="fas fa-chevron-down"></i></div>
     </div>
   </div>
 </section>
@@ -162,7 +211,7 @@
       <div class="feature-card" id="feat-warranty">
         <div class="feature-icon orange"><i class="fas fa-shield-alt"></i></div>
         <h4>Genuine Warranty</h4>
-        <p>All products come with manufacturer warranty and our own extended service guarantee — no compromise on authenticity.</p>
+        <p>All products come with manufacturer warranty and our own extended service guarantee — no compromise.</p>
       </div>
       <div class="feature-card" id="feat-delivery">
         <div class="feature-icon"><i class="fas fa-truck"></i></div>
@@ -223,43 +272,35 @@
     <div class="grid-4 animate-on-scroll">
       <div class="brand-card" id="brand-samsung">
         <img src="assets/images/logo-samsung.svg" alt="Samsung Logo" class="brand-logo-img">
-        <div class="brand-name">Samsung</div>
-        <div style="font-size:0.75rem;color:var(--text-muted);">Authorized Partner</div>
+        <div style="font-size:0.78rem;color:var(--text-muted);font-weight:500;">Authorized Partner</div>
       </div>
       <div class="brand-card" id="brand-lg">
         <img src="assets/images/logo-lg.svg" alt="LG Logo" class="brand-logo-img">
-        <div class="brand-name">LG</div>
-        <div style="font-size:0.75rem;color:var(--text-muted);">Authorized Partner</div>
+        <div style="font-size:0.78rem;color:var(--text-muted);font-weight:500;">Authorized Partner</div>
       </div>
       <div class="brand-card" id="brand-whirlpool">
         <img src="assets/images/logo-whirlpool.svg" alt="Whirlpool Logo" class="brand-logo-img">
-        <div class="brand-name">Whirlpool</div>
-        <div style="font-size:0.75rem;color:var(--text-muted);">Authorized Partner</div>
+        <div style="font-size:0.78rem;color:var(--text-muted);font-weight:500;">Authorized Partner</div>
       </div>
       <div class="brand-card" id="brand-bosch">
         <img src="assets/images/logo-bosch.svg" alt="Bosch Logo" class="brand-logo-img">
-        <div class="brand-name">Bosch</div>
-        <div style="font-size:0.75rem;color:var(--text-muted);">Authorized Partner</div>
+        <div style="font-size:0.78rem;color:var(--text-muted);font-weight:500;">Authorized Partner</div>
       </div>
       <div class="brand-card" id="brand-sony">
         <img src="assets/images/logo-sony.svg" alt="Sony Logo" class="brand-logo-img">
-        <div class="brand-name">Sony</div>
-        <div style="font-size:0.75rem;color:var(--text-muted);">Authorized Partner</div>
+        <div style="font-size:0.78rem;color:var(--text-muted);font-weight:500;">Authorized Partner</div>
       </div>
       <div class="brand-card" id="brand-panasonic">
         <img src="assets/images/logo-panasonic.svg" alt="Panasonic Logo" class="brand-logo-img">
-        <div class="brand-name">Panasonic</div>
-        <div style="font-size:0.75rem;color:var(--text-muted);">Authorized Partner</div>
+        <div style="font-size:0.78rem;color:var(--text-muted);font-weight:500;">Authorized Partner</div>
       </div>
       <div class="brand-card" id="brand-haier">
         <img src="assets/images/logo-haier.svg" alt="Haier Logo" class="brand-logo-img">
-        <div class="brand-name">Haier</div>
-        <div style="font-size:0.75rem;color:var(--text-muted);">Authorized Partner</div>
+        <div style="font-size:0.78rem;color:var(--text-muted);font-weight:500;">Authorized Partner</div>
       </div>
       <div class="brand-card" id="brand-godrej">
         <img src="assets/images/logo-godrej.svg" alt="Godrej Logo" class="brand-logo-img">
-        <div class="brand-name">Godrej</div>
-        <div style="font-size:0.75rem;color:var(--text-muted);">Authorized Partner</div>
+        <div style="font-size:0.78rem;color:var(--text-muted);font-weight:500;">Authorized Partner</div>
       </div>
     </div>
   </div>
