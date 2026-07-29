@@ -58,17 +58,47 @@
     }
     .shop-tab i { font-size: 1rem; }
 
+    @media (max-width: 768px) {
+      .shop-filter-inner {
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 6px 12px;
+        gap: 2px;
+      }
+      .shop-tab {
+        padding: 10px 12px;
+        font-size: 0.8rem;
+        gap: 6px;
+      }
+    }
+
     /* Product grid */
     .shop-section { display: none; }
     .shop-section.active { display: block; }
 
     .product-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 24px;
     }
-    @media (max-width: 900px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 560px) { .product-grid { grid-template-columns: 1fr; } }
+    .product-grid .product-card {
+      flex: 0 1 calc(33.333% - 16px);
+      max-width: calc(33.333% - 16px);
+      min-width: 280px;
+    }
+    @media (max-width: 900px) {
+      .product-grid .product-card {
+        flex: 0 1 calc(50% - 12px);
+        max-width: calc(50% - 12px);
+      }
+    }
+    @media (max-width: 560px) {
+      .product-grid .product-card {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+    }
 
     .product-card {
       background: var(--bg-card);
@@ -206,7 +236,18 @@
       border-color: var(--primary);
       color: #fff;
     }
-    .compare-table-wrap { overflow-x: auto; border-radius: var(--radius-lg); border: 1px solid var(--border); }
+    .compare-table-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .compare-table-wrap::-webkit-scrollbar {
+      display: none;
+      width: 0;
+      height: 0;
+    }
     .compare-table {
       width: 100%;
       border-collapse: collapse;
@@ -386,18 +427,17 @@
       <div class="product-grid animate-on-scroll" style="margin-bottom:64px;">
         <div class="product-card" id="prod-samsung-fridge">
           <div class="product-img-wrap">
-            <img src="assets/images/cat-refrigerator.png" alt="Samsung French Door Refrigerator">
+            <img src="assets/images/prod-samsung-fridge.png" alt="Samsung French Door Refrigerator">
             <span class="product-badge">Best Seller</span>
             <span class="product-energy">★★★★★ 5-Star</span>
           </div>
           <div class="product-body">
             <div class="product-brand">Samsung</div>
-            <div class="product-name">French Door Smart Refrigerator 580L</div>
+            <div class="product-name">French Door Smart Refrigerator</div>
             <div class="product-specs">
               <span class="product-spec-tag">580L Capacity</span>
               <span class="product-spec-tag">Inverter</span>
               <span class="product-spec-tag">Wi-Fi</span>
-              <span class="product-spec-tag">Family Hub</span>
             </div>
             <div class="product-price-row">
               <div>
@@ -413,7 +453,7 @@
         </div>
         <div class="product-card" id="prod-lg-fridge">
           <div class="product-img-wrap">
-            <img src="assets/images/prod-fridge.png" alt="LG Side-by-Side Refrigerator">
+            <img src="assets/images/prod-lg-fridge.png" alt="LG Side-by-Side Refrigerator">
             <span class="product-badge orange">New Arrival</span>
             <span class="product-energy">★★★★★ 5-Star</span>
           </div>
@@ -423,8 +463,6 @@
             <div class="product-specs">
               <span class="product-spec-tag">635L Capacity</span>
               <span class="product-spec-tag">InstaView</span>
-              <span class="product-spec-tag">Door-in-Door</span>
-              <span class="product-spec-tag">ThinQ AI</span>
             </div>
             <div class="product-price-row">
               <div>
@@ -440,7 +478,7 @@
         </div>
         <div class="product-card" id="prod-whirlpool-fridge">
           <div class="product-img-wrap">
-            <img src="assets/images/cat-refrigerator.png" alt="Whirlpool Double Door Refrigerator" style="object-position:right;">
+            <img src="assets/images/prod-whirlpool-fridge.png" alt="Whirlpool Double Door Refrigerator">
             <span class="product-badge">Popular</span>
             <span class="product-energy">★★★★☆ 4-Star</span>
           </div>
@@ -449,9 +487,7 @@
             <div class="product-name">IntelliFresh Double Door 340L</div>
             <div class="product-specs">
               <span class="product-spec-tag">340L Capacity</span>
-              <span class="product-spec-tag">6th Sense</span>
               <span class="product-spec-tag">Frost Free</span>
-              <span class="product-spec-tag">IntelliFresh</span>
             </div>
             <div class="product-price-row">
               <div>
@@ -476,7 +512,7 @@
       <div class="product-grid animate-on-scroll" style="margin-bottom:64px;">
         <div class="product-card" id="prod-samsung-wash">
           <div class="product-img-wrap">
-            <img src="assets/images/cat-washing-machine.png" alt="Samsung Front Load Washer">
+            <img src="assets/images/prod-samsung-wash.png" alt="Samsung Front Load Washer">
             <span class="product-badge">Best Seller</span>
             <span class="product-energy">★★★★★ 5-Star</span>
           </div>
@@ -503,7 +539,7 @@
         </div>
         <div class="product-card" id="prod-lg-wash">
           <div class="product-img-wrap">
-            <img src="assets/images/prod-washer.png" alt="LG Front Load Washer">
+            <img src="assets/images/prod-lg-wash.png" alt="LG Front Load Washer">
             <span class="product-badge orange">Top Rated</span>
             <span class="product-energy">★★★★★ 5-Star</span>
           </div>
@@ -514,7 +550,6 @@
               <span class="product-spec-tag">10 Kg</span>
               <span class="product-spec-tag">TurboWash</span>
               <span class="product-spec-tag">Steam+</span>
-              <span class="product-spec-tag">ThinQ</span>
             </div>
             <div class="product-price-row">
               <div>
@@ -530,7 +565,7 @@
         </div>
         <div class="product-card" id="prod-bosch-wash">
           <div class="product-img-wrap">
-            <img src="assets/images/svc-washer.png" alt="Bosch Front Load Washer">
+            <img src="assets/images/prod-bosch-wash.png" alt="Bosch Front Load Washer">
             <span class="product-badge">Premium</span>
             <span class="product-energy">★★★★★ 5-Star</span>
           </div>
@@ -566,7 +601,7 @@
       <div class="product-grid animate-on-scroll" style="margin-bottom:64px;">
         <div class="product-card" id="prod-samsung-ac">
           <div class="product-img-wrap">
-            <img src="assets/images/cat-ac.png" alt="Samsung Wind-Free AC">
+            <img src="assets/images/prod-samsung-ac.png" alt="Samsung Wind-Free AC">
             <span class="product-badge">Best Seller</span>
             <span class="product-energy">★★★★★ 5-Star</span>
           </div>
@@ -577,7 +612,6 @@
               <span class="product-spec-tag">1.5 Ton</span>
               <span class="product-spec-tag">Wind-Free</span>
               <span class="product-spec-tag">Auto Clean</span>
-              <span class="product-spec-tag">SmartThings</span>
             </div>
             <div class="product-price-row">
               <div>
@@ -593,7 +627,7 @@
         </div>
         <div class="product-card" id="prod-lg-ac">
           <div class="product-img-wrap">
-            <img src="assets/images/svc-ac.png" alt="LG Dual Inverter AC">
+            <img src="assets/images/prod-lg-ac.png" alt="LG Dual Inverter AC">
             <span class="product-badge orange">Top Rated</span>
             <span class="product-energy">★★★★★ 5-Star</span>
           </div>
@@ -604,7 +638,6 @@
               <span class="product-spec-tag">1.5 Ton</span>
               <span class="product-spec-tag">Dual Inverter</span>
               <span class="product-spec-tag">AI Cooling</span>
-              <span class="product-spec-tag">ThinQ</span>
             </div>
             <div class="product-price-row">
               <div>
@@ -620,7 +653,7 @@
         </div>
         <div class="product-card" id="prod-panasonic-ac">
           <div class="product-img-wrap">
-            <img src="assets/images/prod-ac.png" alt="Panasonic Inverter AC">
+            <img src="assets/images/prod-panasonic-ac.png" alt="Panasonic Inverter AC">
             <span class="product-badge">Popular</span>
             <span class="product-energy">★★★★★ 5-Star</span>
           </div>
@@ -631,7 +664,6 @@
               <span class="product-spec-tag">1.5 Ton</span>
               <span class="product-spec-tag">Nanoe-X</span>
               <span class="product-spec-tag">PM 2.5 Filter</span>
-              <span class="product-spec-tag">Econavi</span>
             </div>
             <div class="product-price-row">
               <div>
@@ -656,17 +688,16 @@
       <div class="product-grid animate-on-scroll" style="margin-bottom:64px;">
         <div class="product-card" id="prod-samsung-micro">
           <div class="product-img-wrap">
-            <img src="assets/images/cat-microwave.png" alt="Samsung Convection Microwave">
+            <img src="assets/images/prod-samsung-micro.png" alt="Samsung Convection Microwave">
             <span class="product-badge">Best Seller</span>
           </div>
           <div class="product-body">
             <div class="product-brand">Samsung</div>
-            <div class="product-name">Convection Microwave 32L with Slim Fry</div>
+            <div class="product-name">Convection Microwave 32L </div>
             <div class="product-specs">
               <span class="product-spec-tag">32 Litres</span>
               <span class="product-spec-tag">Convection</span>
               <span class="product-spec-tag">Slim Fry</span>
-              <span class="product-spec-tag">Ceramic Inside</span>
             </div>
             <div class="product-price-row">
               <div>
@@ -682,7 +713,7 @@
         </div>
         <div class="product-card" id="prod-lg-micro">
           <div class="product-img-wrap">
-            <img src="assets/images/svc-microwave.png" alt="LG NeoChef Microwave">
+            <img src="assets/images/prod-lg-micro.png" alt="LG NeoChef Microwave">
             <span class="product-badge orange">New</span>
           </div>
           <div class="product-body">
@@ -691,7 +722,6 @@
             <div class="product-specs">
               <span class="product-spec-tag">42 Litres</span>
               <span class="product-spec-tag">Smart Inverter</span>
-              <span class="product-spec-tag">EasyClean</span>
               <span class="product-spec-tag">Wi-Fi</span>
             </div>
             <div class="product-price-row">
@@ -708,7 +738,7 @@
         </div>
         <div class="product-card" id="prod-panasonic-micro">
           <div class="product-img-wrap">
-            <img src="assets/images/prod-microwave.png" alt="Panasonic Grill Microwave">
+            <img src="assets/images/prod-panasonic-micro.png" alt="Panasonic Grill Microwave">
             <span class="product-badge">Popular</span>
           </div>
           <div class="product-body">
@@ -717,7 +747,6 @@
             <div class="product-specs">
               <span class="product-spec-tag">23 Litres</span>
               <span class="product-spec-tag">Grill</span>
-              <span class="product-spec-tag">Inverter</span>
               <span class="product-spec-tag">Auto Cook</span>
             </div>
             <div class="product-price-row">
@@ -743,7 +772,7 @@
       <div class="product-grid animate-on-scroll" style="margin-bottom:64px;">
         <div class="product-card" id="prod-samsung-tv">
           <div class="product-img-wrap">
-            <img src="assets/images/prod-tv.png" alt="Samsung QLED TV">
+            <img src="assets/images/prod-samsung-tv.png" alt="Samsung QLED TV">
             <span class="product-badge">Best Seller</span>
           </div>
           <div class="product-body">
@@ -753,7 +782,6 @@
               <span class="product-spec-tag">65 Inches</span>
               <span class="product-spec-tag">4K Neo QLED</span>
               <span class="product-spec-tag">120Hz</span>
-              <span class="product-spec-tag">Tizen OS</span>
             </div>
             <div class="product-price-row">
               <div>
@@ -769,7 +797,7 @@
         </div>
         <div class="product-card" id="prod-lg-tv">
           <div class="product-img-wrap">
-            <img src="assets/images/cat-tv.png" alt="LG OLED TV">
+            <img src="assets/images/prod-lg-tv.png" alt="LG OLED TV">
             <span class="product-badge orange">Editor's Choice</span>
           </div>
           <div class="product-body">
@@ -778,7 +806,6 @@
             <div class="product-specs">
               <span class="product-spec-tag">55 Inches</span>
               <span class="product-spec-tag">OLED evo</span>
-              <span class="product-spec-tag">Dolby Vision IQ</span>
               <span class="product-spec-tag">webOS 23</span>
             </div>
             <div class="product-price-row">
@@ -795,17 +822,16 @@
         </div>
         <div class="product-card" id="prod-sony-tv">
           <div class="product-img-wrap">
-            <img src="assets/images/prod-tv.png" alt="Sony Bravia TV" style="object-position:right;">
+            <img src="assets/images/prod-sony-tv.png" alt="Sony Bravia TV">
             <span class="product-badge">Premium</span>
           </div>
           <div class="product-body">
             <div class="product-brand">Sony</div>
-            <div class="product-name">75" BRAVIA XR X90L 4K Full Array LED</div>
+            <div class="product-name">75" BRAVIA XR X90L 4K Full LED</div>
             <div class="product-specs">
               <span class="product-spec-tag">75 Inches</span>
               <span class="product-spec-tag">Cognitive XR</span>
               <span class="product-spec-tag">Google TV</span>
-              <span class="product-spec-tag">Atmos</span>
             </div>
             <div class="product-price-row">
               <div>
@@ -830,7 +856,7 @@
       <div class="product-grid animate-on-scroll">
         <div class="product-card" id="prod-bosch-dish">
           <div class="product-img-wrap">
-            <img src="assets/images/cat-dishwasher.png" alt="Bosch Dishwasher">
+            <img src="assets/images/prod-bosch-dish.png" alt="Bosch Dishwasher">
             <span class="product-badge">Premium</span>
           </div>
           <div class="product-body">
@@ -856,7 +882,7 @@
         </div>
         <div class="product-card" id="prod-samsung-dish">
           <div class="product-img-wrap">
-            <img src="assets/images/prod-dishwasher.png" alt="Samsung Dishwasher">
+            <img src="assets/images/prod-samsung-dish.png" alt="Samsung Dishwasher">
             <span class="product-badge">Best Seller</span>
           </div>
           <div class="product-body">
@@ -882,7 +908,7 @@
         </div>
         <div class="product-card" id="prod-lg-dish">
           <div class="product-img-wrap">
-            <img src="assets/images/cat-dishwasher.png" alt="LG QuadWash Dishwasher" style="object-position:right;">
+            <img src="assets/images/prod-lg-dish.png" alt="LG QuadWash Dishwasher">
             <span class="product-badge orange">New Arrival</span>
           </div>
           <div class="product-body">

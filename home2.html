@@ -84,14 +84,94 @@
       margin-bottom: 18px;
       box-shadow: 0 8px 24px rgba(27,79,187,0.25);
     }
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       .how-it-works { grid-template-columns: repeat(2,1fr); }
       .how-step::after { display: none; }
-      .featured-item { flex: 0 0 240px; }
+      #hero2-grid {
+        grid-template-columns: 1fr !important;
+        gap: 36px !important;
+        padding-top: 20px;
+      }
+      #hero2-cards {
+        margin-left: 0 !important;
+        max-width: 100% !important;
+      }
+    }
+    @media (max-width: 600px) {
+      #hcards-row {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+      }
     }
     @media (max-width: 480px) {
       .how-it-works { grid-template-columns: 1fr; }
-      .featured-item { flex: 0 0 85vw; }
+      #hero-premium {
+        padding-top: calc(var(--nav-height) + 16px) !important;
+        padding-bottom: 32px !important;
+      }
+      #hero2-grid h1 {
+        font-size: 1.85rem !important;
+        line-height: 1.25 !important;
+      }
+      .hero2-btn-group {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px !important;
+      }
+      .hero2-btn-group .btn {
+        width: 100% !important;
+        justify-content: center !important;
+      }
+      .hero2-stats-row > div {
+        padding: 12px 6px !important;
+      }
+      .hero2-stats-row [data-counter] {
+        font-size: 1.25rem !important;
+      }
+      .hero2-stats-row div {
+        font-size: 0.62rem !important;
+      }
+    }
+
+    #home2-warranty-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      width: 100%;
+    }
+    @media (max-width: 768px) {
+      #home2-warranty-list {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+      }
+    }
+
+    @media (max-width: 580px) {
+      #home2-newsletter {
+        flex-direction: column !important;
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        gap: 12px !important;
+        max-width: 100% !important;
+      }
+      #home2-email-input {
+        width: 100% !important;
+        background: rgba(255,255,255,0.08) !important;
+        border: 1px solid rgba(255,255,255,0.2) !important;
+        border-radius: var(--radius-pill) !important;
+        padding: 12px 20px !important;
+        font-size: 0.88rem !important;
+        box-sizing: border-box !important;
+      }
+      #home2-subscribe-btn {
+        width: 100% !important;
+        border-radius: var(--radius-pill) !important;
+        padding: 12px 20px !important;
+        font-size: 0.9rem !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+      }
     }
   </style>
 </head>
@@ -150,7 +230,7 @@
         </p>
 
         <!-- CTA Buttons -->
-        <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px;">
+        <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px;" class="hero2-btn-group">
           <a href="contact.html#booking" class="btn btn-orange btn-lg btn-shine" id="hero2-book-btn" style="box-shadow:0 8px 32px rgba(255,107,43,0.35);">
             <i class="fas fa-bolt"></i> Book Priority Service
           </a>
@@ -160,7 +240,7 @@
         </div>
 
         <!-- Stats row -->
-        <div style="display:flex;gap:0;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;backdrop-filter:blur(8px);">
+        <div style="display:flex;gap:0;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;backdrop-filter:blur(8px);" class="hero2-stats-row">
           <div style="flex:1;padding:18px 20px;text-align:center;border-right:1px solid rgba(255,255,255,0.07);">
             <div style="font-family:'Outfit',sans-serif;font-size:1.7rem;font-weight:800;color:#fff;line-height:1;" data-counter data-target="15000" data-suffix="+">0+</div>
             <div style="font-size:0.72rem;color:rgba(255,255,255,0.45);margin-top:4px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;">Customers</div>
@@ -328,8 +408,8 @@
             <div class="badge badge-primary">Best Seller</div>
             <div class="item-rating"><i class="fas fa-star"></i> 4.9 <span>(142)</span></div>
           </div>
-          <h4>Samsung 3-Door Refrigerator</h4>
-          <p>600L capacity with inverter compressor and twin cooling plus technology.</p>
+          <h4>Samsung 3-Door</h4>
+          <p>600L capacity with inverter compressor and cooling technology.</p>
           <div class="item-specs">
             <span class="spec-tag">600L Capacity</span>
             <span class="spec-tag">Digital Inverter</span>
@@ -476,11 +556,12 @@
             <div class="item-rating"><i class="fas fa-star"></i> 4.8 <span>(89)</span></div>
           </div>
           <h4>Haier Auto-Clean Chimney</h4>
-          <p>Touch gesture control chimney with 1500 m³/hr suction and heat auto-clean.</p>
+          <p>Touch gesture control chimney with 1500 m³/hr suction and heat.</p>
           <div class="item-specs">
             <span class="spec-tag">1500 Suction</span>
+            <span class="spec-tag">Touch Control</span>
+
             <span class="spec-tag">Heat Auto-Clean</span>
-            <span class="spec-tag">Touch & Motion</span>
           </div>
           <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px;">
             <div style="font-family:var(--font-heading);font-size:1.35rem;font-weight:800;color:var(--primary);">₹16,490</div>
@@ -526,11 +607,11 @@
     </div>
 
     <!-- Full-Width Feature Cards Grid -->
-    <div class="warranty-list animate-on-scroll" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;width:100%;">
+    <div class="warranty-list animate-on-scroll" id="home2-warranty-list">
       <div class="warranty-item" id="wrt-1" style="padding:24px;">
         <div class="warranty-item-icon"><i class="fas fa-tools"></i></div>
         <div>
-          <div style="font-size:1.05rem;font-weight:700;color:var(--text-heading);margin-bottom:6px;">Annual Maintenance Contract (AMC)</div>
+          <div style="font-size:1.05rem;font-weight:700;color:var(--text-heading);margin-bottom:6px;">Annual Maintenance Contract</div>
           <div style="font-size:0.9rem;color:var(--text-muted);line-height:1.6;">Unlimited service calls, priority scheduling, and genuine part replacement.</div>
         </div>
       </div>
@@ -650,7 +731,7 @@
       <div class="how-step" id="step-1">
         <div class="how-num">1</div>
         <h4 style="color:#fff;margin-bottom:8px;">Book Online</h4>
-        <p style="color:rgba(255,255,255,0.65);font-size:0.88rem;">Fill our quick service form with appliance details and choose your preferred time slot.</p>
+        <p style="color:rgba(255,255,255,0.65);font-size:0.88rem;">Fill our quick service form with appliance details and choose your time slot.</p>
       </div>
       <div class="how-step" id="step-2">
         <div class="how-num">2</div>
@@ -660,7 +741,7 @@
       <div class="how-step" id="step-3">
         <div class="how-num">3</div>
         <h4 style="color:#fff;margin-bottom:8px;">Diagnosis & Repair</h4>
-        <p style="color:rgba(255,255,255,0.65);font-size:0.88rem;">Professional diagnosis with a transparent quote before any work begins. No hidden charges.</p>
+        <p style="color:rgba(255,255,255,0.65);font-size:0.88rem;">Professional diagnosis with a transparent quote before any work begins.</p>
       </div>
       <div class="how-step" id="step-4">
         <div class="how-num">4</div>
