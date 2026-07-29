@@ -26,7 +26,7 @@
     { icon: 'fab fa-facebook-f', href: '#', label: 'Facebook' },
     { icon: 'fab fa-instagram',  href: '#', label: 'Instagram' },
     { icon: 'fab fa-youtube',    href: '#', label: 'YouTube' },
-    { icon: 'fab fa-twitter',    href: '#', label: 'Twitter' },
+    { icon: 'fab fa-x-twitter',  href: '#', label: 'X' },
   ];
 
   // Plug/Power Logo SVG — professional appliance theme

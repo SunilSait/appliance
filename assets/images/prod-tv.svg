@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="50%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#EC4899"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect x="120" y="80" width="560" height="340" rx="12" fill="#7C3AED" opacity="0.3"/>
+  <rect x="140" y="100" width="520" height="300" rx="6" fill="#090D16" stroke="#334155" stroke-width="4"/>
+  <rect x="146" y="106" width="508" height="288" rx="2" fill="url(#screen)"/>
+  <circle cx="400" cy="250" r="80" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="4"/>
+  <polygon points="400,180 460,300 340,300" fill="rgba(255,255,255,0.2)"/>
+  <rect x="260" y="420" width="280" height="18" rx="4" fill="#1E293B" stroke="#475569" stroke-width="1.5"/>
+  <rect x="360" y="438" width="80" height="12" fill="#0F172A"/>
+  <text x="400" y="520" font-family="'Outfit', sans-serif" font-weight="700" font-size="22" fill="#94A3B8" text-anchor="middle">SONY OLED 4K HDR</text>
+</svg>

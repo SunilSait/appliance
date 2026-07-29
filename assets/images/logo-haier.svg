@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <g transform="translate(10, 5)">
+    <text x="90" y="34" font-family="'Trebuchet MS', Arial, sans-serif" font-weight="bold" font-size="32" fill="#60A5FA" text-anchor="middle" letter-spacing="1">Haier</text>
+    <path d="M 40 40 Q 90 47 140 40" stroke="#EF4444" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>
+</svg>

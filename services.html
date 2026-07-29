@@ -40,7 +40,7 @@
       <!-- Refrigerator Service -->
       <div class="service-card" id="svc-fridge">
         <div class="service-card-img-wrap">
-          <img src="assets/images/cat-refrigerator.png" alt="Refrigerator repair service" class="service-card-img">
+          <img src="assets/images/svc-refrigerator.png" alt="Refrigerator repair service" class="service-card-img">
         </div>
         <div class="service-card-body">
           <span class="service-tag">Cooling Appliances</span>
@@ -67,7 +67,7 @@
       <!-- Washing Machine Service -->
       <div class="service-card" id="svc-wash">
         <div class="service-card-img-wrap">
-          <img src="assets/images/cat-washing-machine.png" alt="Washing machine repair" class="service-card-img">
+          <img src="assets/images/svc-washer.png" alt="Washing machine repair" class="service-card-img">
         </div>
         <div class="service-card-body">
           <span class="service-tag">Laundry Appliances</span>
@@ -94,7 +94,7 @@
       <!-- AC Service -->
       <div class="service-card" id="svc-ac">
         <div class="service-card-img-wrap">
-          <img src="assets/images/cat-ac.png" alt="Air conditioner service" class="service-card-img">
+          <img src="assets/images/svc-ac.png" alt="Air conditioner service" class="service-card-img">
         </div>
         <div class="service-card-body">
           <span class="service-tag">HVAC Appliances</span>
@@ -121,7 +121,7 @@
       <!-- Microwave Service -->
       <div class="service-card" id="svc-micro">
         <div class="service-card-img-wrap">
-          <img src="assets/images/cat-microwave.png" alt="Microwave oven repair" class="service-card-img">
+          <img src="assets/images/svc-microwave.png" alt="Microwave oven repair" class="service-card-img">
         </div>
         <div class="service-card-body">
           <span class="service-tag">Kitchen Appliances</span>
@@ -308,21 +308,36 @@
 </section>
 
 <!-- ─── CTA ─────────────────────────────────────────────── -->
-<section class="cta-section" id="services-cta">
+<section style="padding:60px 0;background:var(--bg-card);border-top:1px solid var(--border);" id="services-cta">
   <div class="container">
-    <div class="cta-section-content animate-on-scroll">
-      <h2>Ready to Book Your Service?</h2>
-      <p>Our technicians are available today. Book in 2 minutes, get service in 4 hours.</p>
-      <div class="cta-actions">
-        <a href="contact.html#booking" class="btn btn-white btn-lg btn-shine" id="svc-cta-book">
-          <i class="fas fa-calendar-check"></i> Book a Service Now
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;" class="animate-on-scroll" id="services-cta-grid">
+      <!-- Card 1: Urgent Repair -->
+      <div style="background:linear-gradient(145deg, #1c273e 0%, #111a2d 100%);border:1px solid var(--secondary);border-radius:var(--radius-lg);padding:36px 30px;position:relative;overflow:hidden;box-shadow:var(--shadow-md);">
+        <div style="position:absolute;top:0;right:0;width:80px;height:80px;background:rgba(255,107,43,0.12);border-radius:0 0 0 100px;"></div>
+        <span style="display:inline-block;padding:4px 12px;background:rgba(255,107,43,0.2);color:var(--secondary);border-radius:20px;font-size:0.75rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:14px;">
+          <i class="fas fa-wrench"></i> One-Time Service
+        </span>
+        <h3 style="color:#fff;font-size:1.4rem;margin-bottom:10px;">Need Emergency Repair Today?</h3>
+        <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:24px;">Our factory-trained technicians arrive within 4 hours. Transparent diagnosis and 90-day warranty.</p>
+        <a href="contact.html#booking" class="btn btn-orange btn-shine" id="svc-cta-book" style="width:100%;justify-content:center;">
+          <i class="fas fa-calendar-check"></i> Book Express Repair
         </a>
-        <a href="pricing.html" class="btn btn-outline-white btn-lg" id="svc-cta-pricing">
-          <i class="fas fa-tags"></i> Service Pricing
+      </div>
+
+      <!-- Card 2: Annual Protection -->
+      <div style="background:linear-gradient(145deg, #163684 0%, #0d2157 100%);border:1px solid rgba(27,79,187,0.4);border-radius:var(--radius-lg);padding:36px 30px;position:relative;overflow:hidden;box-shadow:var(--shadow-md);">
+        <span style="display:inline-block;padding:4px 12px;background:rgba(255,255,255,0.15);color:#fff;border-radius:20px;font-size:0.75rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:14px;">
+          <i class="fas fa-shield-alt"></i> Annual AMC Plans
+        </span>
+        <h3 style="color:#fff;font-size:1.4rem;margin-bottom:10px;">Multi-Appliance Protection</h3>
+        <p style="color:rgba(255,255,255,0.75);font-size:0.9rem;margin-bottom:24px;">Save up to 35% with comprehensive year-round coverage, free tune-ups, and priority visits.</p>
+        <a href="pricing.html" class="btn btn-white" id="svc-cta-pricing" style="width:100%;justify-content:center;">
+          <i class="fas fa-tags"></i> Compare AMC Plans
         </a>
       </div>
     </div>
   </div>
+  <style>@media(max-width:768px){#services-cta-grid{grid-template-columns:1fr;}}</style>
 </section>
 
 <div id="footer-placeholder"></div>

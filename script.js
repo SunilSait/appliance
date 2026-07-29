@@ -66,10 +66,16 @@
 
       if (!isMobileMenuOpen && currentScrollY > lastScrollY && currentScrollY > threshold) {
         if (nav) nav.classList.add('nav-hidden');
-        if (authIcons) authIcons.classList.add('nav-hidden');
       } else {
         if (nav) nav.classList.remove('nav-hidden');
-        if (authIcons) authIcons.classList.remove('nav-hidden');
+      }
+
+      if (authIcons) {
+        if (currentScrollY > 10) {
+          authIcons.classList.add('nav-hidden');
+        } else {
+          authIcons.classList.remove('nav-hidden');
+        }
       }
 
       lastScrollY = Math.max(0, currentScrollY);
@@ -235,6 +241,58 @@
     }
   }
 
+  // ─── Grid View Switcher ─────────────────────────────────────
+  function initGridSwitcher() {
+    const switcher = document.getElementById('grid-layout-switcher');
+    const container = document.getElementById('featured-scroll-list');
+    if (!switcher || !container) return;
+
+    switcher.addEventListener('click', e => {
+      const btn = e.target.closest('.grid-btn');
+      if (!btn) return;
+
+      const gridMode = btn.getAttribute('data-grid');
+      if (!gridMode) return;
+
+      switcher.querySelectorAll('.grid-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      container.className = `featured-grid-container ${gridMode} animate-on-scroll visible`;
+    });
+  }
+
+  // ─── Category Filter Tabs ──────────────────────────────────
+  function initCategoryFilters() {
+    const tabsContainer = document.getElementById('cat-filter-tabs');
+    const container = document.getElementById('featured-scroll-list');
+    if (!tabsContainer || !container) return;
+
+    tabsContainer.addEventListener('click', e => {
+      const btn = e.target.closest('.cat-tab-btn');
+      if (!btn) return;
+
+      const filter = btn.getAttribute('data-filter');
+      if (!filter) return;
+
+      tabsContainer.querySelectorAll('.cat-tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const items = container.querySelectorAll('.featured-item');
+      items.forEach(item => {
+        const itemCat = item.getAttribute('data-category');
+        if (filter === 'all' || itemCat === filter) {
+          item.style.display = '';
+          item.style.opacity = '1';
+          item.style.transform = 'scale(1)';
+        } else {
+          item.style.display = 'none';
+          item.style.opacity = '0';
+          item.style.transform = 'scale(0.95)';
+        }
+      });
+    });
+  }
+
   // ─── Init ─────────────────────────────────────────────────
   document.addEventListener('DOMContentLoaded', () => {
     initDarkMode();
@@ -248,6 +306,8 @@
       initPasswordToggle();
       initSmoothScroll();
       initHashScroll();
+      initGridSwitcher();
+      initCategoryFilters();
       const cd = new Date();
       cd.setDate(cd.getDate() + 45);
       initCountdown(cd.toISOString());
@@ -258,3 +318,4 @@
   window.ahCountdown = initCountdown;
 
 })();
+

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181B"/>
+      <stop offset="100%" stop-color="#27272A"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#09090B"/>
+      <stop offset="100%" stop-color="#3F3F46"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect x="330" y="60" width="140" height="220" fill="#71717A" stroke="#A1A1AA" stroke-width="2"/>
+  <path d="M 140 380 Q 400 260 660 380 L 630 430 Q 400 320 170 430 Z" fill="url(#glass)" stroke="#52525B" stroke-width="3"/>
+  <circle cx="280" cy="400" r="14" fill="#FEF08A"/>
+  <circle cx="520" cy="400" r="14" fill="#FEF08A"/>
+  <rect x="340" y="340" width="120" height="24" rx="12" fill="#000000"/>
+  <circle cx="370" cy="352" r="5" fill="#22C55E"/>
+  <circle cx="400" cy="352" r="5" fill="#3B82F6"/>
+  <circle cx="430" cy="352" r="5" fill="#EF4444"/>
+  <text x="400" y="500" font-family="'Outfit', sans-serif" font-weight="700" font-size="20" fill="#A1A1AA" text-anchor="middle">HAIER AUTO-CLEAN CHIMNEY</text>
+</svg>

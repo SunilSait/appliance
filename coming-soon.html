@@ -28,7 +28,7 @@
 </head>
 <body>
 
-<div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;background:var(--bg-auth);padding:40px 16px;transition:background 0.35s ease;">
+<div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;background:var(--bg-auth);padding:56px 16px 40px;transition:background 0.35s ease;">
 
   <!-- Top controls -->
   <div class="auth-top-icons">
@@ -52,24 +52,26 @@
   <div style="position:relative;z-index:1;text-align:center;max-width:640px;width:100%;" id="coming-soon-content">
 
     <!-- Logo -->
-    <a href="index.html" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:48px;" id="cs-logo" aria-label="ApplianceHub - Return Home">
-      <svg width="38" height="38" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="csGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="var(--logo-primary)"/>
-            <stop offset="100%" stop-color="var(--logo-secondary)"/>
-          </linearGradient>
-        </defs>
-        <rect x="18" y="10" width="64" height="72" rx="12" fill="url(#csGrad)" fill-opacity="0.12" stroke="url(#csGrad)" stroke-width="3"/>
-        <circle cx="50" cy="42" r="14" stroke="url(#csGrad)" stroke-width="3" fill="none"/>
-        <path d="M50 30 L50 38" stroke="url(#csGrad)" stroke-width="4" stroke-linecap="round"/>
-        <path d="M42 36 A12 12 0 1 0 58 36" stroke="url(#csGrad)" stroke-width="3" fill="none" stroke-linecap="round"/>
-        <circle cx="38" cy="70" r="4" fill="url(#csGrad)"/>
-        <circle cx="50" cy="70" r="4" fill="url(#csGrad)"/>
-        <circle cx="62" cy="70" r="4" fill="url(#csGrad)"/>
-      </svg>
-      <span style="font-family:'Outfit',sans-serif;font-size:1.6rem;font-weight:800;color:var(--text-heading);">Appliance<span style="color:var(--secondary);">Hub</span></span>
-    </a>
+    <div style="margin-bottom:24px;">
+      <a href="index.html" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;" id="cs-logo" aria-label="ApplianceHub - Return Home">
+        <svg width="38" height="38" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="csGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="var(--logo-primary)"/>
+              <stop offset="100%" stop-color="var(--logo-secondary)"/>
+            </linearGradient>
+          </defs>
+          <rect x="18" y="10" width="64" height="72" rx="12" fill="url(#csGrad)" fill-opacity="0.12" stroke="url(#csGrad)" stroke-width="3"/>
+          <circle cx="50" cy="42" r="14" stroke="url(#csGrad)" stroke-width="3" fill="none"/>
+          <path d="M50 30 L50 38" stroke="url(#csGrad)" stroke-width="4" stroke-linecap="round"/>
+          <path d="M42 36 A12 12 0 1 0 58 36" stroke="url(#csGrad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <circle cx="38" cy="70" r="4" fill="url(#csGrad)"/>
+          <circle cx="50" cy="70" r="4" fill="url(#csGrad)"/>
+          <circle cx="62" cy="70" r="4" fill="url(#csGrad)"/>
+        </svg>
+        <span style="font-family:'Outfit',sans-serif;font-size:1.6rem;font-weight:800;color:var(--text-heading);">Appliance<span style="color:var(--secondary);">Hub</span></span>
+      </a>
+    </div>
 
     <!-- Badge -->
     <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(27,79,187,0.10);border:1px solid rgba(27,79,187,0.25);border-radius:50px;padding:6px 20px;margin-bottom:24px;">
@@ -127,7 +129,7 @@
     <div style="display:flex;gap:12px;justify-content:center;margin-top:28px;">
       <a href="#" style="width:38px;height:38px;border-radius:8px;background:var(--bg-auth-card);border:1px solid var(--border-auth-card);display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:0.9rem;transition:var(--transition);" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
       <a href="#" style="width:38px;height:38px;border-radius:8px;background:var(--bg-auth-card);border:1px solid var(--border-auth-card);display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:0.9rem;transition:var(--transition);" onmouseover="this.style.color='var(--secondary)'" onmouseout="this.style.color='var(--text-muted)'" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="#" style="width:38px;height:38px;border-radius:8px;background:var(--bg-auth-card);border:1px solid var(--border-auth-card);display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:0.9rem;transition:var(--transition);" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" style="width:38px;height:38px;border-radius:8px;background:var(--bg-auth-card);border:1px solid var(--border-auth-card);display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:0.9rem;transition:var(--transition);" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'" aria-label="X"><i class="fab fa-x-twitter"></i></a>
     </div>
   </div>
 </div>

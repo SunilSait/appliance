@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B132B"/>
+      <stop offset="100%" stop-color="#1C2541"/>
+    </linearGradient>
+    <linearGradient id="steel" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#CBD5E1"/>
+      <stop offset="50%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#64748B"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect x="220" y="80" width="360" height="440" rx="12" fill="url(#steel)" stroke="#475569" stroke-width="4"/>
+  <rect x="235" y="95" width="330" height="50" fill="#0F172A" rx="6"/>
+  <text x="260" y="126" font-family="sans-serif" font-weight="bold" font-size="16" fill="#38BDF8">BOSCH</text>
+  <circle cx="480" cy="120" r="8" fill="#10B981"/>
+  <circle cx="510" cy="120" r="8" fill="#3B82F6"/>
+  <circle cx="540" cy="120" r="8" fill="#EF4444"/>
+  <rect x="235" y="155" width="330" height="350" fill="#1E293B" rx="4"/>
+  <rect x="300" y="180" width="200" height="14" rx="7" fill="url(#steel)"/>
+  <text x="400" y="340" font-family="'Outfit', sans-serif" font-size="20" font-weight="700" fill="#64748B" text-anchor="middle">SilencePlus 44dB</text>
+</svg>

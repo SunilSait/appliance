@@ -50,7 +50,7 @@
         <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
         <div>
           <div class="contact-info-title">Visit Us</div>
-          <div class="contact-info-val">42 Tech Avenue<br>Anna Salai, Chennai — 600002</div>
+          <div class="contact-info-val">42 Tech Avenue<br>Anna Salai, Chennai</div>
         </div>
       </div>
       <div class="contact-info-card" id="ci-hours">
@@ -165,39 +165,83 @@
             </div>
           </div>
         </div>
+
+        <!-- Support Hours & Quick Guarantees Card -->
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);padding:24px;margin-top:20px;">
+          <h4 style="margin-bottom:16px;display:flex;align-items:center;gap:10px;">
+            <i class="fas fa-headset" style="color:var(--primary);"></i> Customer Support Hours
+          </h4>
+          <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:20px;font-size:0.85rem;color:var(--text-body);">
+            <div style="display:flex;justify-content:space-between;padding-bottom:8px;border-bottom:1px solid var(--border);">
+              <span><i class="far fa-clock" style="color:var(--secondary);margin-right:6px;"></i> Mon – Sun</span>
+              <strong style="color:var(--text-heading);">8:00 AM – 8:00 PM</strong>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding-bottom:8px;border-bottom:1px solid var(--border);">
+              <span><i class="fas fa-phone-alt" style="color:var(--primary);margin-right:6px;"></i> Toll-Free</span>
+              <strong style="color:var(--primary);">1800-425-9999</strong>
+            </div>
+            <div style="display:flex;justify-content:space-between;">
+              <span><i class="far fa-envelope" style="color:var(--secondary);margin-right:6px;"></i> Email</span>
+              <strong style="color:var(--text-heading);">support@appliancehub.in</strong>
+            </div>
+          </div>
+
+          <div style="padding:14px;background:rgba(27,79,187,0.06);border:1px dashed var(--primary);border-radius:var(--radius-sm);display:flex;gap:12px;align-items:center;">
+            <i class="fas fa-bolt" style="font-size:1.4rem;color:var(--secondary);flex-shrink:0;"></i>
+            <div>
+              <strong style="font-size:0.85rem;color:var(--text-heading);display:block;">30-Min Response Time</strong>
+              <span style="font-size:0.78rem;color:var(--text-muted);">Our support team confirms all inquiries within 30 minutes.</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <style>@media(max-width:768px){#contact-main-grid{grid-template-columns:1fr;}}</style>
 </section>
 
-<!-- ─── MAP PLACEHOLDER ────────────────────────────────── -->
-<section style="height:320px;background:var(--bg-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;" id="map-section">
-  <div style="text-align:center;color:var(--text-muted);">
-    <i class="fas fa-map-marked-alt" style="font-size:3rem;margin-bottom:12px;color:var(--primary);opacity:0.5;display:block;"></i>
-    <p style="font-size:0.9rem;">Interactive map available — 42 Tech Avenue, Anna Salai, Chennai</p>
-    <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn btn-primary btn-sm" style="margin-top:12px;" id="map-directions-btn">
-      <i class="fas fa-directions"></i> Get Directions
-    </a>
+<!-- ─── LIVE INTERACTIVE MAP ────────────────────────────── -->
+<section style="padding:40px 0;background:var(--bg-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);" id="map-section">
+  <div class="container">
+    <div style="border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-lg);border:1px solid var(--border);height:400px;">
+      <iframe 
+        src="https://maps.google.com/maps?q=Anna+Salai,+Chennai,+Tamil+Nadu&t=&z=14&ie=UTF8&iwloc=&output=embed" 
+        width="100%" 
+        height="100%" 
+        style="border:0;width:100%;height:100%;display:block;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade"
+        title="ApplianceHub Service Center - Anna Salai, Chennai">
+      </iframe>
+    </div>
   </div>
 </section>
 
 <!-- ─── CTA ─────────────────────────────────────────────── -->
-<section class="cta-section" id="contact-cta">
+<section style="padding:60px 0;background:var(--bg-alt);" id="contact-cta">
   <div class="container">
-    <div class="cta-section-content animate-on-scroll">
-      <h2>Prefer to Call? We're Ready.</h2>
-      <p>Our service advisors are available from 8 AM to 8 PM, 7 days a week.</p>
-      <div class="cta-actions">
-        <a href="tel:+919840056789" class="btn btn-white btn-lg btn-shine" id="cta-call-btn">
-          <i class="fas fa-phone"></i> +91 98400 56789
-        </a>
-        <a href="https://wa.me/919840056789" target="_blank" class="btn btn-outline-white btn-lg" id="cta-wa-btn">
-          <i class="fab fa-whatsapp"></i> WhatsApp Us
-        </a>
+    <div style="background:linear-gradient(135deg, #0d286d 0%, #17429d 60%, #091738 100%);border-radius:var(--radius-xl);padding:48px 36px;position:relative;overflow:hidden;box-shadow:0 15px 35px rgba(0,0,0,0.25);" class="animate-on-scroll">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;" id="contact-cta-inner">
+        <div style="max-width:520px;">
+          <span style="display:inline-flex;align-items:center;gap:8px;padding:4px 14px;background:rgba(46,213,115,0.18);border:1px solid rgba(46,213,115,0.4);color:#2ed573;border-radius:20px;font-size:0.78rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:14px;">
+            <span style="width:8px;height:8px;background:#2ed573;border-radius:50%;display:inline-block;box-shadow:0 0 8px #2ed573;"></span> Advisors Online Now
+          </span>
+          <h2 style="color:#fff;font-size:1.9rem;margin-bottom:10px;font-weight:800;">Prefer to Call? We're Ready.</h2>
+          <p style="color:rgba(255,255,255,0.85);font-size:0.95rem;margin:0;">Speak directly with a certified technician or service coordinator. Available 8 AM – 8 PM daily.</p>
+        </div>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;">
+          <a href="tel:+919840056789" class="btn btn-orange btn-lg btn-shine" id="cta-call-btn">
+            <i class="fas fa-phone-alt"></i> Call +91 98400 56789
+          </a>
+          <a href="https://wa.me/919840056789" target="_blank" class="btn btn-outline-white btn-lg" id="cta-wa-btn">
+            <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+          </a>
+        </div>
       </div>
     </div>
   </div>
+  <style>@media(max-width:768px){#contact-cta-inner{flex-direction:column;text-align:center;justify-content:center;}}</style>
 </section>
 
 <div id="footer-placeholder"></div>

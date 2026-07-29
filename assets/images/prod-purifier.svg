@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#091E3A"/>
+      <stop offset="100%" stop-color="#2F80ED"/>
+    </linearGradient>
+    <linearGradient id="body" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#E2E8F0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect x="260" y="90" width="280" height="420" rx="24" fill="url(#body)" stroke="#94A3B8" stroke-width="4"/>
+  <rect x="290" y="140" width="220" height="200" rx="16" fill="#0284C7" opacity="0.85"/>
+  <path d="M 290 260 Q 400 240 510 260 L 510 340 L 290 340 Z" fill="#38BDF8"/>
+  <rect x="385" y="360" width="30" height="30" rx="4" fill="#64748B"/>
+  <circle cx="400" cy="420" r="16" fill="#0EA5E9"/>
+  <text x="400" y="475" font-family="sans-serif" font-weight="bold" font-size="14" fill="#0369A1" text-anchor="middle">RO + UV + UF ALKALINE</text>
+</svg>

@@ -158,7 +158,7 @@
     <div class="grid-3 animate-on-scroll">
       <div class="team-card" id="team-1">
         <div style="background:linear-gradient(135deg,var(--primary),var(--primary-dark));height:160px;display:flex;align-items:center;justify-content:center;">
-          <div style="width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:2rem;font-weight:800;color:#fff;">R</div>
+          <img src="assets/images/avatar-rajesh.png" alt="Rajiv Menon" style="width:90px;height:90px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,0.3);">
         </div>
         <div class="team-body">
           <div class="team-name">Rajiv Menon</div>
@@ -168,7 +168,7 @@
       </div>
       <div class="team-card" id="team-2">
         <div style="background:linear-gradient(135deg,var(--secondary-dark),var(--secondary));height:160px;display:flex;align-items:center;justify-content:center;">
-          <div style="width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:2rem;font-weight:800;color:#fff;">P</div>
+          <img src="assets/images/avatar-priya.png" alt="Priya Krishnan" style="width:90px;height:90px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,0.3);">
         </div>
         <div class="team-body">
           <div class="team-name">Priya Krishnan</div>
@@ -178,7 +178,7 @@
       </div>
       <div class="team-card" id="team-3">
         <div style="background:linear-gradient(135deg,#0C1A3A,var(--primary));height:160px;display:flex;align-items:center;justify-content:center;">
-          <div style="width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:2rem;font-weight:800;color:#fff;">A</div>
+          <img src="assets/images/avatar-anita.png" alt="Arun Sharma" style="width:90px;height:90px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,0.3);">
         </div>
         <div class="team-body">
           <div class="team-name">Arun Sharma</div>
@@ -224,18 +224,32 @@
 </section>
 
 <!-- ─── CTA ───────────────────────────────────────────── -->
-<section class="cta-section" id="about-cta">
+<section style="padding:60px 0;background:var(--bg-alt);" id="about-cta">
   <div class="container">
-    <div class="cta-section-content animate-on-scroll">
-      <h2>Join Our Growing Family of Happy Homes</h2>
-      <p>Experience the ApplianceHub difference — quality products, expert service, and genuine care for your home.</p>
-      <div class="cta-actions">
-        <a href="contact.html" class="btn btn-white btn-lg btn-shine" id="about-contact-btn">
-          <i class="fas fa-envelope"></i> Contact Us
-        </a>
-        <a href="services.html" class="btn btn-outline-white btn-lg" id="about-services-btn">
-          <i class="fas fa-tools"></i> Our Services
-        </a>
+    <div style="background:linear-gradient(135deg, #11224d 0%, #1e3c72 50%, #2a5298 100%);border-radius:var(--radius-xl);padding:50px 36px;text-align:center;position:relative;overflow:hidden;box-shadow:0 15px 35px rgba(0,0,0,0.25);" class="animate-on-scroll">
+      <div style="position:relative;z-index:1;">
+        <span style="display:inline-flex;align-items:center;gap:8px;padding:6px 16px;background:rgba(255,255,255,0.12);color:#fff;border-radius:30px;font-size:0.78rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:18px;">
+          <i class="fas fa-heart" style="color:var(--secondary);"></i> 20+ Years Serving South India
+        </span>
+        <h2 style="color:#fff;font-size:2rem;margin-bottom:14px;font-weight:800;">Join Our Growing Family of Happy Homes</h2>
+        <p style="color:rgba(255,255,255,0.85);max-width:600px;margin:0 auto 28px;font-size:1.02rem;">Experience the ApplianceHub difference — transparent pricing, factory-trained technicians, and genuine care for your home.</p>
+        
+        <div class="cta-actions" style="margin-bottom:28px;">
+          <a href="contact.html" class="btn btn-orange btn-lg btn-shine" id="about-contact-btn">
+            <i class="fas fa-paper-plane"></i> Get in Touch
+          </a>
+          <a href="services.html" class="btn btn-outline-white btn-lg" id="about-services-btn">
+            <i class="fas fa-tools"></i> Explore Services
+          </a>
+        </div>
+
+        <div style="display:inline-flex;gap:24px;align-items:center;padding:10px 24px;background:rgba(0,0,0,0.2);border-radius:40px;font-size:0.85rem;color:rgba(255,255,255,0.9);flex-wrap:wrap;justify-content:center;">
+          <span><strong style="color:var(--secondary);">50,000+</strong> Happy Customers</span>
+          <span style="opacity:0.4;">|</span>
+          <span><strong style="color:var(--secondary);">4.9 ★</strong> Customer Rating</span>
+          <span style="opacity:0.4;">|</span>
+          <span><strong style="color:var(--secondary);">100%</strong> Genuine Parts</span>
+        </div>
       </div>
     </div>
   </div>
