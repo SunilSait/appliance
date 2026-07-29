@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shop premium home appliances at ApplianceHub — Browse refrigerators, washing machines, air conditioners, microwaves and more from top brands. Compare specs, prices and warranties.">
+  <title>Shop Appliances | ApplianceHub — Home Appliance Store & Service Center</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='18' y='10' width='64' height='72' rx='12' fill='%231B4FBB' opacity='0.15' stroke='%231B4FBB' stroke-width='3'/%3E%3Ccircle cx='50' cy='42' r='14' stroke='%23FF6B2B' stroke-width='3' fill='none'/%3E%3Cpath d='M50 30 L50 38' stroke='%23FF6B2B' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── SHOP PAGE SPECIFIC STYLES ─────────────────────────── */
+    #shop-hero {
+      background: linear-gradient(180deg, rgba(7,12,24,0.72) 0%, rgba(7,12,24,0.88) 100%),
+                  url('assets/images/services-hero.png') center/cover no-repeat !important;
+    }
+
+    /* Category filter tabs */
+    .shop-filter-bar {
+      position: sticky;
+      top: var(--nav-height);
+      z-index: 50;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 0;
+      box-shadow: var(--shadow-sm);
+    }
+    .shop-filter-inner {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .shop-filter-inner::-webkit-scrollbar { display: none; }
+    .shop-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 20px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      border: none;
+      background: none;
+      border-bottom: 3px solid transparent;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: var(--transition);
+      font-family: var(--font-body);
+    }
+    .shop-tab:hover { color: var(--primary); }
+    .shop-tab.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+    .shop-tab i { font-size: 1rem; }
+
+    /* Product grid */
+    .shop-section { display: none; }
+    .shop-section.active { display: block; }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 900px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .product-grid { grid-template-columns: 1fr; } }
+
+    .product-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .product-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+      border-color: rgba(27,79,187,0.3);
+    }
+    .product-img-wrap {
+      position: relative;
+      overflow: hidden;
+      background: var(--bg-alt);
+    }
+    .product-img-wrap img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .product-card:hover .product-img-wrap img { transform: scale(1.05); }
+    .product-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .product-badge.orange { background: var(--secondary); }
+    .product-energy {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(34,197,94,0.15);
+      border: 1px solid rgba(34,197,94,0.4);
+      color: #22C55E;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+    }
+    .product-body { padding: 18px 20px 20px; }
+    .product-brand {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .product-name {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .product-specs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+    .product-spec-tag {
+      font-size: 0.73rem;
+      padding: 3px 10px;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      color: var(--text-body);
+      font-weight: 500;
+    }
+    .product-price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+    .product-price {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text-heading);
+    }
+    .product-price span {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+    .product-emi {
+      font-size: 0.75rem;
+      color: var(--secondary);
+      font-weight: 600;
+    }
+    .product-actions {
+      display: flex;
+      gap: 8px;
+    }
+    .product-actions .btn { flex: 1; justify-content: center; }
+
+    /* Brand comparison */
+    .compare-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+    .compare-tab {
+      padding: 8px 20px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-pill);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-body);
+      cursor: pointer;
+      background: none;
+      font-family: var(--font-body);
+      transition: var(--transition);
+    }
+    .compare-tab:hover { border-color: var(--primary); color: var(--primary); }
+    .compare-tab.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+    }
+    .compare-table-wrap { overflow-x: auto; border-radius: var(--radius-lg); border: 1px solid var(--border); }
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 700px;
+      font-size: 0.88rem;
+    }
+    .compare-table th {
+      padding: 16px 20px;
+      text-align: center;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--text-heading);
+      background: var(--bg-alt);
+      border-bottom: 2px solid var(--border);
+    }
+    .compare-table th:first-child { text-align: left; }
+    .compare-table td {
+      padding: 14px 20px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-body);
+      vertical-align: middle;
+    }
+    .compare-table td:first-child {
+      text-align: left;
+      font-weight: 600;
+      color: var(--text-heading);
+      background: var(--bg-alt);
+    }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .compare-table .winner {
+      background: rgba(27,79,187,0.08);
+      color: var(--primary);
+      font-weight: 700;
+    }
+    .compare-table .star { color: #F59E0B; }
+    .compare-table-section { display: none; }
+    .compare-table-section.active { display: block; }
+
+    /* Why shop strip */
+    .shop-trust-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 768px) { .shop-trust-strip { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .shop-trust-strip { grid-template-columns: 1fr; } }
+    .shop-trust-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px 20px;
+      text-align: center;
+      transition: var(--transition);
+    }
+    .shop-trust-item:hover { box-shadow: var(--shadow-md); border-color: rgba(27,79,187,0.25); transform: translateY(-3px); }
+    .shop-trust-icon {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: rgba(27,79,187,0.10);
+      color: var(--primary);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      margin: 0 auto 14px;
+    }
+    .shop-trust-icon.orange { background: rgba(255,107,43,0.10); color: var(--secondary); }
+    .shop-trust-item h4 { font-size: 0.95rem; font-weight: 700; color: var(--text-heading); margin-bottom: 6px; }
+    .shop-trust-item p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
+
+    /* Recommendation CTA */
+    .recommend-cta {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      border-radius: var(--radius-xl);
+      padding: 56px 48px;
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: center;
+    }
+    @media (max-width: 768px) { .recommend-cta { grid-template-columns: 1fr; padding: 36px 28px; } }
+    .recommend-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 80% 50%, rgba(255,107,43,0.25) 0%, transparent 55%),
+                        radial-gradient(circle at 10% 80%, rgba(255,255,255,0.05) 0%, transparent 40%);
+      pointer-events: none;
+    }
+    .recommend-cta-content { position: relative; z-index: 1; }
+    .recommend-cta h2 { color: #fff; font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: 12px; }
+    .recommend-cta p { color: rgba(255,255,255,0.82); font-size: 1rem; line-height: 1.7; max-width: 480px; margin-bottom: 28px; }
+    .recommend-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+      min-width: 280px;
+    }
+    .recommend-select {
+      padding: 13px 16px;
+      background: rgba(255,255,255,0.12);
+      border: 1.5px solid rgba(255,255,255,0.25);
+      border-radius: var(--radius-sm);
+      color: #fff;
+      font-size: 0.9rem;
+      font-family: var(--font-body);
+      appearance: none;
+      cursor: pointer;
+    }
+    .recommend-select option { background: #1B4FBB; color: #fff; }
+    .recommend-select::placeholder { color: rgba(255,255,255,0.6); }
+  </style>
+</head>
+<body>
+
+<div id="navbar-placeholder"></div>
+
+<!-- ─── PAGE HERO ──────────────────────────────────────── -->
+<section class="page-hero" id="shop-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        <span>Shop Appliances</span>
+      </nav>
+      <h1>Shop Premium Appliances</h1>
+      <p>Browse 300+ models from 15+ global brands. Compare specs, read ratings, and find your perfect home appliance.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CATEGORY FILTER TABS ──────────────────────────── -->
+<div class="shop-filter-bar" id="shop-filter-bar" role="tablist" aria-label="Appliance categories">
+  <div class="shop-filter-inner">
+    <button class="shop-tab active" data-target="all" id="tab-all" role="tab" aria-selected="true">
+      <i class="fas fa-th-large"></i> All
+    </button>
+    <button class="shop-tab" data-target="refrigerators" id="tab-fridge" role="tab" aria-selected="false">
+      <i class="fas fa-thermometer-empty"></i> Refrigerators
+    </button>
+    <button class="shop-tab" data-target="washing" id="tab-wash" role="tab" aria-selected="false">
+      <i class="fas fa-soap"></i> Washing Machines
+    </button>
+    <button class="shop-tab" data-target="ac" id="tab-ac" role="tab" aria-selected="false">
+      <i class="fas fa-wind"></i> Air Conditioners
+    </button>
+    <button class="shop-tab" data-target="microwave" id="tab-micro" role="tab" aria-selected="false">
+      <i class="fas fa-fire"></i> Microwaves
+    </button>
+    <button class="shop-tab" data-target="tv" id="tab-tv" role="tab" aria-selected="false">
+      <i class="fas fa-tv"></i> TVs
+    </button>
+    <button class="shop-tab" data-target="dishwasher" id="tab-dish" role="tab" aria-selected="false">
+      <i class="fas fa-blender"></i> Dishwashers
+    </button>
+  </div>
+</div>
+
+<!-- ─── PRODUCT CATALOG ───────────────────────────────── -->
+<section class="section" id="shop-catalog">
+  <div class="container">
+
+    <!-- ALL (default view — shows all categories) -->
+    <div class="shop-section active" id="sect-all">
+
+      <!-- Refrigerators -->
+      <div class="section-header animate-on-scroll" style="margin-bottom:28px;">
+        <div class="section-label"><i class="fas fa-thermometer-empty"></i> Refrigerators</div>
+        <h2>Smart Cooling Solutions</h2>
+        <p>French door, side-by-side, and single door refrigerators with inverter technology and energy star ratings.</p>
+      </div>
+      <div class="product-grid animate-on-scroll" style="margin-bottom:64px;">
+        <div class="product-card" id="prod-samsung-fridge">
+          <div class="product-img-wrap">
+            <img src="assets/images/cat-refrigerator.png" alt="Samsung French Door Refrigerator">
+            <span class="product-badge">Best Seller</span>
+            <span class="product-energy">★★★★★ 5-Star</span>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">Samsung</div>
+            <div class="product-name">French Door Smart Refrigerator 580L</div>
+            <div class="product-specs">
+              <span class="product-spec-tag">580L Capacity</span>
+              <span class="product-spec-tag">Inverter</span>
+              <span class="product-spec-tag">Wi-Fi</span>
+              <span class="product-spec-tag">Family Hub</span>
+            </div>
+            <div class="product-price-row">
+              <div>
+                <div class="product-price">₹82,990 <span>onwards</span></div>
+                <div class="product-emi">EMI from ₹3,458/mo</div>
+              </div>
+            </div>
+            <div class="product-actions">
+              <a href="contact.html#booking" class="btn btn-orange btn-sm" id="buy-samsung-fridge">Book Service</a>
+              <a href="services.html" class="btn btn-secondary btn-sm" id="detail-samsung-fridge">View Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" id="prod-lg-fridge">
+          <div class="product-img-wrap">
+            <img src="assets/images/prod-fridge.png" alt="LG Side-by-Side Refrigerator">
+            <span class="product-badge orange">New Arrival</span>
+            <span class="product-energy">★★★★★ 5-Star</span>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">LG</div>
+            <div class="product-name">InstaView Side-by-Side 635L</div>
+            <div class="product-specs">
+              <span class="product-spec-tag">635L Capacity</span>
+              <span class="product-spec-tag">InstaView</span>
+              <span class="product-spec-tag">Door-in-Door</span>
+              <span class="product-spec-tag">ThinQ AI</span>
+            </div>
+            <div class="product-price-row">
+              <div>
+                <div class="product-price">₹1,12,990 <span>onwards</span></div>
+                <div class="product-emi">EMI from ₹4,708/mo</div>
+              </div>
+            </div>
+            <div class="product-actions">
+              <a href="contact.html#booking" class="btn btn-orange btn-sm" id="buy-lg-fridge">Book Service</a>
+              <a href="services.html" class="btn btn-secondary btn-sm" id="detail-lg-fridge">View Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" id="prod-whirlpool-fridge">
+          <div class="product-img-wrap">
+            <img src="assets/images/cat-refrigerator.png" alt="Whirlpool Double Door Refrigerator" style="object-position:right;">
+            <span class="product-badge">Popular</span>
+            <span class="product-energy">★★★★☆ 4-Star</span>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">Whirlpool</div>
+            <div class="product-name">IntelliFresh Double Door 340L</div>
+            <div class="product-specs">
+              <span class="product-spec-tag">340L Capacity</span>
+              <span class="product-spec-tag">6th Sense</span>
+              <span class="product-spec-tag">Frost Free</span>
+              <span class="product-spec-tag">IntelliFresh</span>
+            </div>
+            <div class="product-price-row">
+              <div>
+                <div class="product-price">₹36,490 <span>onwards</span></div>
+                <div class="product-emi">EMI from ₹1,521/mo</div>
+              </div>
+            </div>
+            <div class="product-actions">
+              <a href="contact.html#booking" class="btn btn-orange btn-sm" id="buy-whirlpool-fridge">Book Service</a>
+              <a href="services.html" class="btn btn-secondary btn-sm" id="detail-whirlpool-fridge">View Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Washing Machines -->
+      <div class="section-header animate-on-scroll" style="margin-bottom:28px;">
+        <div class="section-label"><i class="fas fa-soap"></i> Washing Machines</div>
+        <h2>Smart Laundry Solutions</h2>
+        <p>Front-load, top-load and semi-automatic washing machines with smart inverter and steam wash technology.</p>
+      </div>
+      <div class="product-grid animate-on-scroll" style="margin-bottom:64px;">
+        <div class="product-card" id="prod-samsung-wash">
+          <div class="product-img-wrap">
+            <img src="assets/images/cat-washing-machine.png" alt="Samsung Front Load Washer">
+            <span class="product-badge">Best Seller</span>
+            <span class="product-energy">★★★★★ 5-Star</span>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">Samsung</div>
+            <div class="product-name">EcoBubble Front Load 9Kg</div>
+            <div class="product-specs">
+              <span class="product-spec-tag">9 Kg</span>
+              <span class="product-spec-tag">EcoBubble</span>
+              <span class="product-spec-tag">AI Wash</span>
+              <span class="product-spec-tag">Steam</span>
+            </div>
+            <div class="product-price-row">
+              <div>
+                <div class="product-price">₹54,990 <span>onwards</span></div>
+                <div class="product-emi">EMI from ₹2,292/mo</div>
+              </div>
+            </div>
+            <div class="product-actions">
+              <a href="contact.html#booking" class="btn btn-orange btn-sm" id="buy-samsung-wash">Book Service</a>
+              <a href="services.html" class="btn btn-secondary btn-sm" id="detail-samsung-wash">View Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" id="prod-lg-wash">
+          <div class="product-img-wrap">
+            <img src="assets/images/prod-washer.png" alt="LG Front Load Washer">
+            <span class="product-badge orange">Top Rated</span>
+            <span class="product-energy">★★★★★ 5-Star</span>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">LG</div>
+            <div class="product-name">TurboWash 360° Front Load 10Kg</div>
+            <div class="product-specs">
+              <span class="product-spec-tag">10 Kg</span>
+              <span class="product-spec-tag">TurboWash</span>
+              <span class="product-spec-tag">Steam+</span>
+              <span class="product-spec-tag">ThinQ</span>
+            </div>
+            <div class="product-price-row">
+              <div>
+                <div class="product-price">₹67,990 <span>onwards</span></div>
+                <div class="product-emi">EMI from ₹2,833/mo</div>
+              </div>
+            </div>
+            <div class="product-actions">
+              <a href="contact.html#booking" class="btn btn-orange btn-sm" id="buy-lg-wash">Book Service</a>
+              <a href="services.html" class="btn btn-secondary btn-sm" id="detail-lg-wash">View Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" id="prod-bosch-wash">
+          <div class="product-img-wrap">
+            <img src="assets/images/svc-washer.png" alt="Bosch Front Load Washer">
+            <span class="product-badge">Premium</span>
+            <span class="product-energy">★★★★★ 5-Star</span>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">Bosch</div>
+            <div class="product-name">Serie 8 i-DOS Front Load 9Kg</div>
+            <div class="product-specs">
+              <span class="product-spec-tag">9 Kg</span>
+              <span class="product-spec-tag">i-DOS</span>
+              <span class="product-spec-tag">EcoSilence</span>
+              <span class="product-spec-tag">Home Connect</span>
+            </div>
+            <div class="product-price-row">
+              <div>
+                <div class="product-price">₹78,990 <span>onwards</span></div>
+                <div class="product-emi">EMI from ₹3,292/mo</div>
+              </div>
+            </div>
+            <div class="product-actions">
+              <a href="contact.html#booking" class="btn btn-orange btn-sm" id="buy-bosch-wash">Book Service</a>
+              <a href="services.html" class="btn btn-secondary btn-sm" id="detail-bosch-wash">View Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Air Conditioners -->
+      <div class="section-header animate-on-scroll" style="margin-bottom:28px;">
+        <div class="section-label"><i class="fas fa-wind"></i> Air Conditioners</div>
+        <h2>Cool & Smart Climate Control</h2>
+        <p>Split, window, and cassette ACs with inverter compressors and smart home compatibility.</p>
+      </div>
+      <div class="product-grid animate-on-scroll" style="margin-bottom:64px;">
+        <div class="product-card" id="prod-samsung-ac">
+          <div class="product-img-wrap">
+            <img src="assets/images/cat-ac.png" alt="Samsung Wind-Free AC">
+            <span class="product-badge">Best Seller</span>
+            <span class="product-energy">★★★★★ 5-Star</span>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">Samsung</div>
+            <div class="product-name">Wind-Free Comfort Inverter 1.5T</div>
+            <div class="product-specs">
+              <span class="product-spec-tag">1.5 Ton</span>
+              <span class="product-spec-tag">Wind-Free</span>
+              <span class="product-spec-tag">Auto Clean</span>
+              <span class="product-spec-tag">SmartThings</span>
+            </div>
+            <div class="product-price-row">
+              <div>
+                <div class="product-price">₹42,990 <span>onwards</span></div>
+                <div class="product-emi">EMI from ₹1,792/mo</div>
+              </div>
+            </div>
+            <div class="product-actions">
+              <a href="contact.html#booking" class="btn btn-orange btn-sm" id="buy-samsung-ac">Book Service</a>
+              <a href="services.html" class="btn btn-secondary btn-sm" id="detail-samsung-ac">View Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" id="prod-lg-ac">
+          <div class="product-img-wrap">
+            <img src="assets/images/svc-ac.png" alt="LG Dual Inverter AC">
+            <span class="product-badge orange">Top Rated</span>
+            <span class="product-energy">★★★★★ 5-Star</span>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">LG</div>
+            <div class="product-name">Dual Inverter AI Pro 1.5T</div>
+            <div class="product-specs">
+              <span class="product-spec-tag">1.5 Ton</span>
+              <span class="product-spec-tag">Dual Inverter</span>
+              <span class="product-spec-tag">AI Cooling</span>
+              <span class="product-spec-tag">ThinQ</span>
+            </div>
+            <div class="product-price-row">
+              <div>
+                <div class="product-price">₹44,990 <span>onwards</span></div>
+                <div class="product-emi">EMI from ₹1,875/mo</div>
+              </div>
+            </div>
+            <div class="product-actions">
+              <a href="contact.html#booking" class="btn btn-orange btn-sm" id="buy-lg-ac">Book Service</a>
+              <a href="services.html" class="btn btn-secondary btn-sm" id="detail-lg-ac">View Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" id="prod-panasonic-ac">
+          <div class="product-img-wrap">
+            <img src="assets/images/prod-ac.png" alt="Panasonic Inverter AC">
+            <span class="product-badge">Popular</span>
+            <span class="product-energy">★★★★★ 5-Star</span>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">Panasonic</div>
+            <div class="product-name">CS/CU-NU18YKVS Inverter 1.5T</div>
+            <div class="product-specs">
+              <span class="product-spec-tag">1.5 Ton</span>
+              <span class="product-spec-tag">Nanoe-X</span>
+              <span class="product-spec-tag">PM 2.5 Filter</span>
+              <span class="product-spec-tag">Econavi</span>
+            </div>
+            <div class="product-price-row">
+              <div>
+                <div class="product-price">₹38,990 <span>onwards</span></div>
+                <div class="product-emi">EMI from ₹1,625/mo</div>
+              </div>
+            </div>
+            <div class="product-actions">
+              <a href="contact.html#booking" class="btn btn-orange btn-sm" id="buy-panasonic-ac">Book Service</a>
+              <a href="services.html" class="btn btn-secondary btn-sm" id="detail-panasonic-ac">View Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Microwaves -->
+      <div class="section-header animate-on-scroll" style="margin-bottom:28px;">
+        <div class="section-label"><i class="fas fa-fire"></i> Microwaves</div>
+        <h2>Smart Cooking Made Easy</h2>
+        <p>Solo, grill, and convection microwave ovens for every kitchen requirement with sensor cooking technology.</p>
+      </div>
+      <div class="product-grid animate-on-scroll" style="margin-bottom:64px;">
+        <div class="product-card" id="prod-samsung-micro">
+          <div class="product-img-wrap">
+            <img src="assets/images/cat-microwave.png" alt="Samsung Convection Microwave">
+            <span class="product-badge">Best Seller</span>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">Samsung</div>
+            <div class="product-name">Convection Microwave 32L with Slim Fry</div>
+            <div class="product-specs">
+              <span class="product-spec-tag">32 Litres</span>
+              <span class="product-spec-tag">Convection</span>
+              <span class="product-spec-tag">Slim Fry</span>
+              <span class="product-spec-tag">Ceramic Inside</span>
+            </div>
+            <div class="product-price-row">
+              <div>
+                <div class="product-price">₹22,990 <span>onwards</span></div>
+                <div class="product-emi">EMI from ₹958/mo</div>
+              </div>
+            </div>
+            <div class="product-actions">
+              <a href="contact.html#booking" class="btn btn-orange btn-sm" id="buy-samsung-micro">Book Service</a>
+              <a href="services.html" class="btn btn-secondary btn-sm" id="detail-samsung-micro">View Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" id="prod-lg-micro">
+          <div class="product-img-wrap">
+            <img src="assets/images/svc-microwave.png" alt="LG NeoChef Microwave">
+            <span class="product-badge orange">New</span>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">LG</div>
+            <div class="product-name">NeoChef Smart Inverter 42L</div>
+            <div class="product-specs">
+              <span class="product-spec-tag">42 Litres</span>
+              <span class="product-spec-tag">Smart Inverter</span>
+              <span class="product-spec-tag">EasyClean</span>
+              <span class="product-spec-tag">Wi-Fi</span>
+            </div>
+            <div class="product-price-row">
+              <div>
+                <div class="product-price">₹28,990 <span>onwards</span></div>
+                <div class="product-emi">EMI from ₹1,208/mo</div>
+              </div>
+            </div>
+            <div class="product-actions">
+              <a href="contact.html#booking" class="btn btn-orange btn-sm" id="buy-lg-micro">Book Service</a>
+              <a href="services.html" class="btn btn-secondary btn-sm" id="detail-lg-micro">View Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" id="prod-panasonic-micro">
+          <div class="product-img-wrap">
+            <img src="assets/images/prod-microwave.png" alt="Panasonic Grill Microwave">
+            <span class="product-badge">Popular</span>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">Panasonic</div>
+            <div class="product-name">Grill Microwave NN-GT35 23L</div>
+            <div class="product-specs">
+              <span class="product-spec-tag">23 Litres</span>
+              <span class="product-spec-tag">Grill</span>
+              <span class="product-spec-tag">Inverter</span>
+              <span class="product-spec-tag">Auto Cook</span>
+            </div>
+            <div class="product-price-row">
+              <div>
+                <div class="product-price">₹9,990 <span>onwards</span></div>
+                <div class="product-emi">EMI from ₹417/mo</div>
+              </div>
+            </div>
+            <div class="product-actions">
+              <a href="contact.html#booking" class="btn btn-orange btn-sm" id="buy-panasonic-micro">Book Service</a>
+              <a href="services.html" class="btn btn-secondary btn-sm" id="detail-panasonic-micro">View Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TVs -->
+      <div class="section-header animate-on-scroll" style="margin-bottom:28px;">
+        <div class="section-label"><i class="fas fa-tv"></i> TVs & Displays</div>
+        <h2>Cinematic Home Entertainment</h2>
+        <p>4K QLED, OLED, and Smart LED TVs from 32" to 85" for every room and budget.</p>
+      </div>
+      <div class="product-grid animate-on-scroll" style="margin-bottom:64px;">
+        <div class="product-card" id="prod-samsung-tv">
+          <div class="product-img-wrap">
+            <img src="assets/images/prod-tv.png" alt="Samsung QLED TV">
+            <span class="product-badge">Best Seller</span>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">Samsung</div>
+            <div class="product-name">65" Neo QLED 4K Smart TV QN65</div>
+            <div class="product-specs">
+              <span class="product-spec-tag">65 Inches</span>
+              <span class="product-spec-tag">4K Neo QLED</span>
+              <span class="product-spec-tag">120Hz</span>
+              <span class="product-spec-tag">Tizen OS</span>
+            </div>
+            <div class="product-price-row">
+              <div>
+                <div class="product-price">₹1,34,990 <span>onwards</span></div>
+                <div class="product-emi">EMI from ₹5,625/mo</div>
+              </div>
+            </div>
+            <div class="product-actions">
+              <a href="contact.html#booking" class="btn btn-orange btn-sm" id="buy-samsung-tv">Book Service</a>
+              <a href="services.html" class="btn btn-secondary btn-sm" id="detail-samsung-tv">View Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" id="prod-lg-tv">
+          <div class="product-img-wrap">
+            <img src="assets/images/cat-tv.png" alt="LG OLED TV">
+            <span class="product-badge orange">Editor's Choice</span>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">LG</div>
+            <div class="product-name">55" OLED evo C3 4K Smart TV</div>
+            <div class="product-specs">
+              <span class="product-spec-tag">55 Inches</span>
+              <span class="product-spec-tag">OLED evo</span>
+              <span class="product-spec-tag">Dolby Vision IQ</span>
+              <span class="product-spec-tag">webOS 23</span>
+            </div>
+            <div class="product-price-row">
+              <div>
+                <div class="product-price">₹1,12,990 <span>onwards</span></div>
+                <div class="product-emi">EMI from ₹4,708/mo</div>
+              </div>
+            </div>
+            <div class="product-actions">
+              <a href="contact.html#booking" class="btn btn-orange btn-sm" id="buy-lg-tv">Book Service</a>
+              <a href="services.html" class="btn btn-secondary btn-sm" id="detail-lg-tv">View Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" id="prod-sony-tv">
+          <div class="product-img-wrap">
+            <img src="assets/images/prod-tv.png" alt="Sony Bravia TV" style="object-position:right;">
+            <span class="product-badge">Premium</span>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">Sony</div>
+            <div class="product-name">75" BRAVIA XR X90L 4K Full Array LED</div>
+            <div class="product-specs">
+              <span class="product-spec-tag">75 Inches</span>
+              <span class="product-spec-tag">Cognitive XR</span>
+              <span class="product-spec-tag">Google TV</span>
+              <span class="product-spec-tag">Atmos</span>
+            </div>
+            <div class="product-price-row">
+              <div>
+                <div class="product-price">₹1,69,990 <span>onwards</span></div>
+                <div class="product-emi">EMI from ₹7,083/mo</div>
+              </div>
+            </div>
+            <div class="product-actions">
+              <a href="contact.html#booking" class="btn btn-orange btn-sm" id="buy-sony-tv">Book Service</a>
+              <a href="services.html" class="btn btn-secondary btn-sm" id="detail-sony-tv">View Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dishwashers -->
+      <div class="section-header animate-on-scroll" style="margin-bottom:28px;">
+        <div class="section-label"><i class="fas fa-blender"></i> Dishwashers</div>
+        <h2>Effortless Kitchen Hygiene</h2>
+        <p>Freestanding and built-in dishwashers with auto-open drying and Wi-Fi connectivity.</p>
+      </div>
+      <div class="product-grid animate-on-scroll">
+        <div class="product-card" id="prod-bosch-dish">
+          <div class="product-img-wrap">
+            <img src="assets/images/cat-dishwasher.png" alt="Bosch Dishwasher">
+            <span class="product-badge">Premium</span>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">Bosch</div>
+            <div class="product-name">Serie 8 Silence Plus Dishwasher 13pl</div>
+            <div class="product-specs">
+              <span class="product-spec-tag">13 Place Settings</span>
+              <span class="product-spec-tag">42 dB</span>
+              <span class="product-spec-tag">Auto-Open</span>
+              <span class="product-spec-tag">Home Connect</span>
+            </div>
+            <div class="product-price-row">
+              <div>
+                <div class="product-price">₹64,990 <span>onwards</span></div>
+                <div class="product-emi">EMI from ₹2,708/mo</div>
+              </div>
+            </div>
+            <div class="product-actions">
+              <a href="contact.html#booking" class="btn btn-orange btn-sm" id="buy-bosch-dish">Book Service</a>
+              <a href="services.html" class="btn btn-secondary btn-sm" id="detail-bosch-dish">View Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" id="prod-samsung-dish">
+          <div class="product-img-wrap">
+            <img src="assets/images/prod-dishwasher.png" alt="Samsung Dishwasher">
+            <span class="product-badge">Best Seller</span>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">Samsung</div>
+            <div class="product-name">DW60CG870FSLSG Linear Wash 14pl</div>
+            <div class="product-specs">
+              <span class="product-spec-tag">14 Place Settings</span>
+              <span class="product-spec-tag">Linear Wash</span>
+              <span class="product-spec-tag">Auto Door Open</span>
+              <span class="product-spec-tag">SmartThings</span>
+            </div>
+            <div class="product-price-row">
+              <div>
+                <div class="product-price">₹54,990 <span>onwards</span></div>
+                <div class="product-emi">EMI from ₹2,292/mo</div>
+              </div>
+            </div>
+            <div class="product-actions">
+              <a href="contact.html#booking" class="btn btn-orange btn-sm" id="buy-samsung-dish">Book Service</a>
+              <a href="services.html" class="btn btn-secondary btn-sm" id="detail-samsung-dish">View Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" id="prod-lg-dish">
+          <div class="product-img-wrap">
+            <img src="assets/images/cat-dishwasher.png" alt="LG QuadWash Dishwasher" style="object-position:right;">
+            <span class="product-badge orange">New Arrival</span>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">LG</div>
+            <div class="product-name">QuadWash Pro Steam Dishwasher 14pl</div>
+            <div class="product-specs">
+              <span class="product-spec-tag">14 Place Settings</span>
+              <span class="product-spec-tag">QuadWash</span>
+              <span class="product-spec-tag">TrueSteam</span>
+              <span class="product-spec-tag">ThinQ</span>
+            </div>
+            <div class="product-price-row">
+              <div>
+                <div class="product-price">₹59,990 <span>onwards</span></div>
+                <div class="product-emi">EMI from ₹2,500/mo</div>
+              </div>
+            </div>
+            <div class="product-actions">
+              <a href="contact.html#booking" class="btn btn-orange btn-sm" id="buy-lg-dish">Book Service</a>
+              <a href="services.html" class="btn btn-secondary btn-sm" id="detail-lg-dish">View Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end #sect-all -->
+
+    <!-- Filtered sections (dynamically shown by JS) -->
+    <div class="shop-section" id="sect-refrigerators"></div>
+    <div class="shop-section" id="sect-washing"></div>
+    <div class="shop-section" id="sect-ac"></div>
+    <div class="shop-section" id="sect-microwave"></div>
+    <div class="shop-section" id="sect-tv"></div>
+    <div class="shop-section" id="sect-dishwasher"></div>
+
+  </div>
+</section>
+
+<!-- ─── BRAND COMPARISON ──────────────────────────────── -->
+<section class="section section-alt" id="brand-compare">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <div class="section-label"><i class="fas fa-balance-scale"></i> Brand Comparison</div>
+      <h2>Compare Top Brands Side by Side</h2>
+      <p>Make an informed choice with our detailed brand comparison across the most popular appliance categories.</p>
+    </div>
+
+    <!-- Compare category tabs -->
+    <div class="compare-tabs animate-on-scroll">
+      <button class="compare-tab active" data-compare="fridge" id="ctab-fridge">Refrigerators</button>
+      <button class="compare-tab" data-compare="washer" id="ctab-washer">Washing Machines</button>
+      <button class="compare-tab" data-compare="acs" id="ctab-acs">Air Conditioners</button>
+    </div>
+
+    <!-- Refrigerator comparison -->
+    <div class="compare-table-section active" id="cmp-fridge">
+      <div class="compare-table-wrap animate-on-scroll">
+        <table class="compare-table" id="tbl-fridge">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Samsung</th>
+              <th>LG</th>
+              <th>Whirlpool</th>
+              <th>Bosch</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Price Range</td>
+              <td>₹28K – ₹1.6L</td>
+              <td>₹30K – ₹1.8L</td>
+              <td>₹18K – ₹90K</td>
+              <td class="winner">₹35K – ₹2.2L</td>
+            </tr>
+            <tr>
+              <td>Warranty</td>
+              <td>1 + 9 yrs compressor</td>
+              <td class="winner">1 + 10 yrs compressor</td>
+              <td>1 + 10 yrs compressor</td>
+              <td>2 yrs comprehensive</td>
+            </tr>
+            <tr>
+              <td>Energy Rating</td>
+              <td class="winner"><span class="star">★★★★★</span> 5-Star</td>
+              <td><span class="star">★★★★★</span> 5-Star</td>
+              <td><span class="star">★★★★☆</span> 4-Star</td>
+              <td><span class="star">★★★★★</span> 5-Star</td>
+            </tr>
+            <tr>
+              <td>Smart Features</td>
+              <td class="winner">Family Hub, SmartThings</td>
+              <td>ThinQ AI, InstaView</td>
+              <td>6th Sense Tech</td>
+              <td>Home Connect</td>
+            </tr>
+            <tr>
+              <td>Inverter Compressor</td>
+              <td>✓ Digital Inverter</td>
+              <td class="winner">✓ Linear Compressor</td>
+              <td>✓ Intellisense</td>
+              <td>✓ VarioInverter</td>
+            </tr>
+            <tr>
+              <td>After-Sales (Chennai)</td>
+              <td class="winner">Excellent</td>
+              <td class="winner">Excellent</td>
+              <td>Good</td>
+              <td>Good</td>
+            </tr>
+            <tr>
+              <td>Spare Parts</td>
+              <td class="winner">Widely Available</td>
+              <td class="winner">Widely Available</td>
+              <td>Available</td>
+              <td>Imported / Ordered</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Washing Machine comparison -->
+    <div class="compare-table-section" id="cmp-washer">
+      <div class="compare-table-wrap animate-on-scroll">
+        <table class="compare-table" id="tbl-washer">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Samsung</th>
+              <th>LG</th>
+              <th>Bosch</th>
+              <th>Whirlpool</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Price Range</td>
+              <td>₹18K – ₹80K</td>
+              <td class="winner">₹20K – ₹90K</td>
+              <td>₹30K – ₹1.1L</td>
+              <td>₹15K – ₹60K</td>
+            </tr>
+            <tr>
+              <td>Warranty</td>
+              <td>2 yrs + 10 yrs motor</td>
+              <td class="winner">2 yrs + 10 yrs motor</td>
+              <td>2 yrs comprehensive</td>
+              <td>2 yrs + 10 yrs motor</td>
+            </tr>
+            <tr>
+              <td>Max Capacity</td>
+              <td>10.5 Kg</td>
+              <td class="winner">21 Kg (TwinWash)</td>
+              <td>9 Kg</td>
+              <td>8.5 Kg</td>
+            </tr>
+            <tr>
+              <td>Noise Level</td>
+              <td>48–52 dB</td>
+              <td>47–50 dB</td>
+              <td class="winner">42–46 dB</td>
+              <td>48–55 dB</td>
+            </tr>
+            <tr>
+              <td>Smart Features</td>
+              <td>EcoBubble, AI Wash</td>
+              <td class="winner">TurboWash, ThinQ AI</td>
+              <td>i-DOS, Home Connect</td>
+              <td>6th Sense, ZPF</td>
+            </tr>
+            <tr>
+              <td>Steam Wash</td>
+              <td>✓</td>
+              <td class="winner">✓ Steam+</td>
+              <td>✓</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>Energy Rating</td>
+              <td><span class="star">★★★★★</span></td>
+              <td class="winner"><span class="star">★★★★★</span></td>
+              <td><span class="star">★★★★★</span></td>
+              <td><span class="star">★★★★☆</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- AC comparison -->
+    <div class="compare-table-section" id="cmp-acs">
+      <div class="compare-table-wrap animate-on-scroll">
+        <table class="compare-table" id="tbl-acs">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Samsung</th>
+              <th>LG</th>
+              <th>Panasonic</th>
+              <th>Carrier</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Price Range (1.5T)</td>
+              <td>₹35K – ₹65K</td>
+              <td class="winner">₹32K – ₹68K</td>
+              <td>₹30K – ₹55K</td>
+              <td>₹32K – ₹58K</td>
+            </tr>
+            <tr>
+              <td>ISEER Rating</td>
+              <td class="winner">5.8</td>
+              <td>5.6</td>
+              <td>5.4</td>
+              <td>5.2</td>
+            </tr>
+            <tr>
+              <td>Inverter Type</td>
+              <td>Triple Inverter</td>
+              <td class="winner">Dual Inverter</td>
+              <td>Econavi Inverter</td>
+              <td>FlexiCool Inverter</td>
+            </tr>
+            <tr>
+              <td>Air Purification</td>
+              <td class="winner">Tri-Care Filter</td>
+              <td>Plasmaster Ionizer</td>
+              <td>Nanoe-X / PM2.5</td>
+              <td>PM 2.5 Filter</td>
+            </tr>
+            <tr>
+              <td>Smart Features</td>
+              <td class="winner">SmartThings, Bixby</td>
+              <td>ThinQ AI</td>
+              <td>Econavi</td>
+              <td>FlexiHome</td>
+            </tr>
+            <tr>
+              <td>Warranty</td>
+              <td>1 + 5 yrs compressor</td>
+              <td class="winner">1 + 10 yrs compressor</td>
+              <td>1 + 5 yrs compressor</td>
+              <td>1 + 5 yrs compressor</td>
+            </tr>
+            <tr>
+              <td>Self-Cleaning</td>
+              <td class="winner">Auto Cleaning</td>
+              <td>Auto Cleaning</td>
+              <td>Self Cleaning</td>
+              <td>—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── WHY SHOP WITH US ──────────────────────────────── -->
+<section class="section" id="shop-why">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <div class="section-label"><i class="fas fa-star"></i> Why ApplianceHub</div>
+      <h2>Shop With Complete Confidence</h2>
+    </div>
+    <div class="shop-trust-strip animate-on-scroll">
+      <div class="shop-trust-item" id="trust-genuine">
+        <div class="shop-trust-icon"><i class="fas fa-shield-alt"></i></div>
+        <h4>100% Genuine Products</h4>
+        <p>Every appliance is sourced directly from authorized brand distributors. No grey market, ever.</p>
+      </div>
+      <div class="shop-trust-item" id="trust-emi">
+        <div class="shop-trust-icon orange"><i class="fas fa-credit-card"></i></div>
+        <h4>0% EMI Available</h4>
+        <p>No-cost EMI on all major credit cards and buy-now-pay-later for purchases above ₹10,000.</p>
+      </div>
+      <div class="shop-trust-item" id="trust-install">
+        <div class="shop-trust-icon"><i class="fas fa-tools"></i></div>
+        <h4>Free Installation</h4>
+        <p>Certified technician visits for installation included with every appliance purchase.</p>
+      </div>
+      <div class="shop-trust-item" id="trust-warranty">
+        <div class="shop-trust-icon orange"><i class="fas fa-award"></i></div>
+        <h4>Extended Warranty</h4>
+        <p>Get up to 5 additional years of coverage beyond the manufacturer's standard warranty.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PERSONALIZED RECOMMENDATION CTA ──────────────── -->
+<section class="section section-alt" id="shop-recommend">
+  <div class="container">
+    <div class="recommend-cta animate-on-scroll">
+      <div class="recommend-cta-content">
+        <div class="section-label" style="color:rgba(255,255,255,0.75);border-color:rgba(255,255,255,0.2);background:rgba(255,255,255,0.1);margin-bottom:16px;">
+          <i class="fas fa-magic"></i> Free Consultation
+        </div>
+        <h2>Not Sure Which Appliance to Buy?</h2>
+        <p>Tell us your category and budget — our product experts will give you a personalized recommendation within 30 minutes via WhatsApp or call.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="contact.html" class="btn btn-orange btn-lg btn-shine" id="shop-consult-btn">
+            <i class="fas fa-comments"></i> Get Recommendation
+          </a>
+          <a href="tel:+919840056789" class="hero-cin-ghost-btn" id="shop-call-btn" style="border-color:rgba(255,255,255,0.3);color:#fff;">
+            <i class="fas fa-phone"></i> Call Now
+          </a>
+        </div>
+      </div>
+      <form class="recommend-form" id="recommend-form" onsubmit="event.preventDefault();window.location.href='contact.html';">
+        <div style="font-family:var(--font-heading);font-size:1rem;font-weight:700;color:#fff;margin-bottom:4px;">
+          Quick Enquiry
+        </div>
+        <select class="recommend-select" id="rec-category" aria-label="Appliance category">
+          <option value="" disabled selected>Select Category</option>
+          <option>Refrigerator</option>
+          <option>Washing Machine</option>
+          <option>Air Conditioner</option>
+          <option>Microwave</option>
+          <option>Television</option>
+          <option>Dishwasher</option>
+        </select>
+        <select class="recommend-select" id="rec-budget" aria-label="Budget range">
+          <option value="" disabled selected>Select Budget</option>
+          <option>Under ₹20,000</option>
+          <option>₹20,000 – ₹50,000</option>
+          <option>₹50,000 – ₹1,00,000</option>
+          <option>Above ₹1,00,000</option>
+        </select>
+        <input type="tel" class="recommend-select" id="rec-phone" placeholder="Your Phone Number" aria-label="Phone number">
+        <button type="submit" class="btn btn-orange btn-shine" style="width:100%;justify-content:center;" id="rec-submit-btn">
+          <i class="fas fa-paper-plane"></i> Get Free Advice
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+
+<script src="script.js"></script>
+<script src="components.js"></script>
+<script>
+  // ─── Category Tab Filtering ─────────────────────────────
+  const tabs = document.querySelectorAll('.shop-tab');
+  const allSection = document.getElementById('sect-all');
+
+  // Category → product card IDs mapping
+  const categoryMap = {
+    refrigerators: ['prod-samsung-fridge','prod-lg-fridge','prod-whirlpool-fridge'],
+    washing: ['prod-samsung-wash','prod-lg-wash','prod-bosch-wash'],
+    ac: ['prod-samsung-ac','prod-lg-ac','prod-panasonic-ac'],
+    microwave: ['prod-samsung-micro','prod-lg-micro','prod-panasonic-micro'],
+    tv: ['prod-samsung-tv','prod-lg-tv','prod-sony-tv'],
+    dishwasher: ['prod-bosch-dish','prod-samsung-dish','prod-lg-dish'],
+  };
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected','true');
+
+      const target = tab.dataset.target;
+
+      if (target === 'all') {
+        allSection.classList.add('active');
+        // Show all cards
+        document.querySelectorAll('.product-card').forEach(c => c.style.display = '');
+      } else {
+        allSection.classList.remove('active');
+        allSection.classList.add('active'); // keep visible but filter
+        const toShow = categoryMap[target] || [];
+        document.querySelectorAll('.product-card').forEach(card => {
+          card.style.display = toShow.includes(card.id) ? '' : 'none';
+        });
+        // Hide unrelated grids / show only matching
+        document.querySelectorAll('.section-header + .product-grid').forEach(grid => {
+          const visibleCards = [...grid.querySelectorAll('.product-card')].filter(c => toShow.includes(c.id));
+          grid.closest('div') && (grid.parentElement.style.display = visibleCards.length ? '' : 'none');
+        });
+      }
+
+      // Smooth scroll to catalog
+      document.getElementById('shop-catalog').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // ─── Brand Comparison Tabs ──────────────────────────────
+  const compareTabs = document.querySelectorAll('.compare-tab');
+  const compareSects = document.querySelectorAll('.compare-table-section');
+
+  compareTabs.forEach(ct => {
+    ct.addEventListener('click', () => {
+      compareTabs.forEach(t => t.classList.remove('active'));
+      compareSects.forEach(s => s.classList.remove('active'));
+      ct.classList.add('active');
+      document.getElementById('cmp-' + ct.dataset.compare).classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

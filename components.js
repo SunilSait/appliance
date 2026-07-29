@@ -17,6 +17,7 @@
     { label: 'Home',     href: 'index.html' },
     { label: 'Home 2',   href: 'home2.html' },
     { label: 'About',    href: 'about.html' },
+    { label: 'Shop',     href: 'shop.html' },
     { label: 'Services', href: 'services.html' },
     { label: 'Pricing',  href: 'pricing.html' },
     { label: 'Contact',  href: 'contact.html' },
@@ -81,8 +82,7 @@
             <button class="icon-btn rtl-toggle" id="nav-rtl-toggle" title="Toggle RTL" aria-label="Toggle RTL direction">
               <i class="fas fa-exchange-alt"></i>
             </button>
-            <a href="login.html" class="btn btn-secondary btn-sm" id="nav-signin">Sign In</a>
-            <a href="contact.html#booking" class="btn btn-orange btn-sm btn-shine" id="nav-book">Book Service</a>
+            <a href="login.html" class="btn btn-orange btn-sm btn-shine" id="nav-signin"><i class="fas fa-user"></i> Sign In</a>
             <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
               <span></span><span></span><span></span>
             </button>
@@ -102,8 +102,7 @@
             <i class="fas fa-exchange-alt"></i> RTL
           </button>
         </div>
-        <a href="login.html" class="btn btn-secondary btn-full" id="mobile-signin" style="margin-bottom:8px;">Sign In</a>
-        <a href="contact.html#booking" class="btn btn-orange btn-full btn-shine" id="mobile-book">Book Service</a>
+        <a href="login.html" class="btn btn-orange btn-full btn-shine" id="mobile-signin"><i class="fas fa-user"></i> Sign In</a>
       </div>
     </div>`;
 

@@ -248,13 +248,19 @@ p  { font-size: 1rem; color: var(--text-body); }
 }
 
 /* Orange CTA Button */
+.btn-orange,
+.btn-orange *,
+a.btn-orange,
+a.btn-orange * {
+  color: #ffffff !important;
+}
 .btn-orange {
   background: var(--secondary);
-  color: #fff;
   box-shadow: 0 4px 14px rgba(255,107,43,0.4);
 }
 .btn-orange:hover {
   background: var(--secondary-dark);
+  color: #ffffff !important;
   box-shadow: 0 6px 20px rgba(255,107,43,0.5);
   transform: translateY(-1px);
 }
@@ -493,6 +499,12 @@ p  { font-size: 1rem; color: var(--text-body); }
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .nav-hamburger { display: flex; }
+  .nav-actions #nav-dark-toggle,
+  .nav-actions #nav-rtl-toggle,
+  .nav-actions #nav-signin,
+  .nav-actions #nav-book {
+    display: none !important;
+  }
 }
 
 /* ============================================================
@@ -1342,15 +1354,84 @@ input[type="time"]::-webkit-calendar-picker-indicator:hover {
     grid-template-columns: 1fr;
     gap: 48px;
     padding: 48px 20px 40px;
+    text-align: center;
   }
-  .hero-cin-h1 { font-size: clamp(2.2rem, 8vw, 3rem); }
-  .hero-cin-desc { font-size: 1rem; }
-  .hero-cin-actions { flex-direction: column; align-items: flex-start; }
-  .hero-float-card-1 { top: -14px; left: 10px; }
+  .hero-cin-content {
+    align-items: center;
+    text-align: center;
+  }
+  .hero-cin-label {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-cin-h1 {
+    font-size: clamp(2.2rem, 8vw, 3rem);
+    text-align: center;
+  }
+  .hero-cin-desc {
+    font-size: 1rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-cin-actions {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .hero-cin-actions .btn,
+  .hero-cin-actions .hero-cin-ghost-btn {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
+  .hero-cin-trust {
+    justify-content: center;
+  }
+  .hero-float-card-1 {
+    top: -22px;
+    left: 10px;
+    padding: 10px 14px;
+  }
   .hero-float-card-2 { display: none; }
-  .hero-float-card-3 { right: 10px; top: -14px; top: auto; bottom: 16px; }
-  .hero-live-badge { top: 14px; right: 14px; }
+  .hero-float-card-3 {
+    right: 10px;
+    top: auto;
+    bottom: -16px;
+    padding: 10px 14px;
+  }
+  .hero-live-badge {
+    top: 12px;
+    right: 10px;
+    padding: 6px 12px;
+    font-size: 0.73rem;
+  }
   .hero-scroll-hint { display: none; }
+}
+
+@media (max-width: 480px) {
+  .hero-float-card-1 {
+    top: -20px;
+    left: 8px;
+    padding: 7px 10px;
+    gap: 8px;
+  }
+  .hero-float-card-1 .hfc-icon {
+    width: 32px; height: 32px;
+    font-size: 0.85rem;
+  }
+  .hero-float-card-1 .hfc-num { font-size: 0.95rem; }
+  .hero-float-card-1 .hfc-label { font-size: 0.65rem; }
+
+  .hero-float-card-3 { display: none; }
+
+  .hero-live-badge {
+    top: 10px;
+    right: 8px;
+    padding: 5px 10px;
+    font-size: 0.7rem;
+  }
 }
 
 /* ── LEGACY HERO (other pages) ──────────────────────────── */
