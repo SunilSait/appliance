@@ -251,22 +251,21 @@
     .compare-table {
       width: 100%;
       border-collapse: collapse;
-      min-width: 700px;
       font-size: 0.88rem;
     }
     .compare-table th {
-      padding: 16px 20px;
+      padding: 14px 16px;
       text-align: center;
       font-family: var(--font-heading);
       font-weight: 800;
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: var(--text-heading);
       background: var(--bg-alt);
       border-bottom: 2px solid var(--border);
     }
     .compare-table th:first-child { text-align: left; }
     .compare-table td {
-      padding: 14px 20px;
+      padding: 12px 14px;
       text-align: center;
       border-bottom: 1px solid var(--border);
       color: var(--text-body);
@@ -283,6 +282,48 @@
       background: rgba(27,79,187,0.08);
       color: var(--primary);
       font-weight: 700;
+    }
+
+    @media (max-width: 768px) {
+      .compare-table {
+        font-size: 0.75rem;
+      }
+      .compare-table th {
+        padding: 8px 6px;
+        font-size: 0.78rem;
+      }
+      .compare-table td {
+        padding: 8px 6px;
+        font-size: 0.75rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .compare-table-wrap {
+        overflow-x: hidden !important;
+        scrollbar-width: none !important;
+        border-radius: var(--radius-sm);
+      }
+      .compare-table {
+        table-layout: fixed;
+        width: 100% !important;
+        min-width: 100% !important;
+        font-size: 0.65rem;
+      }
+      .compare-table th {
+        padding: 6px 3px !important;
+        font-size: 0.68rem !important;
+      }
+      .compare-table td {
+        padding: 6px 3px !important;
+        font-size: 0.63rem !important;
+        word-break: break-word;
+      }
+      .compare-table th:first-child,
+      .compare-table td:first-child {
+        width: 25%;
+        padding-left: 4px !important;
+      }
     }
     .compare-table .star { color: #F59E0B; }
     .compare-table-section { display: none; }
@@ -383,33 +424,6 @@
     </div>
   </div>
 </section>
-
-<!-- ─── CATEGORY FILTER TABS ──────────────────────────── -->
-<div class="shop-filter-bar" id="shop-filter-bar" role="tablist" aria-label="Appliance categories">
-  <div class="shop-filter-inner">
-    <button class="shop-tab active" data-target="all" id="tab-all" role="tab" aria-selected="true">
-      <i class="fas fa-th-large"></i> All
-    </button>
-    <button class="shop-tab" data-target="refrigerators" id="tab-fridge" role="tab" aria-selected="false">
-      <i class="fas fa-thermometer-empty"></i> Refrigerators
-    </button>
-    <button class="shop-tab" data-target="washing" id="tab-wash" role="tab" aria-selected="false">
-      <i class="fas fa-soap"></i> Washing Machines
-    </button>
-    <button class="shop-tab" data-target="ac" id="tab-ac" role="tab" aria-selected="false">
-      <i class="fas fa-wind"></i> Air Conditioners
-    </button>
-    <button class="shop-tab" data-target="microwave" id="tab-micro" role="tab" aria-selected="false">
-      <i class="fas fa-fire"></i> Microwaves
-    </button>
-    <button class="shop-tab" data-target="tv" id="tab-tv" role="tab" aria-selected="false">
-      <i class="fas fa-tv"></i> TVs
-    </button>
-    <button class="shop-tab" data-target="dishwasher" id="tab-dish" role="tab" aria-selected="false">
-      <i class="fas fa-blender"></i> Dishwashers
-    </button>
-  </div>
-</div>
 
 <!-- ─── PRODUCT CATALOG ───────────────────────────────── -->
 <section class="section" id="shop-catalog">

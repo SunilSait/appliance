@@ -139,6 +139,7 @@
               <a href="index.html">Home</a>
               <a href="home2.html">Home 2 — Premium</a>
               <a href="about.html">About Us</a>
+              <a href="shop.html">Shop Appliances</a>
               <a href="services.html">Services</a>
               <a href="pricing.html">Pricing</a>
             </nav>
