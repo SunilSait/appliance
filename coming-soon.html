@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Coming Soon — ApplianceHub is launching exciting new features. Stay tuned for our premium appliance shopping and service portal.">
+  <title>Coming Soon | ApplianceHub</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='18' y='10' width='64' height='72' rx='12' fill='%231B4FBB' opacity='0.15' stroke='%231B4FBB' stroke-width='3'/%3E%3Ccircle cx='50' cy='42' r='14' stroke='%23FF6B2B' stroke-width='3' fill='none'/%3E%3Cpath d='M50 30 L50 38' stroke='%23FF6B2B' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    @keyframes float { 0%,100%{transform:translateY(0);}50%{transform:translateY(-14px);} }
+    @keyframes spin { from{transform:rotate(0deg);}to{transform:rotate(360deg);} }
+    .feature-coming {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      background: var(--bg-auth-card);
+      border: 1px solid var(--border-auth-card);
+      border-radius: var(--radius-sm);
+      backdrop-filter: blur(8px);
+      font-size: 0.85rem;
+      color: var(--text-body);
+    }
+    .feature-coming i { color: var(--secondary); }
+  </style>
+</head>
+<body>
+
+<div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;background:var(--bg-auth);padding:40px 16px;transition:background 0.35s ease;">
+
+  <!-- Top controls -->
+  <div class="auth-top-icons">
+    <button class="icon-btn dark-toggle" title="Toggle Dark Mode" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+    <button class="icon-btn rtl-toggle" title="Toggle RTL" aria-label="Toggle RTL"><i class="fas fa-exchange-alt"></i></button>
+  </div>
+
+  <!-- Background decorations -->
+  <div style="position:absolute;inset:0;pointer-events:none;">
+    <div style="position:absolute;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(27,79,187,0.10) 0%,transparent 70%);top:-350px;left:-350px;"></div>
+    <div style="position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(255,107,43,0.08) 0%,transparent 70%);bottom:-250px;right:-250px;"></div>
+    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(27,79,187,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(27,79,187,0.04) 1px,transparent 1px);background-size:60px 60px;"></div>
+    <!-- Floating icons -->
+    <div style="position:absolute;top:8%;right:8%;opacity:0.07;font-size:4rem;animation:float 7s ease-in-out infinite;"><i class="fas fa-bolt" style="color:var(--primary);"></i></div>
+    <div style="position:absolute;bottom:12%;left:6%;opacity:0.06;font-size:3.5rem;animation:float 10s ease-in-out infinite 2s;"><i class="fas fa-plug" style="color:var(--secondary);"></i></div>
+    <div style="position:absolute;top:45%;right:5%;opacity:0.05;font-size:2.5rem;animation:float 6s ease-in-out infinite 1s;"><i class="fas fa-cog" style="color:var(--primary);animation:spin 6s linear infinite;"></i></div>
+    <div style="position:absolute;top:25%;left:4%;opacity:0.05;font-size:3rem;animation:float 8s ease-in-out infinite 3s;"><i class="fas fa-snowflake" style="color:var(--secondary);"></i></div>
+  </div>
+
+  <!-- Content -->
+  <div style="position:relative;z-index:1;text-align:center;max-width:640px;width:100%;" id="coming-soon-content">
+
+    <!-- Logo -->
+    <a href="index.html" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:48px;" id="cs-logo" aria-label="ApplianceHub - Return Home">
+      <svg width="38" height="38" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="csGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="var(--logo-primary)"/>
+            <stop offset="100%" stop-color="var(--logo-secondary)"/>
+          </linearGradient>
+        </defs>
+        <rect x="18" y="10" width="64" height="72" rx="12" fill="url(#csGrad)" fill-opacity="0.12" stroke="url(#csGrad)" stroke-width="3"/>
+        <circle cx="50" cy="42" r="14" stroke="url(#csGrad)" stroke-width="3" fill="none"/>
+        <path d="M50 30 L50 38" stroke="url(#csGrad)" stroke-width="4" stroke-linecap="round"/>
+        <path d="M42 36 A12 12 0 1 0 58 36" stroke="url(#csGrad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <circle cx="38" cy="70" r="4" fill="url(#csGrad)"/>
+        <circle cx="50" cy="70" r="4" fill="url(#csGrad)"/>
+        <circle cx="62" cy="70" r="4" fill="url(#csGrad)"/>
+      </svg>
+      <span style="font-family:'Outfit',sans-serif;font-size:1.6rem;font-weight:800;color:var(--text-heading);">Appliance<span style="color:var(--secondary);">Hub</span></span>
+    </a>
+
+    <!-- Badge -->
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(27,79,187,0.10);border:1px solid rgba(27,79,187,0.25);border-radius:50px;padding:6px 20px;margin-bottom:24px;">
+      <span style="width:7px;height:7px;border-radius:50%;background:var(--primary);animation:pulse 2s infinite;display:inline-block;"></span>
+      <span style="font-size:0.72rem;color:var(--text-auth-muted);font-weight:700;letter-spacing:0.15em;text-transform:uppercase;">Powering Up</span>
+    </div>
+
+    <h1 style="font-family:'Outfit',sans-serif;font-size:clamp(2rem,5vw,3.5rem);color:var(--text-heading);margin-bottom:16px;font-weight:800;line-height:1.1;">
+      Something <span style="color:var(--secondary);">Exciting</span><br>Is Being Installed
+    </h1>
+    <p style="color:var(--text-body);font-size:1rem;margin-bottom:36px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.8;">
+      Our new premium appliance portal is being calibrated for the best performance. Subscribe to be first in line when we go live!
+    </p>
+
+    <!-- Countdown -->
+    <div class="countdown" id="countdown-section">
+      <div class="cd-block">
+        <span class="cd-num" id="cd-days">00</span>
+        <div class="cd-label">Days</div>
+      </div>
+      <div class="cd-block">
+        <span class="cd-num" id="cd-hours">00</span>
+        <div class="cd-label">Hours</div>
+      </div>
+      <div class="cd-block">
+        <span class="cd-num" id="cd-mins">00</span>
+        <div class="cd-label">Minutes</div>
+      </div>
+      <div class="cd-block">
+        <span class="cd-num" id="cd-secs">00</span>
+        <div class="cd-label">Seconds</div>
+      </div>
+    </div>
+
+    <!-- Newsletter -->
+    <form id="cs-notify-form" style="display:flex;gap:10px;max-width:440px;margin:0 auto 36px;flex-wrap:wrap;" onsubmit="event.preventDefault();this.innerHTML='<p style=\'color:var(--success);font-weight:600;font-size:0.95rem;\'>✓ You\'re on the list! We\'ll notify you at launch.</p>';">
+      <input type="email" required placeholder="Enter your email for early access" class="form-input" style="flex:1;min-width:200px;" id="cs-email-input">
+      <button type="submit" class="btn btn-primary btn-shine" id="cs-notify-btn">Notify Me</button>
+    </form>
+
+    <!-- Coming Features -->
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;max-width:480px;margin:0 auto 32px;text-align:left;">
+      <div class="feature-coming"><i class="fas fa-shopping-cart"></i> Online Store</div>
+      <div class="feature-coming"><i class="fas fa-calendar-check"></i> Smart Booking</div>
+      <div class="feature-coming"><i class="fas fa-shield-alt"></i> Warranty Tracker</div>
+      <div class="feature-coming"><i class="fas fa-mobile-alt"></i> Mobile App</div>
+    </div>
+
+    <!-- Back Link -->
+    <a href="index.html" class="btn btn-secondary" id="cs-home-btn">
+      <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+
+    <!-- Social -->
+    <div style="display:flex;gap:12px;justify-content:center;margin-top:28px;">
+      <a href="#" style="width:38px;height:38px;border-radius:8px;background:var(--bg-auth-card);border:1px solid var(--border-auth-card);display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:0.9rem;transition:var(--transition);" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" style="width:38px;height:38px;border-radius:8px;background:var(--bg-auth-card);border:1px solid var(--border-auth-card);display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:0.9rem;transition:var(--transition);" onmouseover="this.style.color='var(--secondary)'" onmouseout="this.style.color='var(--text-muted)'" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" style="width:38px;height:38px;border-radius:8px;background:var(--bg-auth-card);border:1px solid var(--border-auth-card);display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:0.9rem;transition:var(--transition);" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+    </div>
+  </div>
+</div>
+
+<style>@keyframes pulse { 0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(0.85);} }</style>
+<script src="script.js"></script>
+</body>
+</html>

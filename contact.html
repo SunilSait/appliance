@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact ApplianceHub — Reach us for appliance repair bookings, product inquiries, warranty support, and corporate AMC plans. Available 7 days a week.">
+  <title>Contact Us | ApplianceHub — Book Appliance Service</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='18' y='10' width='64' height='72' rx='12' fill='%231B4FBB' opacity='0.15' stroke='%231B4FBB' stroke-width='3'/%3E%3Ccircle cx='50' cy='42' r='14' stroke='%23FF6B2B' stroke-width='3' fill='none'/%3E%3Cpath d='M50 30 L50 38' stroke='%23FF6B2B' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="navbar-placeholder"></div>
+
+<!-- ─── PAGE HERO ──────────────────────────────────────── -->
+<section class="page-hero" id="contact-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        <span>Contact</span>
+      </nav>
+      <h1>Get in Touch</h1>
+      <p>Book a service, ask a question, or talk to our experts. We're available 7 days a week.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT INFO CARDS ─────────────────────────────── -->
+<section class="section-sm" id="contact-info">
+  <div class="container">
+    <div class="grid-4 animate-on-scroll">
+      <div class="contact-info-card" id="ci-phone">
+        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+        <div>
+          <div class="contact-info-title">Call Us</div>
+          <div class="contact-info-val">+91 98400 56789<br>+91 44 4567 8900</div>
+        </div>
+      </div>
+      <div class="contact-info-card" id="ci-email">
+        <div class="contact-icon orange"><i class="fas fa-envelope"></i></div>
+        <div>
+          <div class="contact-info-title">Email Us</div>
+          <div class="contact-info-val">support@appliancehub.in<br>service@appliancehub.in</div>
+        </div>
+      </div>
+      <div class="contact-info-card" id="ci-address">
+        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <div>
+          <div class="contact-info-title">Visit Us</div>
+          <div class="contact-info-val">42 Tech Avenue<br>Anna Salai, Chennai — 600002</div>
+        </div>
+      </div>
+      <div class="contact-info-card" id="ci-hours">
+        <div class="contact-icon orange"><i class="fas fa-clock"></i></div>
+        <div>
+          <div class="contact-info-title">Working Hours</div>
+          <div class="contact-info-val">Mon–Sat: 8 AM – 8 PM<br>Sunday: 9 AM – 5 PM</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── BOOKING FORM + SERVICE IMAGE ──────────────────── -->
+<section class="section section-alt" id="booking">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start;" class="animate-on-scroll" id="contact-main-grid">
+      <!-- Contact Form -->
+      <div>
+        <div class="section-label"><i class="fas fa-calendar-check"></i> Book / Inquire</div>
+        <h2 style="margin-bottom:8px;">Book a Service or Send Inquiry</h2>
+        <p style="margin-bottom:28px;">Fill the form and our team will reach back within 30 minutes during business hours.</p>
+        <div class="booking-form" id="contact-booking-form">
+          <form id="contact-form-el" onsubmit="event.preventDefault();document.getElementById('contact-success').style.display='block';this.reset();">
+            <div class="form-group">
+              <label class="form-label" for="ct-name">Full Name</label>
+              <input type="text" id="ct-name" class="form-input" placeholder="Your full name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ct-phone">Phone Number</label>
+              <input type="tel" id="ct-phone" class="form-input" placeholder="+91 XXXXX XXXXX" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ct-email">Email Address</label>
+              <input type="email" id="ct-email" class="form-input" placeholder="your@email.com">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ct-service">Service Type</label>
+              <select id="ct-service" class="form-select form-input" required>
+                <option value="">Select service type</option>
+                <option>Appliance Repair</option>
+                <option>Annual Maintenance Contract (AMC)</option>
+                <option>New Appliance Installation</option>
+                <option>Warranty Claim</option>
+                <option>Product Purchase Inquiry</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ct-appliance">Appliance Type</label>
+              <select id="ct-appliance" class="form-select form-input">
+                <option value="">Select appliance (if repair)</option>
+                <option>Refrigerator</option>
+                <option>Washing Machine</option>
+                <option>Air Conditioner</option>
+                <option>Microwave Oven</option>
+                <option>Television</option>
+                <option>Dishwasher</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ct-message">Message / Issue Description</label>
+              <textarea id="ct-message" class="form-textarea" placeholder="Describe your issue or question in detail..." rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn btn-orange btn-full btn-shine" id="ct-submit-btn">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+            <p id="contact-success" style="display:none;color:var(--success);font-size:0.9rem;margin-top:16px;font-weight:600;text-align:center;">
+              <i class="fas fa-check-circle"></i> Message sent! We'll contact you within 30 minutes.
+            </p>
+          </form>
+        </div>
+      </div>
+
+      <!-- Right side — image + info -->
+      <div>
+        <div style="border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-xl);margin-bottom:28px;">
+          <img src="assets/images/services-hero.png" alt="ApplianceHub service center" style="width:100%;aspect-ratio:4/3;object-fit:cover;">
+        </div>
+        <!-- Branches -->
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);padding:24px;">
+          <h4 style="margin-bottom:18px;">Our Service Centers</h4>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <i class="fas fa-map-marker-alt" style="color:var(--secondary);margin-top:3px;flex-shrink:0;"></i>
+              <div>
+                <strong style="font-size:0.88rem;color:var(--text-heading);">Chennai — HQ</strong>
+                <div style="font-size:0.82rem;color:var(--text-muted);">42 Tech Avenue, Anna Salai, Chennai 600002</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <i class="fas fa-map-marker-alt" style="color:var(--secondary);margin-top:3px;flex-shrink:0;"></i>
+              <div>
+                <strong style="font-size:0.88rem;color:var(--text-heading);">Bengaluru</strong>
+                <div style="font-size:0.82rem;color:var(--text-muted);">18 MG Road, Shivajinagar, Bengaluru 560001</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <i class="fas fa-map-marker-alt" style="color:var(--secondary);margin-top:3px;flex-shrink:0;"></i>
+              <div>
+                <strong style="font-size:0.88rem;color:var(--text-heading);">Hyderabad</strong>
+                <div style="font-size:0.82rem;color:var(--text-muted);">7 Banjara Hills Rd, Hyderabad 500034</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <i class="fas fa-map-marker-alt" style="color:var(--secondary);margin-top:3px;flex-shrink:0;"></i>
+              <div>
+                <strong style="font-size:0.88rem;color:var(--text-heading);">Coimbatore</strong>
+                <div style="font-size:0.82rem;color:var(--text-muted);">54 RS Puram Main Road, Coimbatore 641002</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <style>@media(max-width:768px){#contact-main-grid{grid-template-columns:1fr;}}</style>
+</section>
+
+<!-- ─── MAP PLACEHOLDER ────────────────────────────────── -->
+<section style="height:320px;background:var(--bg-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;" id="map-section">
+  <div style="text-align:center;color:var(--text-muted);">
+    <i class="fas fa-map-marked-alt" style="font-size:3rem;margin-bottom:12px;color:var(--primary);opacity:0.5;display:block;"></i>
+    <p style="font-size:0.9rem;">Interactive map available — 42 Tech Avenue, Anna Salai, Chennai</p>
+    <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn btn-primary btn-sm" style="margin-top:12px;" id="map-directions-btn">
+      <i class="fas fa-directions"></i> Get Directions
+    </a>
+  </div>
+</section>
+
+<!-- ─── CTA ─────────────────────────────────────────────── -->
+<section class="cta-section" id="contact-cta">
+  <div class="container">
+    <div class="cta-section-content animate-on-scroll">
+      <h2>Prefer to Call? We're Ready.</h2>
+      <p>Our service advisors are available from 8 AM to 8 PM, 7 days a week.</p>
+      <div class="cta-actions">
+        <a href="tel:+919840056789" class="btn btn-white btn-lg btn-shine" id="cta-call-btn">
+          <i class="fas fa-phone"></i> +91 98400 56789
+        </a>
+        <a href="https://wa.me/919840056789" target="_blank" class="btn btn-outline-white btn-lg" id="cta-wa-btn">
+          <i class="fab fa-whatsapp"></i> WhatsApp Us
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="components.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ApplianceHub — India's trusted home appliance store and service center. Shop refrigerators, washing machines, ACs, microwaves with expert repair services and genuine warranty.">
+  <title>ApplianceHub — Home Appliance Store & Service Center</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='18' y='10' width='64' height='72' rx='12' fill='%231B4FBB' opacity='0.15' stroke='%231B4FBB' stroke-width='3'/%3E%3Ccircle cx='50' cy='42' r='14' stroke='%23FF6B2B' stroke-width='3' fill='none'/%3E%3Cpath d='M50 30 L50 38' stroke='%23FF6B2B' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="navbar-placeholder"></div>
+
+<!-- ─── HERO ──────────────────────────────────────────── -->
+<section class="hero section-alt" id="hero">
+  <div class="container">
+    <div class="hero-split">
+      <!-- Content -->
+      <div class="animate-on-scroll">
+        <div class="hero-label">
+          <i class="fas fa-bolt"></i> Trusted Since 2008
+        </div>
+        <h1>Your Home's <span style="color:var(--secondary);">Perfect</span> Appliance Partner</h1>
+        <p class="hero-desc">Discover premium home appliances from top global brands. Expert repair services, genuine spare parts, and comprehensive warranty support — all under one roof.</p>
+        <div class="hero-actions">
+          <a href="contact.html#booking" class="btn btn-orange btn-lg btn-shine" id="hero-book-btn">
+            <i class="fas fa-calendar-check"></i> Book a Service
+          </a>
+          <a href="services.html" class="btn btn-secondary btn-lg" id="hero-services-btn">
+            <i class="fas fa-tools"></i> Our Services
+          </a>
+        </div>
+        <!-- Quick stats -->
+        <div style="display:flex;gap:32px;margin-top:40px;flex-wrap:wrap;">
+          <div>
+            <div style="font-family:var(--font-heading);font-size:1.8rem;font-weight:800;color:var(--primary);" data-counter data-target="15000" data-suffix="+">0+</div>
+            <div style="font-size:0.82rem;color:var(--text-muted);font-weight:500;">Happy Customers</div>
+          </div>
+          <div style="width:1px;background:var(--border);"></div>
+          <div>
+            <div style="font-family:var(--font-heading);font-size:1.8rem;font-weight:800;color:var(--primary);" data-counter data-target="50" data-suffix="+">0+</div>
+            <div style="font-size:0.82rem;color:var(--text-muted);font-weight:500;">Expert Technicians</div>
+          </div>
+          <div style="width:1px;background:var(--border);"></div>
+          <div>
+            <div style="font-family:var(--font-heading);font-size:1.8rem;font-weight:800;color:var(--primary);" data-counter data-target="20" data-suffix=" Yrs">0 Yrs</div>
+            <div style="font-size:0.82rem;color:var(--text-muted);font-weight:500;">Experience</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Image -->
+      <div class="hero-img-wrap animate-on-scroll delay-2">
+        <img src="assets/images/hero-home1.png" alt="Premium home appliances showroom" class="hero-img" loading="eager">
+        <div class="hero-badge" id="hero-badge">
+          <div class="hero-badge-icon"><i class="fas fa-shield-alt"></i></div>
+          <div class="hero-badge-text">
+            <strong>5-Year</strong>
+            <span>Warranty Guaranteed</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CATEGORIES ─────────────────────────────────────── -->
+<section class="section" id="categories">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <div class="section-label"><i class="fas fa-th-large"></i> Appliance Categories</div>
+      <h2>Everything Your Home Needs</h2>
+      <p>From cooling to cooking, we carry a complete range of home appliances backed by expert service and genuine warranties.</p>
+    </div>
+    <div class="grid-3 animate-on-scroll">
+      <div class="cat-card" id="cat-refrigerator">
+        <div style="overflow:hidden;">
+          <img src="assets/images/cat-refrigerator.png" alt="Refrigerators" class="cat-card-img">
+        </div>
+        <div class="cat-card-body">
+          <div class="badge badge-primary" style="margin-bottom:10px;">120+ Models</div>
+          <h3>Refrigerators</h3>
+          <p>French door, side-by-side, single door. All top brands with energy ratings.</p>
+          <a href="services.html" class="btn btn-secondary btn-sm" style="margin-top:14px;" id="cat-fridge-btn">Explore Range</a>
+        </div>
+      </div>
+      <div class="cat-card" id="cat-washing">
+        <div style="overflow:hidden;">
+          <img src="assets/images/cat-washing-machine.png" alt="Washing Machines" class="cat-card-img">
+        </div>
+        <div class="cat-card-body">
+          <div class="badge badge-primary" style="margin-bottom:10px;">85+ Models</div>
+          <h3>Washing Machines</h3>
+          <p>Front-load, top-load, semi-automatic with smart inverter technology.</p>
+          <a href="services.html" class="btn btn-secondary btn-sm" style="margin-top:14px;" id="cat-wash-btn">Explore Range</a>
+        </div>
+      </div>
+      <div class="cat-card" id="cat-ac">
+        <div style="overflow:hidden;">
+          <img src="assets/images/cat-ac.png" alt="Air Conditioners" class="cat-card-img">
+        </div>
+        <div class="cat-card-body">
+          <div class="badge badge-primary" style="margin-bottom:10px;">60+ Models</div>
+          <h3>Air Conditioners</h3>
+          <p>Split, window, cassette ACs with 5-star energy ratings and smart controls.</p>
+          <a href="services.html" class="btn btn-secondary btn-sm" style="margin-top:14px;" id="cat-ac-btn">Explore Range</a>
+        </div>
+      </div>
+      <div class="cat-card" id="cat-microwave">
+        <div style="overflow:hidden;">
+          <img src="assets/images/cat-microwave.png" alt="Microwaves" class="cat-card-img">
+        </div>
+        <div class="cat-card-body">
+          <div class="badge badge-primary" style="margin-bottom:10px;">40+ Models</div>
+          <h3>Microwaves</h3>
+          <p>Solo, grill, convection microwave ovens for every kitchen requirement.</p>
+          <a href="services.html" class="btn btn-secondary btn-sm" style="margin-top:14px;" id="cat-micro-btn">Explore Range</a>
+        </div>
+      </div>
+      <div class="cat-card" id="cat-dishwasher">
+        <div style="overflow:hidden;">
+          <img src="assets/images/cat-dishwasher.png" alt="Dishwashers" class="cat-card-img">
+        </div>
+        <div class="cat-card-body">
+          <div class="badge badge-primary" style="margin-bottom:10px;">25+ Models</div>
+          <h3>Dishwashers</h3>
+          <p>Built-in and freestanding dishwashers with multiple wash programs.</p>
+          <a href="services.html" class="btn btn-secondary btn-sm" style="margin-top:14px;" id="cat-dish-btn">Explore Range</a>
+        </div>
+      </div>
+      <div class="cat-card" id="cat-tv">
+        <div style="overflow:hidden;">
+          <img src="assets/images/cat-tv.png" alt="Televisions" class="cat-card-img">
+        </div>
+        <div class="cat-card-body">
+          <div class="badge badge-primary" style="margin-bottom:10px;">100+ Models</div>
+          <h3>Smart TVs</h3>
+          <p>4K OLED, QLED, and LED smart televisions from 32" to 85" screens.</p>
+          <a href="services.html" class="btn btn-secondary btn-sm" style="margin-top:14px;" id="cat-tv-btn">Explore Range</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHY CHOOSE US ──────────────────────────────────── -->
+<section class="section section-alt" id="why-us">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <div class="section-label"><i class="fas fa-star"></i> Why ApplianceHub</div>
+      <h2>The Smart Choice for Your Home</h2>
+      <p>We combine quality products, certified technicians, and genuine after-sales support to give you complete peace of mind.</p>
+    </div>
+    <div class="grid-3 animate-on-scroll">
+      <div class="feature-card" id="feat-certified">
+        <div class="feature-icon"><i class="fas fa-certificate"></i></div>
+        <h4>Certified Technicians</h4>
+        <p>Our 50+ factory-trained service engineers hold brand-authorized certifications for all major appliance manufacturers.</p>
+      </div>
+      <div class="feature-card" id="feat-warranty">
+        <div class="feature-icon orange"><i class="fas fa-shield-alt"></i></div>
+        <h4>Genuine Warranty</h4>
+        <p>All products come with manufacturer warranty and our own extended service guarantee — no compromise on authenticity.</p>
+      </div>
+      <div class="feature-card" id="feat-delivery">
+        <div class="feature-icon"><i class="fas fa-truck"></i></div>
+        <h4>Same-Day Delivery</h4>
+        <p>Order before 2 PM and get your appliance delivered and installed on the same day within city limits.</p>
+      </div>
+      <div class="feature-card" id="feat-support">
+        <div class="feature-icon orange"><i class="fas fa-headset"></i></div>
+        <h4>24/7 Support</h4>
+        <p>Round-the-clock customer care via phone, chat, and WhatsApp. We're always here when you need us.</p>
+      </div>
+      <div class="feature-card" id="feat-parts">
+        <div class="feature-icon"><i class="fas fa-cogs"></i></div>
+        <h4>Genuine Spare Parts</h4>
+        <p>We stock and supply only OEM-certified spare parts to ensure your appliance performs as intended.</p>
+      </div>
+      <div class="feature-card" id="feat-emi">
+        <div class="feature-icon orange"><i class="fas fa-credit-card"></i></div>
+        <h4>Easy EMI Options</h4>
+        <p>0% interest EMI available on all major credit cards and buy-now-pay-later options for purchases above ₹10,000.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── STATS STRIP ────────────────────────────────────── -->
+<section class="stats-strip" id="stats">
+  <div class="container">
+    <div class="stats-strip-inner">
+      <div class="stats-strip-item animate-on-scroll">
+        <div class="stat-number" data-counter data-target="15000" data-suffix="+">0+</div>
+        <div class="stat-label">Appliances Serviced</div>
+      </div>
+      <div class="stats-strip-item animate-on-scroll delay-1">
+        <div class="stat-number" data-counter data-target="50" data-suffix="+">0+</div>
+        <div class="stat-label">Expert Technicians</div>
+      </div>
+      <div class="stats-strip-item animate-on-scroll delay-2">
+        <div class="stat-number" data-counter data-target="98" data-suffix="%">0%</div>
+        <div class="stat-label">Customer Satisfaction</div>
+      </div>
+      <div class="stats-strip-item animate-on-scroll delay-3">
+        <div class="stat-number" data-counter data-target="20" data-suffix=" Yrs">0 Yrs</div>
+        <div class="stat-label">Industry Experience</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── BRANDS ────────────────────────────────────────── -->
+<section class="section" id="brands">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <div class="section-label"><i class="fas fa-award"></i> Top Brands</div>
+      <h2>Authorized Dealer for 15+ Global Brands</h2>
+      <p>We partner with the world's leading appliance manufacturers to bring you authentic products and authorized service.</p>
+    </div>
+    <div class="grid-4 animate-on-scroll">
+      <div class="brand-card" id="brand-samsung">
+        <i class="fas fa-tv" style="font-size:1.6rem;color:var(--primary);"></i>
+        <div class="brand-name">Samsung</div>
+        <div style="font-size:0.75rem;color:var(--text-muted);">Authorized Partner</div>
+      </div>
+      <div class="brand-card" id="brand-lg">
+        <i class="fas fa-refrigerator" style="font-size:1.6rem;color:var(--secondary);"></i>
+        <div class="brand-name">LG</div>
+        <div style="font-size:0.75rem;color:var(--text-muted);">Authorized Partner</div>
+      </div>
+      <div class="brand-card" id="brand-whirlpool">
+        <i class="fas fa-wind" style="font-size:1.6rem;color:var(--primary);"></i>
+        <div class="brand-name">Whirlpool</div>
+        <div style="font-size:0.75rem;color:var(--text-muted);">Authorized Partner</div>
+      </div>
+      <div class="brand-card" id="brand-bosch">
+        <i class="fas fa-cog" style="font-size:1.6rem;color:var(--secondary);"></i>
+        <div class="brand-name">Bosch</div>
+        <div style="font-size:0.75rem;color:var(--text-muted);">Authorized Partner</div>
+      </div>
+      <div class="brand-card" id="brand-sony">
+        <i class="fas fa-tv" style="font-size:1.6rem;color:var(--primary);"></i>
+        <div class="brand-name">Sony</div>
+        <div style="font-size:0.75rem;color:var(--text-muted);">Authorized Partner</div>
+      </div>
+      <div class="brand-card" id="brand-panasonic">
+        <i class="fas fa-microwave" style="font-size:1.6rem;color:var(--secondary);"></i>
+        <div class="brand-name">Panasonic</div>
+        <div style="font-size:0.75rem;color:var(--text-muted);">Authorized Partner</div>
+      </div>
+      <div class="brand-card" id="brand-haier">
+        <i class="fas fa-snowflake" style="font-size:1.6rem;color:var(--primary);"></i>
+        <div class="brand-name">Haier</div>
+        <div style="font-size:0.75rem;color:var(--text-muted);">Authorized Partner</div>
+      </div>
+      <div class="brand-card" id="brand-godrej">
+        <i class="fas fa-star" style="font-size:1.6rem;color:var(--secondary);"></i>
+        <div class="brand-name">Godrej</div>
+        <div style="font-size:0.75rem;color:var(--text-muted);">Authorized Partner</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICE BOOKING FORM ──────────────────────────── -->
+<section class="section section-alt" id="booking">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <div class="section-label"><i class="fas fa-calendar-check"></i> Book a Service</div>
+      <h2>Schedule Your Appliance Service</h2>
+      <p>Our certified technicians will arrive at your doorstep within 4 hours of booking. Available 7 days a week.</p>
+    </div>
+    <div style="max-width:780px;margin:0 auto;" class="animate-on-scroll">
+      <div class="booking-form" id="service-booking-form">
+        <form id="booking-form-el" onsubmit="event.preventDefault();document.getElementById('booking-success').style.display='block';this.reset();">
+          <div class="grid-2">
+            <div class="form-group">
+              <label class="form-label" for="book-name">Full Name</label>
+              <input type="text" id="book-name" class="form-input" placeholder="Your full name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="book-phone">Phone Number</label>
+              <input type="tel" id="book-phone" class="form-input" placeholder="+91 XXXXX XXXXX" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="book-appliance">Appliance Type</label>
+              <select id="book-appliance" class="form-select form-input" required>
+                <option value="">Select appliance</option>
+                <option>Refrigerator</option>
+                <option>Washing Machine</option>
+                <option>Air Conditioner</option>
+                <option>Microwave Oven</option>
+                <option>Dishwasher</option>
+                <option>Television</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="book-brand">Brand</label>
+              <select id="book-brand" class="form-select form-input" required>
+                <option value="">Select brand</option>
+                <option>Samsung</option>
+                <option>LG</option>
+                <option>Whirlpool</option>
+                <option>Bosch</option>
+                <option>Sony</option>
+                <option>Panasonic</option>
+                <option>Haier</option>
+                <option>Godrej</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="book-date">Preferred Date</label>
+              <input type="date" id="book-date" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="book-time">Preferred Time</label>
+              <select id="book-time" class="form-select form-input" required>
+                <option value="">Select time slot</option>
+                <option>9:00 AM – 11:00 AM</option>
+                <option>11:00 AM – 1:00 PM</option>
+                <option>1:00 PM – 3:00 PM</option>
+                <option>3:00 PM – 5:00 PM</option>
+                <option>5:00 PM – 7:00 PM</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="book-issue">Describe the Issue</label>
+            <textarea id="book-issue" class="form-textarea" placeholder="Briefly describe what's wrong with your appliance..." rows="4"></textarea>
+          </div>
+          <div style="text-align:center;">
+            <button type="submit" class="btn btn-orange btn-lg btn-shine" id="book-submit-btn" style="min-width:220px;">
+              <i class="fas fa-calendar-check"></i> Confirm Booking
+            </button>
+          </div>
+          <p id="booking-success" style="display:none;color:var(--success);font-size:0.9rem;margin-top:16px;font-weight:600;text-align:center;">
+            <i class="fas fa-check-circle"></i> Booking confirmed! Our technician will contact you within 30 minutes.
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TESTIMONIALS ──────────────────────────────────── -->
+<section class="section" id="testimonials">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <div class="section-label"><i class="fas fa-quote-left"></i> Testimonials</div>
+      <h2>What Our Customers Say</h2>
+      <p>Over 15,000 satisfied customers trust ApplianceHub for their home appliance needs across India.</p>
+    </div>
+    <div class="grid-3 animate-on-scroll">
+      <div class="testimonial-card" id="test-1">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Booked an AC repair at 9 AM and the technician arrived by 11 AM. Fixed the cooling issue with genuine parts and even cleaned the filters. Excellent service!"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">R</div>
+          <div>
+            <div class="testimonial-name">Rajesh Kumar</div>
+            <div class="testimonial-role">Chennai, Tamil Nadu</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card" id="test-2">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Purchased a Samsung refrigerator with same-day delivery and installation. The team was professional, on time, and explained all the features. Will definitely buy again!"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">P</div>
+          <div>
+            <div class="testimonial-name">Priya Sharma</div>
+            <div class="testimonial-role">Bengaluru, Karnataka</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card" id="test-3">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"My washing machine stopped draining and ApplianceHub diagnosed and fixed it within 2 hours. The technician was knowledgeable and the price was very reasonable."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">A</div>
+          <div>
+            <div class="testimonial-name">Anita Menon</div>
+            <div class="testimonial-role">Hyderabad, Telangana</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA BANNER ─────────────────────────────────────── -->
+<section class="cta-section" id="cta">
+  <div class="container">
+    <div class="cta-section-content animate-on-scroll">
+      <div class="section-label" style="justify-content:center;"><i class="fas fa-tools"></i> Ready to Get Started?</div>
+      <h2>Expert Appliance Care at Your Doorstep</h2>
+      <p>Book a service appointment today and experience the ApplianceHub difference. Fast, reliable, and affordable.</p>
+      <div class="cta-actions">
+        <a href="contact.html#booking" class="btn btn-white btn-lg btn-shine" id="cta-book-btn">
+          <i class="fas fa-calendar-check"></i> Book Now
+        </a>
+        <a href="pricing.html" class="btn btn-outline-white btn-lg" id="cta-pricing-btn">
+          <i class="fas fa-tags"></i> View Pricing
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+
+<script src="components.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

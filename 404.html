@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Page Not Found — ApplianceHub. The page you're looking for doesn't exist. Let's get you back to home appliance services.">
+  <title>404 — Page Not Found | ApplianceHub</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='18' y='10' width='64' height='72' rx='12' fill='%231B4FBB' opacity='0.15' stroke='%231B4FBB' stroke-width='3'/%3E%3Ccircle cx='50' cy='42' r='14' stroke='%23FF6B2B' stroke-width='3' fill='none'/%3E%3Cpath d='M50 30 L50 38' stroke='%23FF6B2B' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    @keyframes float { 0%,100%{transform:translateY(0);}50%{transform:translateY(-14px);} }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(0.85);} }
+  </style>
+</head>
+<body>
+
+<div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;background:var(--bg-auth);padding:40px 16px;transition:background 0.35s ease;">
+
+  <!-- Top controls -->
+  <div class="auth-top-icons">
+    <button class="icon-btn dark-toggle" title="Toggle Dark Mode" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+    <button class="icon-btn rtl-toggle" title="Toggle RTL" aria-label="Toggle RTL"><i class="fas fa-exchange-alt"></i></button>
+  </div>
+
+  <!-- Scanline effect -->
+  <div class="scanline" aria-hidden="true"></div>
+
+  <!-- Background decorations -->
+  <div style="position:absolute;inset:0;pointer-events:none;">
+    <div style="position:absolute;width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(27,79,187,0.12) 0%,transparent 70%);top:-300px;right:-300px;"></div>
+    <div style="position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(255,107,43,0.07) 0%,transparent 70%);bottom:-200px;left:-200px;"></div>
+    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(27,79,187,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(27,79,187,0.05) 1px,transparent 1px);background-size:60px 60px;"></div>
+    <!-- Floating appliance icons -->
+    <div style="position:absolute;top:12%;left:5%;opacity:0.06;font-size:3.5rem;animation:float 8s ease-in-out infinite;"><i class="fas fa-plug" style="color:var(--primary);"></i></div>
+    <div style="position:absolute;top:65%;right:5%;opacity:0.05;font-size:4.5rem;animation:float 11s ease-in-out infinite 2s;"><i class="fas fa-blender" style="color:var(--secondary);"></i></div>
+    <div style="position:absolute;top:35%;left:3%;opacity:0.05;font-size:2.8rem;animation:float 7s ease-in-out infinite 1s;"><i class="fas fa-snowflake" style="color:var(--primary);"></i></div>
+    <div style="position:absolute;top:20%;right:4%;opacity:0.04;font-size:3rem;animation:float 9s ease-in-out infinite 3s;"><i class="fas fa-tv" style="color:var(--secondary);"></i></div>
+  </div>
+
+  <!-- Content -->
+  <div style="position:relative;z-index:1;text-align:center;max-width:640px;" id="error-content">
+
+    <!-- Logo -->
+    <a href="index.html" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:48px;" id="error-logo" aria-label="ApplianceHub - Return Home">
+      <svg width="38" height="38" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="e404Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="var(--logo-primary)"/>
+            <stop offset="100%" stop-color="var(--logo-secondary)"/>
+          </linearGradient>
+        </defs>
+        <rect x="18" y="10" width="64" height="72" rx="12" fill="url(#e404Grad)" fill-opacity="0.12" stroke="url(#e404Grad)" stroke-width="3"/>
+        <circle cx="50" cy="42" r="14" stroke="url(#e404Grad)" stroke-width="3" fill="none"/>
+        <path d="M50 30 L50 38" stroke="url(#e404Grad)" stroke-width="4" stroke-linecap="round"/>
+        <path d="M42 36 A12 12 0 1 0 58 36" stroke="url(#e404Grad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <circle cx="38" cy="70" r="4" fill="url(#e404Grad)"/>
+        <circle cx="50" cy="70" r="4" fill="url(#e404Grad)"/>
+        <circle cx="62" cy="70" r="4" fill="url(#e404Grad)"/>
+      </svg>
+      <span style="font-family:'Outfit',sans-serif;font-size:1.6rem;font-weight:800;color:var(--text-heading);letter-spacing:0.02em;">Appliance<span style="color:var(--secondary);">Hub</span></span>
+    </a>
+
+    <!-- 404 Number -->
+    <div class="error-num" aria-hidden="true">404</div>
+
+    <!-- Status badge -->
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,107,43,0.10);border:1px solid rgba(255,107,43,0.25);border-radius:50px;padding:6px 20px;margin:16px 0 24px;">
+      <span style="width:7px;height:7px;border-radius:50%;background:var(--secondary);animation:pulse 2s infinite;display:inline-block;"></span>
+      <span style="font-size:0.72rem;color:var(--text-auth-muted);font-weight:700;letter-spacing:0.15em;text-transform:uppercase;">Circuit Disconnected</span>
+    </div>
+
+    <h1 style="font-family:'Outfit',sans-serif;font-size:clamp(1.7rem,4vw,2.6rem);color:var(--text-heading);margin-bottom:14px;font-weight:700;">
+      This Page Needs <span style="color:var(--secondary);">Repair</span>
+    </h1>
+    <p style="color:var(--text-body);font-size:1rem;margin-bottom:40px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.8;">
+      The page you're looking for has been moved, unplugged, or never existed. Our technicians have been notified. Let's get you back to working order!
+    </p>
+
+    <!-- CTAs -->
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:44px;">
+      <a href="index.html" class="btn btn-primary btn-lg btn-shine" id="err-home-btn">
+        <i class="fas fa-home"></i> Back to Home
+      </a>
+      <a href="contact.html" class="btn btn-outline-orange btn-lg" id="err-contact-btn">
+        <i class="fas fa-headset"></i> Contact Support
+      </a>
+    </div>
+
+    <!-- Quick links -->
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px 20px;">
+      <a href="about.html" style="font-size:0.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;font-weight:600;transition:color 0.3s;" onmouseover="this.style.color='var(--secondary)'" onmouseout="this.style.color='var(--text-muted)'" id="err-about">About</a>
+      <span style="color:var(--border);">·</span>
+      <a href="services.html" style="font-size:0.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;font-weight:600;transition:color 0.3s;" onmouseover="this.style.color='var(--secondary)'" onmouseout="this.style.color='var(--text-muted)'" id="err-services">Services</a>
+      <span style="color:var(--border);">·</span>
+      <a href="pricing.html" style="font-size:0.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;font-weight:600;transition:color 0.3s;" onmouseover="this.style.color='var(--secondary)'" onmouseout="this.style.color='var(--text-muted)'" id="err-pricing">Pricing</a>
+      <span style="color:var(--border);">·</span>
+      <a href="contact.html" style="font-size:0.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;font-weight:600;transition:color 0.3s;" onmouseover="this.style.color='var(--secondary)'" onmouseout="this.style.color='var(--text-muted)'" id="err-contact">Contact</a>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

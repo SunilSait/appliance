@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ApplianceHub Premium — Experience luxury appliance shopping with brand comparisons, warranty tracking, and exclusive repair services. Elevate your home experience.">
+  <title>ApplianceHub Premium — Home 2 | Home Appliance Store</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='18' y='10' width='64' height='72' rx='12' fill='%231B4FBB' opacity='0.15' stroke='%231B4FBB' stroke-width='3'/%3E%3Ccircle cx='50' cy='42' r='14' stroke='%23FF6B2B' stroke-width='3' fill='none'/%3E%3Cpath d='M50 30 L50 38' stroke='%23FF6B2B' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Home 2 unique styles */
+    .featured-scroll {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      padding-bottom: 12px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--primary) var(--bg-alt);
+    }
+    .featured-scroll::-webkit-scrollbar { height: 4px; }
+    .featured-scroll::-webkit-scrollbar-track { background: var(--bg-alt); border-radius: 4px; }
+    .featured-scroll::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
+    .featured-item {
+      flex: 0 0 280px;
+      background: var(--bg-card);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .featured-item:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-color: rgba(27,79,187,0.25); }
+    .featured-item img { width:100%; aspect-ratio:4/3; object-fit:cover; }
+    .featured-item-body { padding: 18px; }
+    .featured-item-body h4 { margin-bottom: 4px; }
+    .featured-item-body p { font-size:0.82rem; color:var(--text-muted); margin-bottom:10px; }
+
+    .warranty-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    .warranty-badge.active { background: rgba(34,197,94,0.12); color: var(--success); border: 1px solid rgba(34,197,94,0.3); }
+    .warranty-badge.expiring { background: rgba(245,158,11,0.12); color: var(--warning); border: 1px solid rgba(245,158,11,0.3); }
+    .warranty-badge.expired { background: rgba(239,68,68,0.12); color: var(--error); border: 1px solid rgba(239,68,68,0.3); }
+
+    .how-it-works {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 0;
+      position: relative;
+    }
+    .how-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 32px 20px;
+      position: relative;
+    }
+    .how-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 44px;
+      right: -24px;
+      width: 48px;
+      height: 2px;
+      background: var(--primary);
+      opacity: 0.25;
+    }
+    .how-num {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+      box-shadow: 0 8px 24px rgba(27,79,187,0.25);
+    }
+    @media (max-width: 768px) {
+      .how-it-works { grid-template-columns: repeat(2,1fr); }
+      .how-step::after { display: none; }
+      .featured-item { flex: 0 0 240px; }
+    }
+    @media (max-width: 480px) {
+      .how-it-works { grid-template-columns: 1fr; }
+      .featured-item { flex: 0 0 85vw; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="navbar-placeholder"></div>
+
+<!-- ─── UNIQUE PREMIUM HERO ──────────────────────────────── -->
+<section id="hero-premium" style="
+  min-height:100vh;
+  padding-top:calc(var(--nav-height) + 40px);
+  padding-bottom:80px;
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(135deg,#050E22 0%,#0C1A3A 40%,#0F2050 70%,#080F1E 100%);
+  display:flex;
+  align-items:center;
+  box-sizing:border-box;
+">
+
+  <!-- Animated grid background -->
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(27,79,187,0.08) 1px,transparent 1px),linear-gradient(90deg,rgba(27,79,187,0.08) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;" aria-hidden="true"></div>
+
+  <!-- Glowing orbs -->
+  <div style="position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(27,79,187,0.22) 0%,transparent 65%);top:-200px;left:-200px;pointer-events:none;" aria-hidden="true"></div>
+  <div style="position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(255,107,43,0.15) 0%,transparent 65%);bottom:-100px;right:10%;pointer-events:none;" aria-hidden="true"></div>
+  <div style="position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(36,96,214,0.18) 0%,transparent 65%);top:30%;right:30%;pointer-events:none;" aria-hidden="true"></div>
+
+  <!-- Diagonal accent stripe -->
+  <div style="position:absolute;top:0;right:0;width:55%;height:100%;background:linear-gradient(135deg,transparent 0%,rgba(27,79,187,0.06) 50%,rgba(27,79,187,0.12) 100%);clip-path:polygon(18% 0,100% 0,100% 100%,0% 100%);pointer-events:none;" aria-hidden="true"></div>
+
+  <div class="container" style="position:relative;z-index:2;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;" id="hero2-grid">
+
+      <!-- LEFT: Content -->
+      <div class="animate-on-scroll">
+
+        <!-- Pill badge -->
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,107,43,0.12);border:1px solid rgba(255,107,43,0.35);border-radius:50px;padding:7px 18px;font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--secondary);margin-bottom:28px;">
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--secondary);display:inline-block;animation:heroPulse 2s ease-in-out infinite;"></span>
+          Premium Experience — Since 2004
+        </div>
+
+        <!-- Headline -->
+        <h1 style="color:#fff;font-size:clamp(2.2rem,4.5vw,4rem);line-height:1.08;margin-bottom:22px;font-family:'Outfit',sans-serif;font-weight:900;">
+          The Smarter Way<br>
+          to <span style="position:relative;display:inline-block;">
+            <span style="position:relative;z-index:1;background:linear-gradient(90deg,#FF6B2B,#FFa040);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">Upgrade</span>
+            <span style="position:absolute;bottom:2px;left:0;right:0;height:3px;background:linear-gradient(90deg,#FF6B2B,#FFa040);border-radius:3px;z-index:0;"></span>
+          </span>
+          Your Home
+        </h1>
+
+        <p style="color:rgba(255,255,255,0.65);font-size:1.05rem;line-height:1.8;margin-bottom:36px;max-width:480px;">
+          Curated premium appliances, intelligent warranty tracking, and priority doorstep service — designed for the modern household that demands nothing but the best.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px;">
+          <a href="contact.html#booking" class="btn btn-orange btn-lg btn-shine" id="hero2-book-btn" style="box-shadow:0 8px 32px rgba(255,107,43,0.35);">
+            <i class="fas fa-bolt"></i> Book Priority Service
+          </a>
+          <a href="index.html" class="btn btn-outline-white btn-lg" id="hero2-home-btn">
+            <i class="fas fa-th-large"></i> Browse Appliances
+          </a>
+        </div>
+
+        <!-- Stats row -->
+        <div style="display:flex;gap:0;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;backdrop-filter:blur(8px);">
+          <div style="flex:1;padding:18px 20px;text-align:center;border-right:1px solid rgba(255,255,255,0.07);">
+            <div style="font-family:'Outfit',sans-serif;font-size:1.7rem;font-weight:800;color:#fff;line-height:1;" data-counter data-target="15000" data-suffix="+">0+</div>
+            <div style="font-size:0.72rem;color:rgba(255,255,255,0.45);margin-top:4px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;">Customers</div>
+          </div>
+          <div style="flex:1;padding:18px 20px;text-align:center;border-right:1px solid rgba(255,255,255,0.07);">
+            <div style="font-family:'Outfit',sans-serif;font-size:1.7rem;font-weight:800;color:#fff;line-height:1;" data-counter data-target="15" data-suffix="+">0+</div>
+            <div style="font-size:0.72rem;color:rgba(255,255,255,0.45);margin-top:4px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;">Brands</div>
+          </div>
+          <div style="flex:1;padding:18px 20px;text-align:center;">
+            <div style="font-family:'Outfit',sans-serif;font-size:1.7rem;font-weight:800;color:#fff;line-height:1;" data-counter data-target="98" data-suffix="%">0%</div>
+            <div style="font-size:0.72rem;color:rgba(255,255,255,0.45);margin-top:4px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;">Satisfaction</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Appliance Cards Stack -->
+      <div class="animate-on-scroll delay-2" style="position:relative;height:520px;" id="hero2-cards">
+
+        <!-- Large card — Refrigerator -->
+        <div id="hcard-1" style="
+          position:absolute;
+          top:0;left:0;right:60px;
+          background:rgba(255,255,255,0.04);
+          border:1px solid rgba(255,255,255,0.10);
+          border-radius:24px;
+          overflow:hidden;
+          backdrop-filter:blur(16px);
+          animation:heroFloat 6s ease-in-out infinite;
+          box-shadow:0 24px 60px rgba(0,0,0,0.4);
+        ">
+          <div style="position:relative;height:220px;overflow:hidden;">
+            <img src="assets/images/hero-home2.png" alt="Premium appliance showroom" style="width:100%;height:100%;object-fit:cover;opacity:0.85;">
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(5,14,34,0.9) 100%);"></div>
+            <div style="position:absolute;top:16px;left:16px;background:rgba(255,107,43,0.9);color:#fff;font-size:0.68rem;font-weight:800;padding:4px 12px;border-radius:50px;letter-spacing:0.1em;text-transform:uppercase;">Premium Store</div>
+          </div>
+          <div style="padding:20px 22px;">
+            <div style="font-family:'Outfit',sans-serif;font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:6px;">World-Class Appliances</div>
+            <div style="font-size:0.82rem;color:rgba(255,255,255,0.5);margin-bottom:16px;">Curated selection from 15+ global brands</div>
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+              <div style="display:flex;gap:-6px;">
+                <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#1B4FBB,#2460D6);border:2px solid #050E22;display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:800;color:#fff;">S</div>
+                <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#FF6B2B,#FFa040);border:2px solid #050E22;display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:800;color:#fff;margin-left:-6px;">L</div>
+                <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#22C55E,#16A34A);border:2px solid #050E22;display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:800;color:#fff;margin-left:-6px;">B</div>
+              </div>
+              <div style="font-size:0.72rem;color:rgba(255,255,255,0.4);">Samsung · LG · Bosch</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Small card — Service Status -->
+        <div id="hcard-2" style="
+          position:absolute;
+          bottom:90px;right:0;
+          width:190px;
+          background:rgba(27,79,187,0.15);
+          border:1px solid rgba(27,79,187,0.35);
+          border-radius:18px;
+          padding:18px;
+          backdrop-filter:blur(20px);
+          animation:heroFloat 8s ease-in-out infinite 1.5s;
+          box-shadow:0 16px 40px rgba(27,79,187,0.25);
+        ">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+            <div style="width:8px;height:8px;border-radius:50%;background:#22C55E;animation:heroPulse 2s ease-in-out infinite;"></div>
+            <span style="font-size:0.72rem;font-weight:700;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.08em;">Live Status</span>
+          </div>
+          <div style="font-size:0.85rem;font-weight:700;color:#fff;margin-bottom:4px;">Technician En Route</div>
+          <div style="font-size:0.75rem;color:rgba(255,255,255,0.45);">ETA: 12 minutes away</div>
+          <div style="margin-top:12px;background:rgba(27,79,187,0.3);border-radius:6px;height:4px;overflow:hidden;">
+            <div style="width:72%;height:100%;background:linear-gradient(90deg,#1B4FBB,#FF6B2B);border-radius:6px;"></div>
+          </div>
+        </div>
+
+        <!-- Mini card — Rating -->
+        <div id="hcard-3" style="
+          position:absolute;
+          bottom:0;left:20px;
+          background:rgba(255,107,43,0.12);
+          border:1px solid rgba(255,107,43,0.3);
+          border-radius:16px;
+          padding:14px 18px;
+          backdrop-filter:blur(20px);
+          animation:heroFloat 7s ease-in-out infinite 3s;
+          display:flex;align-items:center;gap:12px;
+          box-shadow:0 12px 32px rgba(255,107,43,0.2);
+        ">
+          <div style="width:40px;height:40px;border-radius:12px;background:rgba(255,107,43,0.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <i class="fas fa-star" style="color:#FF6B2B;font-size:1rem;"></i>
+          </div>
+          <div>
+            <div style="font-family:'Outfit',sans-serif;font-size:1.3rem;font-weight:800;color:#fff;line-height:1;">4.9 <span style="font-size:0.75rem;color:rgba(255,255,255,0.5);font-weight:400;">/ 5.0</span></div>
+            <div style="font-size:0.72rem;color:rgba(255,255,255,0.45);">15K+ Reviews</div>
+          </div>
+        </div>
+
+        <!-- Floating badge — Warranty -->
+        <div id="hcard-4" style="
+          position:absolute;
+          top:240px;right:0;
+          background:rgba(34,197,94,0.12);
+          border:1px solid rgba(34,197,94,0.3);
+          border-radius:14px;
+          padding:12px 16px;
+          backdrop-filter:blur(20px);
+          animation:heroFloat 9s ease-in-out infinite 0.8s;
+          display:flex;align-items:center;gap:10px;
+          box-shadow:0 10px 28px rgba(34,197,94,0.15);
+        ">
+          <i class="fas fa-shield-alt" style="color:#22C55E;font-size:1.1rem;"></i>
+          <div>
+            <div style="font-size:0.78rem;font-weight:700;color:#fff;">5-Year Warranty</div>
+            <div style="font-size:0.68rem;color:rgba(255,255,255,0.45);">All products covered</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<style>
+  @keyframes heroFloat {
+    0%,100% { transform: translateY(0px); }
+    50%      { transform: translateY(-12px); }
+  }
+  @keyframes heroPulse {
+    0%,100% { opacity:1; transform:scale(1); }
+    50%      { opacity:0.5; transform:scale(0.8); }
+  }
+  @media (max-width: 1024px) {
+    #hero2-grid { gap: 36px; }
+    #hero2-cards { height: 440px; }
+  }
+  @media (max-width: 768px) {
+    #hero2-grid { grid-template-columns: 1fr !important; }
+    #hero2-cards { height: 320px; margin-top: 20px; }
+    #hcard-1 { right: 0; }
+    #hcard-2 { display: none; }
+  }
+  @media (max-width: 480px) {
+    #hero2-cards { display: none; }
+  }
+</style>
+
+<!-- ─── FEATURED APPLIANCES ─────────────────────────────── -->
+<section class="section" id="featured" style="padding-top:72px;">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <div class="section-label"><i class="fas fa-fire"></i> Featured Products</div>
+      <h2>Handpicked Premium Appliances</h2>
+      <p>Our experts curate the best-in-class models for performance, energy efficiency, and longevity.</p>
+    </div>
+    <div class="featured-scroll animate-on-scroll" id="featured-scroll-list">
+      <div class="featured-item" id="feat-item-1">
+        <img src="assets/images/cat-refrigerator.png" alt="Samsung 3-Door Refrigerator">
+        <div class="featured-item-body">
+          <div class="badge badge-primary" style="margin-bottom:8px;">Best Seller</div>
+          <h4>Samsung 3-Door Refrigerator</h4>
+          <p>600L capacity with inverter compressor and twin cooling plus</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <div style="font-family:var(--font-heading);font-size:1.3rem;font-weight:800;color:var(--primary);">₹85,990</div>
+            <a href="contact.html" class="btn btn-orange btn-sm" id="feat-fridge-btn">Book Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="featured-item" id="feat-item-2">
+        <img src="assets/images/cat-washing-machine.png" alt="LG Front Load Washer">
+        <div class="featured-item-body">
+          <div class="badge badge-primary" style="margin-bottom:8px;">Energy Star</div>
+          <h4>LG 9kg Front-Load Washer</h4>
+          <p>AI DD technology with steam cleaning and ThinQ app control</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <div style="font-family:var(--font-heading);font-size:1.3rem;font-weight:800;color:var(--primary);">₹52,000</div>
+            <a href="contact.html" class="btn btn-orange btn-sm" id="feat-wash-btn">Book Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="featured-item" id="feat-item-3">
+        <img src="assets/images/cat-ac.png" alt="Daikin Inverter Split AC">
+        <div class="featured-item-body">
+          <div class="badge badge-primary" style="margin-bottom:8px;">5-Star Rating</div>
+          <h4>Daikin 1.5T Inverter AC</h4>
+          <p>5-star energy rating with PM 2.5 air filter and eco mode</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <div style="font-family:var(--font-heading);font-size:1.3rem;font-weight:800;color:var(--primary);">₹42,500</div>
+            <a href="contact.html" class="btn btn-orange btn-sm" id="feat-ac-btn">Book Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="featured-item" id="feat-item-4">
+        <img src="assets/images/cat-tv.png" alt="Sony OLED TV">
+        <div class="featured-item-body">
+          <div class="badge badge-primary" style="margin-bottom:8px;">Premium</div>
+          <h4>Sony 65" OLED 4K TV</h4>
+          <p>Cognitive XR processor with perfect black and Acoustic Surface Audio</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <div style="font-family:var(--font-heading);font-size:1.3rem;font-weight:800;color:var(--primary);">₹2,10,000</div>
+            <a href="contact.html" class="btn btn-orange btn-sm" id="feat-tv-btn">Book Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="featured-item" id="feat-item-5">
+        <img src="assets/images/cat-microwave.png" alt="Bosch Convection Microwave">
+        <div class="featured-item-body">
+          <div class="badge badge-primary" style="margin-bottom:8px;">Chef's Choice</div>
+          <h4>Bosch 25L Convection Oven</h4>
+          <p>Grill + microwave + convection with auto cook menus</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <div style="font-family:var(--font-heading);font-size:1.3rem;font-weight:800;color:var(--primary);">₹18,500</div>
+            <a href="contact.html" class="btn btn-orange btn-sm" id="feat-micro-btn">Book Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="featured-item" id="feat-item-6">
+        <img src="assets/images/cat-dishwasher.png" alt="Bosch Dishwasher">
+        <div class="featured-item-body">
+          <div class="badge badge-primary" style="margin-bottom:8px;">Water Saver</div>
+          <h4>Bosch 13-Place Dishwasher</h4>
+          <p>AquaSensor technology with intensive hygiene wash program</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <div style="font-family:var(--font-heading);font-size:1.3rem;font-weight:800;color:var(--primary);">₹65,000</div>
+            <a href="contact.html" class="btn btn-orange btn-sm" id="feat-dish-btn">Book Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WARRANTY SECTION ───────────────────────────────── -->
+<section class="section section-alt" id="warranty">
+  <div class="container">
+    <div class="warranty-grid">
+      <div class="warranty-img animate-on-scroll">
+        <img src="assets/images/warranty-concept.png" alt="Warranty and protection for home appliances">
+      </div>
+      <div class="animate-on-scroll delay-2">
+        <div class="section-label"><i class="fas fa-shield-alt"></i> Warranty Coverage</div>
+        <h2>Comprehensive Appliance Protection Plans</h2>
+        <p style="margin-bottom:24px;">Don't get caught off-guard by unexpected repair bills. Our warranty and AMC plans cover all major appliances for complete peace of mind.</p>
+
+        <!-- Warranty status examples -->
+        <div style="margin-bottom:24px;padding:20px;background:var(--bg-card);border-radius:var(--radius-md);border:1px solid var(--border);">
+          <div style="font-size:0.82rem;font-weight:700;color:var(--text-muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px;">Sample Warranty Status</div>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+              <div style="font-size:0.9rem;font-weight:600;color:var(--text-heading);">Samsung Refrigerator</div>
+              <span class="warranty-badge active"><i class="fas fa-check-circle"></i> Active — 2 Yrs Left</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+              <div style="font-size:0.9rem;font-weight:600;color:var(--text-heading);">LG Washing Machine</div>
+              <span class="warranty-badge expiring"><i class="fas fa-exclamation-circle"></i> Expiring Soon</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+              <div style="font-size:0.9rem;font-weight:600;color:var(--text-heading);">Panasonic AC</div>
+              <span class="warranty-badge expired"><i class="fas fa-times-circle"></i> Expired — Renew Now</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="warranty-list">
+          <div class="warranty-item" id="wrt-1">
+            <div class="warranty-item-icon"><i class="fas fa-tools"></i></div>
+            <div>
+              <div style="font-weight:700;color:var(--text-heading);margin-bottom:4px;">Annual Maintenance Contract (AMC)</div>
+              <div style="font-size:0.85rem;color:var(--text-muted);">Unlimited service calls, priority scheduling, and genuine part replacement.</div>
+            </div>
+          </div>
+          <div class="warranty-item" id="wrt-2">
+            <div class="warranty-item-icon"><i class="fas fa-sync-alt"></i></div>
+            <div>
+              <div style="font-weight:700;color:var(--text-heading);margin-bottom:4px;">Extended Warranty Plans</div>
+              <div style="font-size:0.85rem;color:var(--text-muted);">Extend protection up to 5 additional years beyond manufacturer warranty.</div>
+            </div>
+          </div>
+        </div>
+        <a href="pricing.html" class="btn btn-primary btn-lg" style="margin-top:28px;" id="wrt-pricing-btn">
+          <i class="fas fa-tags"></i> View Warranty Plans
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── BRAND COMPARISON ────────────────────────────────── -->
+<section class="section" id="brand-comparison">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <div class="section-label"><i class="fas fa-balance-scale"></i> Brand Comparison</div>
+      <h2>Side-by-Side Brand Performance</h2>
+      <p>Make an informed buying decision with our transparent brand comparison guide covering refrigerators from top manufacturers.</p>
+    </div>
+    <div class="table-wrap animate-on-scroll">
+      <table class="brand-table" id="brand-compare-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Samsung</th>
+            <th>LG</th>
+            <th>Whirlpool</th>
+            <th>Bosch</th>
+            <th>Godrej</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Inverter Compressor</strong></td>
+            <td><i class="fas fa-check check"></i></td>
+            <td><i class="fas fa-check check"></i></td>
+            <td><i class="fas fa-check check"></i></td>
+            <td><i class="fas fa-check check"></i></td>
+            <td><i class="fas fa-check check"></i></td>
+          </tr>
+          <tr>
+            <td><strong>Smart App Control</strong></td>
+            <td><i class="fas fa-check check"></i></td>
+            <td><i class="fas fa-check check"></i></td>
+            <td><i class="fas fa-times cross"></i></td>
+            <td><i class="fas fa-check check"></i></td>
+            <td><i class="fas fa-times cross"></i></td>
+          </tr>
+          <tr class="highlight">
+            <td><strong>Energy Rating</strong></td>
+            <td>5 Star</td>
+            <td>5 Star</td>
+            <td>4 Star</td>
+            <td>5 Star</td>
+            <td>4 Star</td>
+          </tr>
+          <tr>
+            <td><strong>Manufacturer Warranty</strong></td>
+            <td>1+10 Yrs</td>
+            <td>1+10 Yrs</td>
+            <td>2+5 Yrs</td>
+            <td>2+12 Yrs</td>
+            <td>1+5 Yrs</td>
+          </tr>
+          <tr>
+            <td><strong>Twin Cooling</strong></td>
+            <td><i class="fas fa-check check"></i></td>
+            <td><i class="fas fa-check check"></i></td>
+            <td><i class="fas fa-times cross"></i></td>
+            <td><i class="fas fa-times cross"></i></td>
+            <td><i class="fas fa-times cross"></i></td>
+          </tr>
+          <tr>
+            <td><strong>Water Dispenser</strong></td>
+            <td><i class="fas fa-check check"></i></td>
+            <td><i class="fas fa-check check"></i></td>
+            <td><i class="fas fa-check check"></i></td>
+            <td><i class="fas fa-times cross"></i></td>
+            <td><i class="fas fa-times cross"></i></td>
+          </tr>
+          <tr class="highlight">
+            <td><strong>Price Range</strong></td>
+            <td>₹45K–₹2L</td>
+            <td>₹40K–₹1.8L</td>
+            <td>₹25K–₹1L</td>
+            <td>₹55K–₹2.5L</td>
+            <td>₹15K–₹60K</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="text-align:center;margin-top:20px;font-size:0.85rem;color:var(--text-muted);">
+      <i class="fas fa-info-circle"></i> Prices and features may vary. Contact us for the latest offers and model-specific comparisons.
+    </p>
+  </div>
+</section>
+
+<!-- ─── HOW IT WORKS ─────────────────────────────────────── -->
+<section class="section section-dark" id="how-it-works">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <div class="section-label"><i class="fas fa-list-ol"></i> How It Works</div>
+      <h2>Service in 4 Simple Steps</h2>
+      <p style="color:rgba(255,255,255,0.7);">From booking to repair — our streamlined process ensures your appliance is fixed quickly and correctly.</p>
+    </div>
+    <div class="how-it-works animate-on-scroll">
+      <div class="how-step" id="step-1">
+        <div class="how-num">1</div>
+        <h4 style="color:#fff;margin-bottom:8px;">Book Online</h4>
+        <p style="color:rgba(255,255,255,0.65);font-size:0.88rem;">Fill our quick service form with appliance details and choose your preferred time slot.</p>
+      </div>
+      <div class="how-step" id="step-2">
+        <div class="how-num">2</div>
+        <h4 style="color:#fff;margin-bottom:8px;">Technician Arrives</h4>
+        <p style="color:rgba(255,255,255,0.65);font-size:0.88rem;">Our certified technician arrives at your doorstep within the scheduled time window.</p>
+      </div>
+      <div class="how-step" id="step-3">
+        <div class="how-num">3</div>
+        <h4 style="color:#fff;margin-bottom:8px;">Diagnosis & Repair</h4>
+        <p style="color:rgba(255,255,255,0.65);font-size:0.88rem;">Professional diagnosis with a transparent quote before any work begins. No hidden charges.</p>
+      </div>
+      <div class="how-step" id="step-4">
+        <div class="how-num">4</div>
+        <h4 style="color:#fff;margin-bottom:8px;">Quality Assured</h4>
+        <p style="color:rgba(255,255,255,0.65);font-size:0.88rem;">90-day service warranty on all repairs. We follow up to ensure your satisfaction.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── REPAIR STATS ─────────────────────────────────────── -->
+<section class="section" id="repair-stats">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <div class="section-label"><i class="fas fa-chart-bar"></i> Our Track Record</div>
+      <h2>Numbers That Speak for Themselves</h2>
+      <p>Over two decades of appliance expertise, consistently delivering results our customers can rely on.</p>
+    </div>
+    <div class="grid-4 animate-on-scroll">
+      <div class="stat-card" id="stat-1">
+        <div class="stat-number" data-counter data-target="15000" data-suffix="+">0+</div>
+        <div class="stat-label">Appliances Repaired</div>
+      </div>
+      <div class="stat-card" id="stat-2">
+        <div class="stat-number" data-counter data-target="98" data-suffix="%">0%</div>
+        <div class="stat-label">First-Visit Fix Rate</div>
+      </div>
+      <div class="stat-card" id="stat-3">
+        <div class="stat-number" data-counter data-target="4" data-suffix="h">0h</div>
+        <div class="stat-label">Avg. Response Time</div>
+      </div>
+      <div class="stat-card" id="stat-4">
+        <div class="stat-number" data-counter data-target="500" data-suffix="+">0+</div>
+        <div class="stat-label">Brands Serviced</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── NEWSLETTER CTA ────────────────────────────────────── -->
+<section class="section" style="background:linear-gradient(135deg,var(--primary),var(--primary-dark));padding:72px 0;">
+  <div class="container">
+    <div style="max-width:560px;margin:0 auto;text-align:center;" class="animate-on-scroll">
+      <div class="section-label" style="justify-content:center;">
+        <i class="fas fa-envelope"></i> Newsletter
+      </div>
+      <h2 style="color:#fff;margin-bottom:14px;">Exclusive Deals Delivered to You</h2>
+      <p style="color:rgba(255,255,255,0.75);margin-bottom:28px;">Subscribe for premium offers, early access to sales, and expert appliance care tips. No spam, ever.</p>
+      <form id="home2-newsletter" onsubmit="event.preventDefault();this.innerHTML='<p style=\'color:var(--success);font-size:1rem;font-weight:600;\'>✓ You\'re subscribed! Check your inbox for a welcome gift.</p>';" style="display:flex;gap:12px;max-width:440px;margin:0 auto;flex-wrap:wrap;">
+        <input type="email" required placeholder="Enter your email address" class="form-input" style="flex:1;min-width:200px;background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.25);color:#fff;" id="home2-email-input">
+        <button type="submit" class="btn btn-orange btn-shine" id="home2-subscribe-btn">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="components.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
