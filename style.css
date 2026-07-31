@@ -1653,6 +1653,10 @@ input[type="time"]::-webkit-calendar-picker-indicator:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
   padding: 20px 24px;
   font-size: 0.95rem;
   font-weight: 600;
