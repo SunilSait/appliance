@@ -180,28 +180,18 @@
 <div id="navbar-placeholder"></div>
 
 <!-- ─── UNIQUE PREMIUM HERO ──────────────────────────────── -->
-<section id="hero-premium" style="
-  min-height:100vh;
-  padding-top:calc(var(--nav-height) + 32px);
-  padding-bottom:50px;
-  position:relative;
-  overflow:hidden;
-  background:linear-gradient(135deg,#050E22 0%,#0C1A3A 40%,#0F2050 70%,#080F1E 100%);
-  display:flex;
-  align-items:center;
-  box-sizing:border-box;
-">
+<section id="hero-premium">
 
   <!-- Animated grid background -->
   <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(27,79,187,0.08) 1px,transparent 1px),linear-gradient(90deg,rgba(27,79,187,0.08) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;" aria-hidden="true"></div>
 
   <!-- Glowing orbs -->
-  <div style="position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(27,79,187,0.22) 0%,transparent 65%);top:-200px;left:-200px;pointer-events:none;" aria-hidden="true"></div>
-  <div style="position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(255,107,43,0.15) 0%,transparent 65%);bottom:-100px;right:10%;pointer-events:none;" aria-hidden="true"></div>
-  <div style="position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(36,96,214,0.18) 0%,transparent 65%);top:30%;right:30%;pointer-events:none;" aria-hidden="true"></div>
+  <div style="position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(27,79,187,0.18) 0%,transparent 65%);top:-200px;left:-200px;pointer-events:none;" aria-hidden="true"></div>
+  <div style="position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(255,107,43,0.12) 0%,transparent 65%);bottom:-100px;right:10%;pointer-events:none;" aria-hidden="true"></div>
+  <div style="position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(36,96,214,0.14) 0%,transparent 65%);top:30%;right:30%;pointer-events:none;" aria-hidden="true"></div>
 
   <!-- Diagonal accent stripe -->
-  <div style="position:absolute;top:0;right:0;width:55%;height:100%;background:linear-gradient(135deg,transparent 0%,rgba(27,79,187,0.06) 50%,rgba(27,79,187,0.12) 100%);clip-path:polygon(18% 0,100% 0,100% 100%,0% 100%);pointer-events:none;" aria-hidden="true"></div>
+  <div style="position:absolute;top:0;right:0;width:55%;height:100%;background:linear-gradient(135deg,transparent 0%,rgba(27,79,187,0.04) 50%,rgba(27,79,187,0.08) 100%);clip-path:polygon(18% 0,100% 0,100% 100%,0% 100%);pointer-events:none;" aria-hidden="true"></div>
 
   <div class="container" style="position:relative;z-index:2;">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;" id="hero2-grid">
@@ -216,7 +206,7 @@
         </div>
 
         <!-- Headline -->
-        <h1 style="color:#fff;font-size:clamp(2.2rem,4.5vw,4rem);line-height:1.08;margin-bottom:22px;font-family:'Outfit',sans-serif;font-weight:900;">
+        <h1 style="color:var(--text-heading);font-size:clamp(2.2rem,4.5vw,4rem);line-height:1.08;margin-bottom:22px;font-family:'Outfit',sans-serif;font-weight:600;">
           The Smarter Way<br>
           to <span style="position:relative;display:inline-block;">
             <span style="position:relative;z-index:1;background:linear-gradient(90deg,#FF6B2B,#FFa040);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">Upgrade</span>
@@ -225,34 +215,18 @@
           Your Home
         </h1>
 
-        <p style="color:rgba(255,255,255,0.65);font-size:1.05rem;line-height:1.8;margin-bottom:36px;max-width:480px;">
+        <p style="color:var(--text-body);font-size:1.05rem;line-height:1.8;margin-bottom:36px;max-width:480px;font-weight:500;">
           Curated premium appliances, intelligent warranty tracking, and priority doorstep service — designed for the modern household that demands nothing but the best.
         </p>
 
         <!-- CTA Buttons -->
-        <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px;" class="hero2-btn-group">
+        <div style="display:flex;gap:14px;flex-wrap:wrap;" class="hero2-btn-group">
           <a href="contact.html#booking" class="btn btn-orange btn-lg btn-shine" id="hero2-book-btn" style="box-shadow:0 8px 32px rgba(255,107,43,0.35);">
             <i class="fas fa-bolt"></i> Book Priority Service
           </a>
-          <a href="index.html" class="btn btn-outline-white btn-lg" id="hero2-home-btn">
+          <a href="index.html" class="btn btn-secondary btn-lg" id="hero2-home-btn">
             <i class="fas fa-th-large"></i> Browse Appliances
           </a>
-        </div>
-
-        <!-- Stats row -->
-        <div style="display:flex;gap:0;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;backdrop-filter:blur(8px);" class="hero2-stats-row">
-          <div style="flex:1;padding:18px 20px;text-align:center;border-right:1px solid rgba(255,255,255,0.07);">
-            <div style="font-family:'Outfit',sans-serif;font-size:1.7rem;font-weight:800;color:#fff;line-height:1;" data-counter data-target="15000" data-suffix="+">0+</div>
-            <div style="font-size:0.72rem;color:rgba(255,255,255,0.45);margin-top:4px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;">Customers</div>
-          </div>
-          <div style="flex:1;padding:18px 20px;text-align:center;border-right:1px solid rgba(255,255,255,0.07);">
-            <div style="font-family:'Outfit',sans-serif;font-size:1.7rem;font-weight:800;color:#fff;line-height:1;" data-counter data-target="15" data-suffix="+">0+</div>
-            <div style="font-size:0.72rem;color:rgba(255,255,255,0.45);margin-top:4px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;">Brands</div>
-          </div>
-          <div style="flex:1;padding:18px 20px;text-align:center;">
-            <div style="font-family:'Outfit',sans-serif;font-size:1.7rem;font-weight:800;color:#fff;line-height:1;" data-counter data-target="98" data-suffix="%">0%</div>
-            <div style="font-size:0.72rem;color:rgba(255,255,255,0.45);margin-top:4px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;">Satisfaction</div>
-          </div>
         </div>
       </div>
 
@@ -261,25 +235,25 @@
 
         <!-- Large card — Refrigerator -->
         <div id="hcard-1" style="
-          background:rgba(255,255,255,0.04);
-          border:1px solid rgba(255,255,255,0.10);
+          background:var(--bg-card);
+          border:1px solid var(--border);
           border-radius:24px;
           overflow:hidden;
           backdrop-filter:blur(16px);
           animation:heroFloat 6s ease-in-out infinite;
-          box-shadow:0 24px 60px rgba(0,0,0,0.4);
+          box-shadow:var(--shadow-xl);
           width:100%;
         ">
           <div style="position:relative;height:210px;overflow:hidden;">
-            <img src="assets/images/hero-home2.png" alt="Premium appliance showroom" style="width:100%;height:100%;object-fit:cover;opacity:0.85;">
-            <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(5,14,34,0.9) 100%);"></div>
+            <img src="assets/images/hero-home2.png" alt="Premium appliance showroom" style="width:100%;height:100%;object-fit:cover;">
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(5,14,34,0.4) 100%);"></div>
             <div style="position:absolute;top:16px;left:16px;background:rgba(255,107,43,0.9);color:#fff;font-size:0.68rem;font-weight:800;padding:4px 12px;border-radius:50px;letter-spacing:0.1em;text-transform:uppercase;">Premium Store</div>
           </div>
           <div style="padding:18px 22px;">
-            <div style="font-family:'Outfit',sans-serif;font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:4px;">World-Class Appliances</div>
-            <div style="font-size:0.82rem;color:rgba(255,255,255,0.5);margin-bottom:14px;">Curated selection from 15+ global brands</div>
+            <div style="font-family:'Outfit',sans-serif;font-size:1.05rem;font-weight:700;color:var(--text-heading);margin-bottom:4px;">World-Class Appliances</div>
+            <div style="font-size:0.82rem;color:var(--text-muted);margin-bottom:14px;">Curated selection from 15+ global brands</div>
             <div style="display:flex;align-items:center;justify-content:flex-end;">
-              <div style="font-size:0.75rem;color:rgba(255,255,255,0.5);font-weight:500;">Samsung · LG · Bosch</div>
+              <div style="font-size:0.75rem;color:var(--text-muted);font-weight:500;">Samsung · LG · Bosch</div>
             </div>
           </div>
         </div>
@@ -289,60 +263,60 @@
 
           <!-- Mini card — Rating -->
           <div id="hcard-3" style="
-            background:rgba(255,107,43,0.12);
-            border:1px solid rgba(255,107,43,0.3);
+            background:rgba(255,107,43,0.1);
+            border:1px solid rgba(255,107,43,0.25);
             border-radius:16px;
             padding:12px 14px;
             backdrop-filter:blur(20px);
             animation:heroFloat 7s ease-in-out infinite 1s;
             display:flex;align-items:center;gap:10px;
-            box-shadow:0 12px 32px rgba(255,107,43,0.15);
+            box-shadow:0 12px 32px rgba(255,107,43,0.1);
           ">
             <div style="width:34px;height:34px;border-radius:10px;background:rgba(255,107,43,0.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
               <i class="fas fa-star" style="color:#FF6B2B;font-size:0.85rem;"></i>
             </div>
             <div>
-              <div style="font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:800;color:#fff;line-height:1;">4.9 <span style="font-size:0.7rem;color:rgba(255,255,255,0.5);font-weight:400;">/ 5</span></div>
-              <div style="font-size:0.68rem;color:rgba(255,255,255,0.45);white-space:nowrap;">15K+ Reviews</div>
+              <div style="font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:800;color:var(--text-heading);line-height:1;">4.9 <span style="font-size:0.7rem;color:var(--text-muted);font-weight:400;">/ 5</span></div>
+              <div style="font-size:0.68rem;color:var(--text-muted);white-space:nowrap;">15K+ Reviews</div>
             </div>
           </div>
 
           <!-- Floating badge — Warranty -->
           <div id="hcard-4" style="
-            background:rgba(34,197,94,0.12);
-            border:1px solid rgba(34,197,94,0.3);
+            background:rgba(34,197,94,0.1);
+            border:1px solid rgba(34,197,94,0.25);
             border-radius:16px;
             padding:12px 14px;
             backdrop-filter:blur(20px);
             animation:heroFloat 9s ease-in-out infinite 0.5s;
             display:flex;align-items:center;gap:10px;
-            box-shadow:0 10px 28px rgba(34,197,94,0.15);
+            box-shadow:0 10px 28px rgba(34,197,94,0.1);
           ">
             <div style="width:34px;height:34px;border-radius:10px;background:rgba(34,197,94,0.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
               <i class="fas fa-shield-alt" style="color:#22C55E;font-size:0.85rem;"></i>
             </div>
             <div>
-              <div style="font-size:0.78rem;font-weight:700;color:#fff;white-space:nowrap;">5-Yr Warranty</div>
-              <div style="font-size:0.68rem;color:rgba(255,255,255,0.45);white-space:nowrap;">Full Coverage</div>
+              <div style="font-size:0.78rem;font-weight:700;color:var(--text-heading);white-space:nowrap;">5-Yr Warranty</div>
+              <div style="font-size:0.68rem;color:var(--text-muted);white-space:nowrap;">Full Coverage</div>
             </div>
           </div>
 
           <!-- Small card — Service Status -->
           <div id="hcard-2" style="
-            background:rgba(27,79,187,0.15);
-            border:1px solid rgba(27,79,187,0.35);
+            background:rgba(27,79,187,0.1);
+            border:1px solid rgba(27,79,187,0.25);
             border-radius:16px;
             padding:12px 14px;
             backdrop-filter:blur(20px);
             animation:heroFloat 8s ease-in-out infinite 1.5s;
-            box-shadow:0 16px 40px rgba(27,79,187,0.2);
+            box-shadow:0 16px 40px rgba(27,79,187,0.1);
           ">
             <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;">
               <div style="width:6px;height:6px;border-radius:50%;background:#22C55E;animation:heroPulse 2s ease-in-out infinite;"></div>
-              <span style="font-size:0.65rem;font-weight:700;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.06em;">En Route</span>
+              <span style="font-size:0.65rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;">En Route</span>
             </div>
-            <div style="font-size:0.78rem;font-weight:700;color:#fff;white-space:nowrap;">Technician</div>
-            <div style="font-size:0.68rem;color:rgba(255,255,255,0.45);white-space:nowrap;">ETA: 12 min away</div>
+            <div style="font-size:0.78rem;font-weight:700;color:var(--text-heading);white-space:nowrap;">Technician</div>
+            <div style="font-size:0.68rem;color:var(--text-muted);white-space:nowrap;">ETA: 12 min away</div>
           </div>
 
         </div>
@@ -351,6 +325,26 @@
     </div>
   </div>
 
+</section>
+
+<!-- ─── STATS SECTION (HOME 2) ───────────────────────────── -->
+<section id="home2-stats-bar" style="padding: 44px 0; background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); position: relative; z-index: 5;">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;" id="home2-stats-grid">
+      <div style="padding: 16px 20px;" class="animate-on-scroll">
+        <div style="font-family: var(--font-heading); font-size: clamp(2.1rem, 3.5vw, 2.7rem); font-weight: 800; color: var(--primary); line-height: 1.1;" data-counter data-target="15000" data-suffix="+">0+</div>
+        <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;">Satisfied Customers</div>
+      </div>
+      <div style="padding: 16px 20px; border-left: 1px solid var(--border); border-right: 1px solid var(--border);" class="animate-on-scroll delay-1" id="home2-stat-mid">
+        <div style="font-family: var(--font-heading); font-size: clamp(2.1rem, 3.5vw, 2.7rem); font-weight: 800; color: var(--secondary); line-height: 1.1;" data-counter data-target="15" data-suffix="+">0+</div>
+        <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;">Authorized Global Brands</div>
+      </div>
+      <div style="padding: 16px 20px;" class="animate-on-scroll delay-2">
+        <div style="font-family: var(--font-heading); font-size: clamp(2.1rem, 3.5vw, 2.7rem); font-weight: 800; color: #22C55E; line-height: 1.1;" data-counter data-target="98" data-suffix="%">0%</div>
+        <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;">Customer Satisfaction Rate</div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <style>
@@ -369,6 +363,8 @@
     #hero2-grid { grid-template-columns: 1fr !important; }
     #hero2-cards { max-width: 100% !important; margin-top: 20px; }
     #hcards-row { grid-template-columns: 1fr 1fr; }
+    #home2-stats-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+    #home2-stat-mid { border-left: none !important; border-right: none !important; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 24px 20px !important; }
   }
   @media (max-width: 480px) {
     #hcards-row { grid-template-columns: 1fr; }
@@ -376,22 +372,22 @@
 </style>
 
 <!-- ─── ABOUT OUR COMPANY (HOME 2) ───────────────────────── -->
-<section id="home2-about-company" style="padding: 80px 0; background: linear-gradient(180deg, #080F1E 0%, #0C1A3A 100%); position: relative; border-bottom: 1px solid rgba(255,255,255,0.08);">
+<section id="home2-about-company">
   <div class="container" style="position: relative; z-index: 2;">
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;" id="home2-about-grid">
       <!-- Left: Visual Content Card -->
       <div class="animate-on-scroll" style="position: relative;">
         <div style="
-          background: rgba(255,255,255,0.04);
-          border: 1px solid rgba(255,255,255,0.12);
+          background: var(--bg-card);
+          border: 1px solid var(--border);
           border-radius: 24px;
           padding: 20px;
           backdrop-filter: blur(16px);
-          box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+          box-shadow: var(--shadow-lg);
         ">
           <div style="position: relative; height: 330px; border-radius: 16px; overflow: hidden;">
-            <img src="assets/images/team-photo.png" alt="ApplianceHub Dedicated Team" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.9);">
-            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(5,14,34,0.88) 100%);"></div>
+            <img src="assets/images/team-photo.png" alt="ApplianceHub Dedicated Team" style="width: 100%; height: 100%; object-fit: cover;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(5,14,34,0.7) 100%);"></div>
             <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; display: flex; align-items: center; justify-content: space-between;">
               <div>
                 <div style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--secondary);">Our Operations Hub</div>
@@ -407,35 +403,33 @@
 
       <!-- Right: Company Intro Text -->
       <div class="animate-on-scroll">
-        <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(27,79,187,0.15); border: 1px solid rgba(27,79,187,0.4); border-radius: 50px; padding: 6px 16px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #60A5FA; margin-bottom: 20px;">
-          <i class="fas fa-building"></i> About Our Company
-        </div>
-        <h2 style="font-family: 'Outfit', sans-serif; font-size: clamp(1.8rem, 3.2vw, 2.4rem); font-weight: 800; color: #fff; line-height: 1.2; margin-bottom: 20px;">
+        <div class="section-label" style="margin-bottom: 20px;"><i class="fas fa-building"></i> About Our Company</div>
+        <h2 style="font-family: 'Outfit', sans-serif; font-size: clamp(1.8rem, 3.2vw, 2.4rem); font-weight: 800; color: var(--text-heading); line-height: 1.2; margin-bottom: 20px;">
           Redefining Appliance Experience & Service Care Since 2008
         </h2>
-        <p style="color: rgba(255,255,255,0.7); font-size: 0.98rem; line-height: 1.75; margin-bottom: 26px;">
+        <p style="color: var(--text-body); font-size: 0.98rem; line-height: 1.75; margin-bottom: 26px;">
           At <strong>ApplianceHub</strong>, we bridge the gap between premium home appliances and dependable lifetime maintenance. Built on trust, efficiency, and customer satisfaction, we deliver factory-direct products and rapid, certified doorstep services tailored for modern homes.
         </p>
 
         <!-- Feature Pills -->
         <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 30px;" id="home2-about-features">
-          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 14px 16px; border-radius: 16px; display: flex; align-items: center; gap: 12px;">
+          <div style="background: var(--bg-card); border: 1px solid var(--border); padding: 14px 16px; border-radius: 16px; display: flex; align-items: center; gap: 12px;">
             <div style="width: 40px; height: 40px; border-radius: 12px; background: rgba(255,107,43,0.15); color: var(--secondary); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
               <i class="fas fa-store" style="font-size: 1rem;"></i>
             </div>
             <div>
-              <div style="color: #fff; font-weight: 700; font-size: 0.88rem;">Multi-Brand Showrooms</div>
-              <div style="color: rgba(255,255,255,0.5); font-size: 0.75rem;">Authorized Retail Hubs</div>
+              <div style="color: var(--text-heading); font-weight: 700; font-size: 0.88rem;">Multi-Brand Showrooms</div>
+              <div style="color: var(--text-muted); font-size: 0.75rem;">Authorized Retail Hubs</div>
             </div>
           </div>
 
-          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 14px 16px; border-radius: 16px; display: flex; align-items: center; gap: 12px;">
+          <div style="background: var(--bg-card); border: 1px solid var(--border); padding: 14px 16px; border-radius: 16px; display: flex; align-items: center; gap: 12px;">
             <div style="width: 40px; height: 40px; border-radius: 12px; background: rgba(34,197,94,0.15); color: #22C55E; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
               <i class="fas fa-clock" style="font-size: 1rem;"></i>
             </div>
             <div>
-              <div style="color: #fff; font-weight: 700; font-size: 0.88rem;">Same-Day Doorstep</div>
-              <div style="color: rgba(255,255,255,0.5); font-size: 0.75rem;">Rapid 2-Hour Response</div>
+              <div style="color: var(--text-heading); font-weight: 700; font-size: 0.88rem;">Same-Day Doorstep</div>
+              <div style="color: var(--text-muted); font-size: 0.75rem;">Rapid 2-Hour Response</div>
             </div>
           </div>
         </div>

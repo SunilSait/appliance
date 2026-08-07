@@ -95,10 +95,10 @@
       ${mobileLinks}
       <div class="nav-mobile-actions">
         <div style="display:flex;gap:8px;margin-bottom:12px;">
-          <button class="icon-btn dark-toggle" style="flex:1;height:42px;border-radius:var(--radius-sm);font-size:0.82rem;font-weight:600;display:flex;gap:8px;" aria-label="Toggle dark mode">
+          <button class="icon-btn dark-toggle" style="flex:1;height:42px;border-radius:var(--btn-radius);font-size:0.82rem;font-weight:600;display:flex;gap:8px;" aria-label="Toggle dark mode">
             <i class="fas fa-moon"></i> Theme
           </button>
-          <button class="icon-btn rtl-toggle" style="flex:1;height:42px;border-radius:var(--radius-sm);font-size:0.82rem;font-weight:600;display:flex;gap:8px;" aria-label="Toggle RTL direction">
+          <button class="icon-btn rtl-toggle" style="flex:1;height:42px;border-radius:var(--btn-radius);font-size:0.82rem;font-weight:600;display:flex;gap:8px;" aria-label="Toggle RTL direction">
             <i class="fas fa-exchange-alt"></i> RTL
           </button>
         </div>

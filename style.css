@@ -54,7 +54,11 @@
   --transition-fast:all 0.18s ease;
 
   --container-max:  1240px;
-  --nav-height:     72px;
+  --container-padding: 24px;
+  --btn-radius:     var(--radius-md);
+  --brand-logo-size: 22px;
+  --brand-logo-weight: 600;
+  --nav-height:     60px;
 
   --logo-primary:   var(--primary);
   --logo-secondary: var(--secondary);
@@ -117,22 +121,29 @@ input, textarea, select { font-family: inherit; }
 .container {
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--container-padding);
 }
-@media (max-width: 768px) { .container { padding: 0 16px; } }
+@media (max-width: 768px) {
+  :root {
+    --container-padding: 16px;
+  }
+  .container { padding: 0 var(--container-padding); }
+}
 
 /* ---------- Typography ---------- */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   color: var(--text-heading);
-  line-height: 1.25;
-  letter-spacing: 0.01em;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
 }
-h1 { font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 800; margin-bottom: 18px; }
-h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; margin-bottom: 16px; }
-h3 { font-size: clamp(1.3rem, 2.5vw, 1.7rem); font-weight: 700; margin-bottom: 14px; }
-h4 { font-size: 1.15rem; font-weight: 600; margin-bottom: 10px; }
-p  { font-size: 1rem; color: var(--text-body); }
+h1 { font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 600; margin-bottom: 18px; line-height: 1.15; }
+h2 { font-size: clamp(1.8rem, 3.2vw, 2.6rem); font-weight: 600; margin-bottom: 16px; line-height: 1.2; }
+h3 { font-size: clamp(1.3rem, 2.2vw, 1.65rem); font-weight: 600; margin-bottom: 14px; line-height: 1.25; }
+h4 { font-size: 1.15rem; font-weight: 600; margin-bottom: 10px; line-height: 1.3; }
+h5 { font-size: 1.02rem; font-weight: 550; margin-bottom: 8px; line-height: 1.35; }
+h6 { font-size: 0.92rem; font-weight: 500; margin-bottom: 6px; line-height: 1.4; }
+p  { font-size: 1rem; color: var(--text-body); line-height: 1.7; font-weight: 400; }
 
 /* ---------- Section Layout ---------- */
 .section { padding: 90px 0; }
@@ -146,7 +157,7 @@ p  { font-size: 1rem; color: var(--text-body); }
 
 .section-header { text-align: center; margin-bottom: 56px; }
 .section-header h2 { margin-bottom: 16px; }
-.section-header p { max-width: 600px; margin: 0 auto; font-size: 1.05rem; color: var(--text-body); }
+.section-header p { max-width: 600px; margin: 0 auto; font-size: 1.05rem; font-weight: 500; color: var(--text-body); }
 .section-dark .section-header h2 { color: #fff; }
 .section-dark .section-header p { color: rgba(255,255,255,0.7); }
 
@@ -197,7 +208,7 @@ p  { font-size: 1rem; color: var(--text-body); }
   justify-content: center;
   gap: 8px;
   padding: 13px 28px;
-  border-radius: var(--radius-sm);
+  border-radius: var(--btn-radius);
   font-family: var(--font-body);
   font-size: 0.92rem;
   font-weight: 600;
@@ -316,7 +327,7 @@ a.btn-orange * {
 /* ---------- Icon Button ---------- */
 .icon-btn {
   width: 40px; height: 40px;
-  border-radius: var(--radius-sm);
+  border-radius: var(--btn-radius);
   display: flex; align-items: center; justify-content: center;
   font-size: 1rem;
   color: var(--text-heading);
@@ -373,8 +384,8 @@ a.btn-orange * {
 }
 .nav-logo-text {
   font-family: var(--font-heading);
-  font-size: 1.35rem;
-  font-weight: 800;
+  font-size: var(--brand-logo-size);
+  font-weight: var(--brand-logo-weight);
   color: var(--text-heading);
   letter-spacing: 0.01em;
 }
@@ -533,8 +544,8 @@ a.btn-orange * {
 }
 .footer-brand-name {
   font-family: var(--font-heading);
-  font-size: 1.4rem;
-  font-weight: 800;
+  font-size: var(--brand-logo-size);
+  font-weight: var(--brand-logo-weight);
   color: #fff;
 }
 .footer-brand-name span { color: var(--secondary); }
@@ -867,6 +878,84 @@ a.btn-orange * {
 }
 
 /* ============================================================
+   HOW IT WORKS PROCESS STEP TIMELINE
+   ============================================================ */
+.how-it-works {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  position: relative;
+  margin-top: 20px;
+}
+
+/* Horizontal track line drawn as a single background bar */
+.how-it-works::before {
+  content: '';
+  position: absolute;
+  top: 60px; /* center of .how-num (60px circle) */
+  left: calc(12.5%);   /* center of 1st column */
+  right: calc(12.5%); /* center of 4th column */
+  height: 3px;
+  background: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  z-index: 0;
+}
+
+.section-alt .how-it-works::before,
+.section-light .how-it-works::before,
+[data-theme="light"] .section-alt .how-it-works::before {
+  background: linear-gradient(90deg, var(--secondary) 0%, rgba(27, 79, 187, 0.5) 100%);
+  box-shadow: none;
+}
+
+.how-step {
+  position: relative;
+  text-align: center;
+  z-index: 1;
+}
+
+/* Remove old per-step pseudo-element lines */
+.how-step:not(:last-child)::after {
+  content: none;
+}
+
+.how-num {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--secondary) 0%, #FF8F50 100%);
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  box-shadow: 0 8px 24px rgba(255, 107, 43, 0.4);
+  position: relative;
+  z-index: 2; /* sits above the track line */
+}
+
+@media (max-width: 900px) {
+  .how-it-works {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px 24px;
+  }
+  .how-it-works::before {
+    display: none;
+  }
+}
+@media (max-width: 580px) {
+  .how-it-works {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+
+/* ============================================================
    FORMS
    ============================================================ */
 .form-group { margin-bottom: 20px; }
@@ -1079,7 +1168,7 @@ input[type="time"]::-webkit-calendar-picker-indicator:hover {
   align-items: center;
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 80px 24px 60px;
+  padding: 80px var(--container-padding) 60px;
   width: 100%;
 }
 
@@ -1113,16 +1202,22 @@ input[type="time"]::-webkit-calendar-picker-indicator:hover {
 /* Headline */
 .hero-cin-h1 {
   font-family: var(--font-heading);
-  font-size: clamp(2.6rem, 4.5vw, 4.2rem);
-  font-weight: 900;
-  line-height: 1.08;
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-weight: 600;
+  line-height: 1.15;
   color: var(--text-heading);
   margin: 0 0 28px;
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
-.hero-cin-line { display: block; }
+.hero-cin-line {
+  display: block;
+  font-weight: 600;
+  font-size: 1em;
+  color: var(--text-heading);
+  -webkit-text-fill-color: var(--text-heading);
+}
 .hero-cin-accent {
   background: linear-gradient(120deg, var(--primary) 0%, var(--secondary) 100%);
   -webkit-background-clip: text;
@@ -1130,10 +1225,10 @@ input[type="time"]::-webkit-calendar-picker-indicator:hover {
   background-clip: text;
 }
 .hero-cin-line-sub {
-  font-size: 0.55em;
-  font-weight: 500;
-  color: var(--text-body);
-  -webkit-text-fill-color: var(--text-body);
+  font-size: 1em;
+  font-weight: 600;
+  color: var(--text-heading);
+  -webkit-text-fill-color: var(--text-heading);
   background: none;
   letter-spacing: 0.01em;
 }
@@ -1158,11 +1253,12 @@ input[type="time"]::-webkit-calendar-picker-indicator:hover {
 .hero-cin-ghost-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 9px;
-  padding: 14px 28px;
+  padding: 16px 36px;
   border: 2px solid var(--border);
-  border-radius: var(--radius-pill);
-  font-size: 0.92rem;
+  border-radius: var(--btn-radius);
+  font-size: 1rem;
   font-weight: 600;
   color: var(--text-heading);
   text-decoration: none;
@@ -1341,7 +1437,37 @@ input[type="time"]::-webkit-calendar-picker-indicator:hover {
   display: flex; align-items: center; justify-content: center;
   font-size: 0.85rem;
   color: var(--text-muted);
-  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+/* ============================================================
+   HOME 2 HERO & ABOUT SECTION THEME STYLING
+   ============================================================ */
+#hero-premium {
+  min-height: 100vh;
+  padding-top: calc(var(--nav-height) + 32px);
+  padding-bottom: 50px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #EEF4FD 0%, #E3EDFC 45%, #EEF4FD 100%);
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  transition: background 0.35s ease, color 0.35s ease;
+}
+[data-theme="dark"] #hero-premium {
+  background: linear-gradient(135deg, #050E22 0%, #0C1A3A 40%, #0F2050 70%, #080F1E 100%);
+}
+
+#home2-about-company {
+  padding: 80px 0;
+  background: var(--bg-alt);
+  position: relative;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.35s ease;
+}
+[data-theme="dark"] #home2-about-company {
+  background: linear-gradient(180deg, #080F1E 0%, #0C1A3A 100%);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 /* ── RESPONSIVE ───────────────────────────────────────────── */
@@ -1354,7 +1480,7 @@ input[type="time"]::-webkit-calendar-picker-indicator:hover {
   .hero-cin-inner {
     grid-template-columns: 1fr;
     gap: 48px;
-    padding: 48px 20px 40px;
+    padding: 48px var(--container-padding) 40px;
     text-align: center;
   }
   .hero-cin-content {
@@ -1525,7 +1651,7 @@ input[type="time"]::-webkit-calendar-picker-indicator:hover {
   position: relative;
   z-index: 1;
   max-width: 760px;
-  padding: 0 24px;
+  padding: 0 var(--container-padding);
 }
 .hero-dark h1 { color: #fff; margin-bottom: 20px; }
 .hero-dark .hero-desc { color: rgba(255,255,255,0.75); }
@@ -1690,7 +1816,7 @@ input[type="time"]::-webkit-calendar-picker-indicator:hover {
   align-items: center;
   justify-content: center;
   background: var(--bg-auth);
-  padding: 80px 16px 40px 16px;
+  padding: 80px var(--container-padding) 40px;
   position: relative;
   overflow-y: auto;
   transition: background 0.35s ease;
@@ -1738,8 +1864,8 @@ input[type="time"]::-webkit-calendar-picker-indicator:hover {
 }
 .auth-logo-text {
   font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 800;
+  font-size: var(--brand-logo-size);
+  font-weight: var(--brand-logo-weight);
   color: var(--text-heading);
 }
 .auth-logo-text span { color: var(--secondary); }
@@ -1787,7 +1913,7 @@ input[type="time"]::-webkit-calendar-picker-indicator:hover {
   gap: 10px;
   width: 100%;
   padding: 12px 20px;
-  border-radius: var(--radius-sm);
+  border-radius: var(--btn-radius);
   font-size: 0.9rem;
   font-weight: 500;
   color: var(--text-heading);
@@ -1967,10 +2093,18 @@ input[type="time"]::-webkit-calendar-picker-indicator:hover {
 .brand-table th {
   padding: 16px 20px;
   text-align: left;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--text-heading);
   background: var(--bg-alt);
   border-bottom: 2px solid var(--border);
+}
+.brand-table th:first-child,
+.brand-table td:first-child {
+  text-align: left;
+}
+.brand-table th:nth-child(n+2),
+.brand-table td:nth-child(n+2) {
+  text-align: center;
 }
 .brand-table th:first-child { border-radius: var(--radius-sm) 0 0 0; }
 .brand-table th:last-child { border-radius: 0 var(--radius-sm) 0 0; }
@@ -2625,5 +2759,36 @@ html[dir="rtl"] .auth-top-icons {
   right: auto !important;
   left: 12px !important;
   top: 10px !important;
+}
+
+/* Brand & compare table alignment in RTL */
+html[dir="rtl"] .brand-table th:first-child,
+html[dir="rtl"] .brand-table td:first-child,
+html[dir="rtl"] .compare-table th:first-child,
+html[dir="rtl"] .compare-table td:first-child,
+body.rtl .brand-table th:first-child,
+body.rtl .brand-table td:first-child,
+body.rtl .compare-table th:first-child,
+body.rtl .compare-table td:first-child,
+[dir="rtl"] .brand-table th:first-child,
+[dir="rtl"] .brand-table td:first-child,
+[dir="rtl"] .compare-table th:first-child,
+[dir="rtl"] .compare-table td:first-child {
+  text-align: right !important;
+}
+
+html[dir="rtl"] .brand-table th:nth-child(n+2),
+html[dir="rtl"] .brand-table td:nth-child(n+2),
+html[dir="rtl"] .compare-table th:nth-child(n+2),
+html[dir="rtl"] .compare-table td:nth-child(n+2),
+body.rtl .brand-table th:nth-child(n+2),
+body.rtl .brand-table td:nth-child(n+2),
+body.rtl .compare-table th:nth-child(n+2),
+body.rtl .compare-table td:nth-child(n+2),
+[dir="rtl"] .brand-table th:nth-child(n+2),
+[dir="rtl"] .brand-table td:nth-child(n+2),
+[dir="rtl"] .compare-table th:nth-child(n+2),
+[dir="rtl"] .compare-table td:nth-child(n+2) {
+  text-align: center !important;
 }
 
