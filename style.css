@@ -1305,18 +1305,19 @@ input[type="time"]::-webkit-calendar-picker-indicator:hover {
   position: relative;
 }
 
-/* Image with diagonal clip */
+/* Image wrapper without clipping mask */
 .hero-cin-img-wrap {
   position: relative;
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: 0 30px 80px rgba(27,79,187,0.22), 0 8px 24px rgba(0,0,0,0.15);
-  clip-path: polygon(0 0, 100% 0, 100% 90%, 88% 100%, 0 100%);
+  border: 1px solid rgba(27,79,187,0.15);
 }
 .hero-cin-img {
   width: 100%;
   aspect-ratio: 4/3;
   object-fit: cover;
+  object-position: center;
   display: block;
 }
 .hero-cin-img-glow {
